@@ -1,6 +1,7 @@
 
 package com.graduacao.exercicios_2_3;
 
+import com.graduacao.exercicios_2_3.projetos.ProjetoCadReserva;
 import java.util.Scanner;
 
 
@@ -26,7 +27,7 @@ public class Exercicios_2_3 {
             opcao = imprimeMenu();
             switch (opcao){
                 case 1 -> {
-                    System.out.println("Placeholder Exercicio 01");
+                    ProjetoCadReserva.main(args);
                 }
                 case 2 -> {
                     System.out.println("Placeholder Exercicio 02");
