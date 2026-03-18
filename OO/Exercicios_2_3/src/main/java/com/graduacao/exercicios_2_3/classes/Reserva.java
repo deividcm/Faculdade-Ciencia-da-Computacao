@@ -1,5 +1,6 @@
 package com.graduacao.exercicios_2_3.classes;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Reserva {
@@ -41,6 +42,42 @@ public class Reserva {
     }
     
     
+    @Override
+    public boolean equals(Object obj){
+        
+        if (this == obj){
+            return true;
+        }
+        
+        if (obj == null){
+            return false;
+        }
+        
+        if (this.getClass() != obj.getClass()){
+            return false;
+        }
+        final Reserva other = (Reserva) obj;
+        
+        if(this.numPessoas != other.getNumPessoas()){
+            return false;
+        }
+        
+        if (Objects.equals(this.nomeReserva, other.getNomeReserva())){
+            return false;
+        }
+        
+        
+        return Objects.equals(this.dataHora, other.getDataHora());
+    }
+    
+    @Override
+    public int hashCode(){
+        int hash = 4;
+        hash = 13 * hash + Objects.hashCode(this.nomeReserva);
+        hash = 13 * hash + this.numPessoas;
+        hash = 13 * hash + Objects.hashCode(this.dataHora);
+        return hash;
+    }
     
     @Override
     public String toString(){
