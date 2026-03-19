@@ -29,7 +29,7 @@ public class GerenciadorReservas {
             }
         }
         if (encontrada == false){
-            System.out.println("Reserva não foi encontrada");
+            System.out.println("Reserva nao foi encontrada");
         }
     }
     

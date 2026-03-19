@@ -55,7 +55,12 @@ public class ProjetoCadReserva {
                     String nomeReserva = ler.nextLine();
                     
                     Reserva reserva = gerenciador.buscarReserva(nomeReserva);
-                    System.out.println(reserva);
+                    if (reserva != null){
+                        System.out.println(reserva);
+                    }
+                    else{
+                        System.out.println("Reserva nao encontrada");
+                    }
                     break;
                 }
                 

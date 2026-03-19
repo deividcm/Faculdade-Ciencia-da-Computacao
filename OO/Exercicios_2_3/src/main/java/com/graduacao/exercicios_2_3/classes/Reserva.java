@@ -62,7 +62,7 @@ public class Reserva {
             return false;
         }
         
-        if (Objects.equals(this.nomeReserva, other.getNomeReserva())){
+        if (!Objects.equals(this.nomeReserva, other.getNomeReserva())){
             return false;
         }
         

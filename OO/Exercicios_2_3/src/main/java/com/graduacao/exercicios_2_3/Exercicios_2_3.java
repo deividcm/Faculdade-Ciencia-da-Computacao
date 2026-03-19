@@ -1,6 +1,7 @@
 
 package com.graduacao.exercicios_2_3;
 
+import com.graduacao.exercicios_2_3.projetos.ProjetoCadMusica;
 import com.graduacao.exercicios_2_3.projetos.ProjetoCadReserva;
 import java.util.Scanner;
 
@@ -30,7 +31,7 @@ public class Exercicios_2_3 {
                     ProjetoCadReserva.main(args);
                 }
                 case 2 -> {
-                    System.out.println("Placeholder Exercicio 02");
+                    ProjetoCadMusica.main(args);
                 }
                 case 3 -> {
                     System.out.println("Placeholder Exercicio 03");
