@@ -33,16 +33,19 @@ public class DicionarioProdutos {
                     System.out.println("Informe o preco: ");
                     double preco = ler.nextDouble();
                     gerenciador.adicionarOuAtualizarProduto(nome, preco);
+                    break;
                 }
                 case 2 -> {
                     System.out.println("Informe o nome do produto: ");
                     String nome = ler.next();
                     
                     gerenciador.removerProduto(nome);
+                    break;
                 }
                 
                 case 3 -> {
                     gerenciador.exibirProdutos();
+                    break;
                 }
             }
             

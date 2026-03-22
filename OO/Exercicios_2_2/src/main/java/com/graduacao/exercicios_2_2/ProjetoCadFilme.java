@@ -41,6 +41,7 @@ public class ProjetoCadFilme {
                     Filme f = new Filme();
                     f.preencher();
                     listaFilmes.add(f);
+                    break;
                 }
                 case 2 -> {
                     System.out.print("Informe o titulo: ");
@@ -56,6 +57,7 @@ public class ProjetoCadFilme {
                     if (encontrado == null){
                         System.out.println("Filme nao foi encontrado");
                     }
+                    break;
                 }
                     
                 case 3 -> {
@@ -72,6 +74,7 @@ public class ProjetoCadFilme {
                     if (encontrado == null){
                         System.out.println("Filme nao foi encontrado");
                     }
+                    break;
                 }
                 case 4 -> {
                     System.out.print("Informe o artista: ");
@@ -86,6 +89,7 @@ public class ProjetoCadFilme {
                     if (encontrado == null){
                         System.out.println("Filme nao foi encontrado");
                     }
+                    break;
                 }
 
                     

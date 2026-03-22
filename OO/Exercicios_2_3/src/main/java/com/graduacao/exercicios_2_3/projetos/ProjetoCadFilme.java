@@ -35,12 +35,14 @@ public class ProjetoCadFilme {
                     filme.preencher();
                     
                     gerenciador.adicionarFilme(filme);
+                    break;
                 }
                 case 2 -> {
                     System.out.println("Informe o titulo: ");
                     String titulo = ler.nextLine();
                     
                     gerenciador.removerFilme(titulo);
+                    break;
                 }
                 case 3 -> {
                    System.out.println("Informe o titulo: ");
@@ -49,6 +51,7 @@ public class ProjetoCadFilme {
                    Filme filme = gerenciador.pesquisarFilmeTitulo(titulo);
                    
                    System.out.println(filme);
+                   break;
                 }
                 case 4 -> {
                    System.out.println("Informe o diretor: ");
@@ -57,6 +60,7 @@ public class ProjetoCadFilme {
                    Filme filme = gerenciador.pesquisarFilmeDiretor(diretor);
                    
                    System.out.println(filme);
+                   break;
                 }
                 
                 

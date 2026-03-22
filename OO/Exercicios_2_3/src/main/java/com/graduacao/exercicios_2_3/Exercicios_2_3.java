@@ -30,12 +30,15 @@ public class Exercicios_2_3 {
             switch (opcao){
                 case 1 -> {
                     ProjetoCadReserva.main(args);
+                    break;
                 }
                 case 2 -> {
                     ProjetoCadMusica.main(args);
+                    break;
                 }
                 case 3 -> {
                     ProjetoCadFilme.main(args);
+                    break;
                 }
             }
             

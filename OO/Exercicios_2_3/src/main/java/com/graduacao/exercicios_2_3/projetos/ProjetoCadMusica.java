@@ -37,13 +37,14 @@ public class ProjetoCadMusica {
                     Musica musica = new Musica();
                     musica.preencher();
                     gerenciador.adicionarMusica(musica);
+                    break;
                 }
                 case 2 -> {
                     System.out.print("Informe o titulo: ");
                     String titulo = ler.nextLine();
                     
                     gerenciador.removerMusica(titulo);
-                    
+                    break;
                 }
                     
                 case 3 -> {
@@ -57,6 +58,7 @@ public class ProjetoCadMusica {
                     else{
                         System.out.println("Musica nao encontrada");
                     }
+                    break;
                 }
                 case 4 -> {
                     System.out.print("Informe o artista: ");
@@ -69,7 +71,7 @@ public class ProjetoCadMusica {
                     else{
                         System.out.println("Musica nao encontrada");
                     }
-                    
+                    break;
                 }
 
                  

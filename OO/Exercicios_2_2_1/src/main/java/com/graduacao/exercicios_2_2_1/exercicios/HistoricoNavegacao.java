@@ -30,12 +30,15 @@ public class HistoricoNavegacao {
                     String link = ler.next();//Nao tem necessidade de ser next line pois links nao tem espacos
                     
                     gerenciador.entrarEmSite(link);
+                    break;
                 }
                 case 2 -> {
                     gerenciador.voltarParaAnterior();
+                    break;
                 }
                 case 0 -> {
                     gerenciador.finalizar();
+                    break;
                 }
             }
             

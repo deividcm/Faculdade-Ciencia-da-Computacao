@@ -39,6 +39,7 @@ public class ProjetoCadMusica {
                     Musica m = new Musica();
                     m.preencher();
                     listaMusicas.add(m);
+                    break;
                 }
                 case 2 -> {
                     System.out.print("Informe o titulo: ");
@@ -54,6 +55,7 @@ public class ProjetoCadMusica {
                     if (encontrada == null){
                         System.out.println("Musica nao foi encontrada");
                     }
+                    break;
                 }
                     
                 case 3 -> {
@@ -70,6 +72,7 @@ public class ProjetoCadMusica {
                     if (encontrada == null){
                         System.out.println("Musica nao foi encontrada");
                     }
+                    break;
                 }
                 case 4 -> {
                     System.out.print("Informe o artista: ");
@@ -84,6 +87,7 @@ public class ProjetoCadMusica {
                     if (encontrada == null){
                         System.out.println("Musica nao foi encontrada");
                     }
+                    break;
                 }
                  
                     
