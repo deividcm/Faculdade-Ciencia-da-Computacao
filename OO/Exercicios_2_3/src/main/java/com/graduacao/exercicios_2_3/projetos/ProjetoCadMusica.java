@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 public class ProjetoCadMusica {
-    public static int imprimeMenu(){
+    private static int imprimeMenu(){
         Scanner ler = new Scanner(System.in);
 
         System.out.println("-------ProjetoCadMusica-------");
@@ -37,13 +37,21 @@ public class ProjetoCadMusica {
                     Musica musica = new Musica();
                     musica.preencher();
                     gerenciador.adicionarMusica(musica);
+                            
+                    System.out.println("Musica adicionada");
                     break;
                 }
                 case 2 -> {
                     System.out.print("Informe o titulo: ");
                     String titulo = ler.nextLine();
                     
-                    gerenciador.removerMusica(titulo);
+                    if(gerenciador.removerMusica(titulo)){
+                        System.out.println("Musica removida");
+                    }else{
+                        System.out.println("Musica nao encontrada");
+                    }
+                    
+                    
                     break;
                 }
                     

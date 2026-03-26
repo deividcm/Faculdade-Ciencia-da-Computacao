@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class ProjetoCadReserva {
     
-    public static int imprimeMenu(){
+    private static int imprimeMenu(){
         Scanner ler = new Scanner(System.in);
 
         System.out.println("-------ProjetoCadReserva-------");
@@ -36,13 +36,18 @@ public class ProjetoCadReserva {
                     Reserva reserva = new Reserva();
                     reserva.fill();
                     gerenciador.adicionarReserva(reserva);
+                    System.out.println("Reserva adicionada!");
                     break;
                 }
                 case 2 -> {
                     System.out.println("Informe o nome da reserva a ser cancelada: ");
                     String nomeReserva = ler.nextLine();
                     
-                    gerenciador.cancelarReserva(nomeReserva);
+                    if(gerenciador.cancelarReserva(nomeReserva)){
+                        System.out.println("Reserva removida");
+                    }else{
+                        System.out.println("Reserva nao foi encontrada");
+                    }
                     
                     break;
                 }

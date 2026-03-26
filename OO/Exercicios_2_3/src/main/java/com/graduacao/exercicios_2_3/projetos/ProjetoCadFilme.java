@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 public class ProjetoCadFilme {
-    public static int imprimeMenu(){
+    private static int imprimeMenu(){
         Scanner ler = new Scanner(System.in);
 
         System.out.println("--------ProjetoCadFilme--------");
@@ -35,13 +35,19 @@ public class ProjetoCadFilme {
                     filme.preencher();
                     
                     gerenciador.adicionarFilme(filme);
+                    System.out.println("Filme adicionado");
                     break;
                 }
                 case 2 -> {
                     System.out.println("Informe o titulo: ");
                     String titulo = ler.nextLine();
                     
-                    gerenciador.removerFilme(titulo);
+                    if(gerenciador.removerFilme(titulo)){
+                        System.out.println("Filme removido");
+                    }
+                    else{
+                        System.out.println("Filme nao foi encontrado");
+                    }
                     break;
                 }
                 case 3 -> {

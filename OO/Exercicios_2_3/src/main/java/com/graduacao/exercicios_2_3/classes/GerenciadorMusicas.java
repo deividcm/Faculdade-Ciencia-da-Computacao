@@ -12,25 +12,20 @@ public class GerenciadorMusicas {
     
     public void adicionarMusica(Musica musica){
         musicas.add(musica);
-        
-        System.out.println("Musica adicionada");
     }
     
-    public void removerMusica(String titulo){
-        boolean encontrada = false;
+    public boolean removerMusica(String titulo){
+        
         
         for(Musica musica: musicas){
             if(titulo.equals(musica.getTitulo())){
-                encontrada = true;
                 musicas.remove(musica);
-                System.out.println("Musica removida");
-                break;
+                
+                return true;
             }
         }
         
-        if(encontrada == false){
-            System.out.println("Musica nao foi encontrada");
-        }
+        return false;
         
     }
     

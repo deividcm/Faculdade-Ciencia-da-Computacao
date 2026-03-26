@@ -14,25 +14,18 @@ public class GerenciadorFilmes {
     
     public void adicionarFilme(Filme filme){
         filmes.add(filme);
-        
-        System.out.println("Filme adicionado");
     }
     
-    public void removerFilme(String titulo){
-        boolean encontrado = false;
-        
+    public boolean removerFilme(String titulo){
+
         for(Filme filme: filmes){
             if(titulo.equals(filme.getTitulo())){
-                encontrado = true;
                 filmes.remove(filme);
-                System.out.println("Filme removido");
-                break;
+                return true;
             }
         }
         
-        if(encontrado == false){
-            System.out.println("Filme nao foi encontrado");
-        }
+        return false;
         
     }
     

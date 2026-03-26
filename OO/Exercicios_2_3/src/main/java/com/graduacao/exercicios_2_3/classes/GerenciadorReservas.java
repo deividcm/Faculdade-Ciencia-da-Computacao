@@ -15,22 +15,19 @@ public class GerenciadorReservas {
     public void adicionarReserva(Reserva reserva){
         reservas.add(reserva);
         
-        System.out.println("Reserva adicionada!");
+        
     }
     
-    public void cancelarReserva(String nomeReserva){
-        boolean encontrada = false;
+    public boolean cancelarReserva(String nomeReserva){
         for(Reserva reserva : reservas){
             if (nomeReserva.equals(reserva.getNomeReserva())){
-                encontrada = true;
                 reservas.remove(reserva);
-                System.out.println("Reserva removida");
-                break;
+                
+                return true;
             }
         }
-        if (encontrada == false){
-            System.out.println("Reserva nao foi encontrada");
-        }
+        
+        return false;
     }
     
     
