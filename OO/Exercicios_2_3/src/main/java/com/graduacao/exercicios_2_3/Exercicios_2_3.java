@@ -18,7 +18,7 @@ public class Exercicios_2_3 {
         System.out.println("2 - Exercicio 02 Cadastro de Musicas");
         System.out.println("3 - Exercicio 03 Cadastro de Filmes");
         System.out.println("4 - Exercicio 04 Agenda de Contatos");
-        System.out.println("5 - Exercicio 05 Estoque de Produtos");
+        System.out.println("5 - Exercicio 05 e 06 Estoque de Produtos");
         System.out.println("0 - Sair");
         System.out.println("-----------------------------");
         System.out.println("Escolha uma opcao:");
