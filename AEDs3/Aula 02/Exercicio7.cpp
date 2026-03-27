@@ -41,3 +41,9 @@ int main(){
 	cout << "Posicao diferente: " << achaDiferente(vet,tam) << endl;
 	return 0;
 }
+
+
+
+
+
+
