@@ -3,11 +3,11 @@ package com.graduacao.exercicios_2_4.classes;
 import java.util.Objects;
 
 public class Pessoa {
-private String cpf;
+    private String cpf;
     private String nome;
     private int idade;
     
-    public static int contador;
+    private static int contador;
     
     public Pessoa(){
         cpf = "";
@@ -79,5 +79,7 @@ private String cpf;
         this.idade = idade;
     }
     
-    
+    public static int getContador(){
+        return contador;
+    }
 }
