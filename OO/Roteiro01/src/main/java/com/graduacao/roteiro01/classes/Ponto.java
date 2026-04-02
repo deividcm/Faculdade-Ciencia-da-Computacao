@@ -22,7 +22,6 @@ public class Ponto {
         this.y = outro.getY();
     }
     
-    
     public double distanciaDoisPontos(Ponto outro){
         double deltaX = outro.getX() - this.x;
         double deltaY = outro.getY() - this.y;
@@ -31,26 +30,35 @@ public class Ponto {
         double distancia = Math.sqrt(deltaX+deltaY);
         return distancia;
     }
-    
-    public double getDeterminante3(Ponto p2, Ponto p3){
-        double d1 = (this.x * p2.getY()) + (this.y * p3.getX()) + (p2.getX() * p3.getY());
-        double d2 = (this.x * p3.getY()) + (this.y * p2.getX()) + (p2.getY() * p3.getX());
-        
-        return (d1 - d2);
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
+        hash = 67 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
+        return hash;
     }
-    
-    public boolean isColinear(Ponto p2, Ponto p3){
-        return (this.getDeterminante3(p2, p3) == 0);
-    }
-    
-    public double getArea(Ponto p2, Ponto p3){
-        double det = this.getDeterminante3(p2, p3);
-        if(det < 0){
-            det = det * -1;
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
-        
-        return det/2;
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Ponto other = (Ponto) obj;
+        if (Double.doubleToLongBits(this.x) != Double.doubleToLongBits(other.x)) {
+            return false;
+        }
+        return Double.doubleToLongBits(this.y) == Double.doubleToLongBits(other.y);
     }
+    
+    
+    
     
     @Override
     public String toString(){
