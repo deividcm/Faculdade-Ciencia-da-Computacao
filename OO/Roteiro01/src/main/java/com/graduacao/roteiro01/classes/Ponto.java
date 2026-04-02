@@ -32,8 +32,25 @@ public class Ponto {
         return distancia;
     }
     
+    public double getDeterminante3(Ponto p2, Ponto p3){
+        double d1 = (this.x * p2.getY()) + (this.y * p3.getX()) + (p2.getX() * p3.getY());
+        double d2 = (this.x * p3.getY()) + (this.y * p2.getX()) + (p2.getY() * p3.getX());
+        
+        return (d1 - d2);
+    }
     
+    public boolean isColinear(Ponto p2, Ponto p3){
+        return (this.getDeterminante3(p2, p3) == 0);
+    }
     
+    public double getArea(Ponto p2, Ponto p3){
+        double det = this.getDeterminante3(p2, p3);
+        if(det < 0){
+            det = det * -1;
+        }
+        
+        return det/2;
+    }
     
     @Override
     public String toString(){
