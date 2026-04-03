@@ -22,6 +22,11 @@ public class Triangulo {
         p3.copiar(outro.getP3());
     }
     
+    public void copiar(Triangulo outro){
+        p1.copiar(outro.getP1());
+        p2.copiar(outro.getP2());
+        p3.copiar(outro.getP3());
+    }
     
     
     public double getDeterminante3(){
@@ -44,27 +49,38 @@ public class Triangulo {
         return det/2;
     }
     public double getPerimetro(){
-        double d1 = p1.distanciaDoisPontos(p2);
-        double d2 = p2.distanciaDoisPontos(p3);
-        double d3 = p3.distanciaDoisPontos(p1);
+        if (!this.isColinear()){
+            double d1 = p1.distanciaDoisPontos(p2);
+            double d2 = p2.distanciaDoisPontos(p3);
+            double d3 = p3.distanciaDoisPontos(p1);
         
-        return d1+d2+d3;
+            return d1+d2+d3;
+        }
+        else{
+            return 0;
+        }
     }
     
     public String getTipo(){
-        double l1 = p1.distanciaDoisPontos(p2);
-        double l2 = p2.distanciaDoisPontos(p3);
-        double l3 = p3.distanciaDoisPontos(p1);
-        
-        if(l1 == l2 && l2 == l3){
-            return "Equilatero";
-        }
-        else if (l1 == l2 || l2 == l3 || l3 == l1){
-            return "Isosceles";
+        if (!this.isColinear()){
+            double l1 = p1.distanciaDoisPontos(p2);
+            double l2 = p2.distanciaDoisPontos(p3);
+            double l3 = p3.distanciaDoisPontos(p1);
+
+            if(l1 == l2 && l2 == l3){
+                return "Equilatero";
+            }
+            else if (l1 == l2 || l2 == l3 || l3 == l1){
+                return "Isosceles";
+            }
+            else{
+                return "Escaleno";
+            }
         }
         else{
-            return "Escaleno";
+            return "Nao e um triangulo";
         }
+        
     }
     
     @Override 
