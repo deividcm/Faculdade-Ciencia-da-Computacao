@@ -5,6 +5,7 @@ import com.graduacao.exercicios_2_5.exercicios.Exercicio01;
 import com.graduacao.exercicios_2_5.exercicios.Exercicio02;
 import com.graduacao.exercicios_2_5.exercicios.Exercicio03;
 import com.graduacao.exercicios_2_5.exercicios.Exercicio04;
+import com.graduacao.exercicios_2_5.exercicios.Exercicio05;
 import java.util.Scanner;
 
 
@@ -19,6 +20,7 @@ public class Exercicios_2_5 {
         System.out.println("3 - Exercicio 02");
         System.out.println("4 - Exercicio 03");
         System.out.println("5 - Exercicio 04");
+        System.out.println("6 - Exercicio 05");
         System.out.println("0 - Sair");
         System.out.println("-------------------------------");
         System.out.println("Escolha uma opcao:");
@@ -52,6 +54,9 @@ public class Exercicios_2_5 {
                 case 5 -> {
                     Exercicio04.main(args);
                     break;
+                }
+                case 6 -> {
+                    Exercicio05.main(args);
                 }
                 
                 

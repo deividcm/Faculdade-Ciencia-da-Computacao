@@ -27,11 +27,14 @@ public class Pedido {
         this.numero = outro.getNumero();
         this.data = outro.getData();
         this.quantidade = outro.getQuantidade();
+        
+        this.produto = new Produto(outro.getProduto());
     }
     public void copiar(Pedido outro){
         this.numero = outro.getNumero();
         this.data = outro.getData();
-
+        
+        this.produto.copiar(outro.getProduto());
     }
     
     public double calcularPrecoTotal(){

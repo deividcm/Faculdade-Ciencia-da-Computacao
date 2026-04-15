@@ -20,7 +20,7 @@ public class Cliente {
     public Cliente(Cliente outro){
         this.nome = outro.getNome();
         this.cpf = outro.getCpf();
-        this.conta.copiar(outro.getConta());
+        this.conta = new ContaBancaria(outro.getConta());
     }
     public void copiar(Cliente outro){
         this.nome = outro.getNome();

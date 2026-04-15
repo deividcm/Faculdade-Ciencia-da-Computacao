@@ -14,7 +14,7 @@ public class Motorista {
     }
     public Motorista(Motorista outro){
         this.nome = outro.getNome();
-        this.carro.copiar(outro.getCarro());
+        this.carro = new Carro(outro.getCarro());
     }
     
     public void copiar(Motorista outro){

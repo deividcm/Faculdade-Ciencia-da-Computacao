@@ -22,6 +22,19 @@ public class Time {
         this.anoFundacao = anoFundacao;
         this.tecnico = new Tecnico();
     }
+    public Time(Time outro){
+        this.nome = outro.getNome();
+        this.cidade = outro.getCidade();
+        this.anoFundacao = outro.getAnoFundacao();
+        this.tecnico = new Tecnico(outro.getTecnico());
+    }
+    public void copiar(Time outro){
+        this.nome = outro.getNome();
+        this.cidade = outro.getCidade();
+        this.anoFundacao = outro.getAnoFundacao();
+        this.tecnico.copiar(outro.getTecnico());
+    }
+    
     
     
     public void escalonarTecnico(Tecnico tecnico){

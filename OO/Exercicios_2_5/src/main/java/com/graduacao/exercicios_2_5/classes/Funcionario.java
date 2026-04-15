@@ -25,7 +25,7 @@ public class Funcionario {
         this.nome = outro.getNome();
         this.matricula = outro.getMatricula();
         this.salario = outro.getSalario();
-        this.endereco.copiar(outro.getEndereco());
+        this.endereco = new Endereco(outro.getEndereco());
     }
     public void copiar(Funcionario outro){
         this.nome = outro.getNome();
