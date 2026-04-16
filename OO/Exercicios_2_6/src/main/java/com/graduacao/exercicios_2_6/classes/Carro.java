@@ -2,6 +2,7 @@ package com.graduacao.exercicios_2_6.classes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Carro {
@@ -49,6 +50,45 @@ public class Carro {
             this.rodas.add(roda);
         }
     }
+    
+    public void addRoda(Roda roda){
+        rodas.add(roda);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.fabricante);
+        hash = 53 * hash + Objects.hashCode(this.modelo);
+        hash = 53 * hash + Objects.hashCode(this.cor);
+        hash = 53 * hash + Objects.hashCode(this.rodas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Carro other = (Carro) obj;
+        if (!Objects.equals(this.fabricante, other.fabricante)) {
+            return false;
+        }
+        if (!Objects.equals(this.modelo, other.modelo)) {
+            return false;
+        }
+        if (!Objects.equals(this.cor, other.cor)) {
+            return false;
+        }
+        return Objects.equals(this.rodas, other.rodas);
+    }
+    
     
     
     @Override
