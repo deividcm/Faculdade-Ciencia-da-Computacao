@@ -1,8 +1,6 @@
 package com.graduacao.exercicios_2_6.classes;
 
 import com.graduacao.exercicios_2_6.gerentes.GerenteCarros;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Proprietario {

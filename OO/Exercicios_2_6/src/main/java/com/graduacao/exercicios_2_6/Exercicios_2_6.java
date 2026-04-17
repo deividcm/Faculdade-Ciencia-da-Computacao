@@ -1,6 +1,7 @@
 package com.graduacao.exercicios_2_6;
 
 import com.graduacao.exercicios_2_6.exercicios.Exercicio05;
+import com.graduacao.exercicios_2_6.exercicios.Exercicio08;
 import java.util.Scanner;
 
 
@@ -10,6 +11,7 @@ public class Exercicios_2_6 {
         Scanner ler = new Scanner(System.in);
         System.out.println("---------Exercicios2.6---------");
         System.out.println("1 - Exercicio 05");
+        System.out.println("2 - Exercicio 08");
         System.out.println("0 - Sair");
         System.out.println("-------------------------------");
         System.out.println("Escolha uma opcao:");
@@ -32,7 +34,10 @@ public class Exercicios_2_6 {
                     Exercicio05.main(args);
                     break;
                 }
-                
+                case 2 -> {
+                    Exercicio08.main(args);
+                    break;
+                }
                 
                 default -> {
                     System.out.println("Opcao invalida!");
