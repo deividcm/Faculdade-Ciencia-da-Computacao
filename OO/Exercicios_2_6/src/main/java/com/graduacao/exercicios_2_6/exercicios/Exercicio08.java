@@ -9,14 +9,115 @@ import java.util.Scanner;
 public class Exercicio08 {
     
     private static int imprimeMenu(Scanner ler){
-        System.out.println("--------- Artistas ---------");
-        System.out.println("1 - Adicionar artista");
-        System.out.println("2 - Remover artista(Index)");
+        System.out.println("------- Gerenciador de Artistas -------");
+        System.out.println("1 - Adicionar Artista");
+        System.out.println("2 - Remover Artista(Index)");
+        System.out.println("3 - Remover Artista(Nome)");
+        System.out.println("4 - Pesquisar e Imprimir Artista(Nome)");
+        System.out.println("5 - Pesquisar e Gerenciar Artista(Nome)");
+        System.out.println("6 - Pesquisar Artista com mais Albuns");
+        System.out.println("7 - Listar Artistas(Resumido)");
+        System.out.println("8 - Listar Artistas(Completo)");
         System.out.println("0 - Sair");
-        System.out.println("-------------------------------");
+        System.out.println("---------------------------------------");
         System.out.println("Escolha uma opcao:");
         
         return ler.nextInt();
+    }
+    
+    private static int imprimeMenu(Scanner ler, String nome){
+        System.out.println("------- " + nome +" -------");
+        System.out.println("1 - Adicionar Album");
+        System.out.println("2 - Remover Album(Index)");
+        System.out.println("3 - Remover Album(Nome)");
+        System.out.println("4 - Pesquisar e Imprimir Album(Nome)");
+        System.out.println("5 - Pesquisar Album com mais Musicas");
+        System.out.println("6 - Listar Albuns(Resumido)");
+        System.out.println("7 - Listar Albuns(Completo)");
+        System.out.println("0 - Voltar");
+        System.out.println("----------------------------");
+        System.out.println("Escolha uma opcao:");
+        
+        return ler.nextInt();
+    }
+    
+    
+    
+    private static void menuArtista(Scanner ler, Artista artista){
+        int opcao;
+        
+        do{
+            opcao = imprimeMenu(ler, artista.getNome());
+            ler.nextLine();
+            switch(opcao){
+                case 0 -> {
+                    System.out.println("Voltando...");
+                    break;
+                }
+                case 1 -> {
+                    Album album = criarPreenchendoAlbum(ler);
+                    artista.getGerente().addAlbum(album);
+                }
+                case 2 -> {
+                    System.out.print("Informe o index: ");
+                    int index = ler.nextInt();
+                    
+                    if(artista.getGerente().removerAlbum(index)){
+                        System.out.println("Album removido com sucesso!");
+                    }else{
+                        System.out.println("Index invalido!");
+                    }
+                    break;
+                }
+                case 3 -> {
+                    System.out.print("Informe o nome: ");
+                    String nome = ler.nextLine();
+                    
+                    if(artista.getGerente().removerAlbum(nome)){
+                        System.out.println("Album removido com sucesso!");
+                    }else{
+                        System.out.println("Album nao encontrado!");
+                    }
+                    break;
+                }
+                case 4 -> {
+                    System.out.print("Informe o nome: ");
+                    String nome = ler.nextLine();
+                    
+                    Album album = artista.getGerente().getAlbum(nome);
+                    
+                    if(album != null){
+                        System.out.println(album.toString());
+                    }else{
+                        System.out.println("Album nao encontrado!");
+                    }
+                    
+                    break;
+                }
+                case 5 -> {
+                    Album album = artista.getGerente().getMaiorAlbum();
+                    
+                    if(album != null){
+                        System.out.println(album.toStringResumido());
+                    }else{
+                        System.out.println("Lista vazia!");
+                    }
+                    break;
+                }
+                case 6 ->{
+                    System.out.println(artista.getGerente().toStringResumido());
+                }
+                case 7 -> {
+                    System.out.println(artista.getGerente().toString());
+                }
+                
+                default -> {
+                    System.out.println("Opcao invalida!");
+                }
+            }
+            
+        }while(opcao !=0);
+        
     }
     
     public static void main(String[] args) {
@@ -26,7 +127,7 @@ public class Exercicio08 {
         
         do{
             opcao = imprimeMenu(ler);
-            
+            ler.nextLine();
             switch(opcao){
                 case 0 -> {
                     System.out.println("Saindo...");
@@ -37,8 +138,70 @@ public class Exercicio08 {
                     gerente.addArtista(artista);
                     break;
                 }
-                
-                
+                case 2 -> {
+                    System.out.print("Informe o index: ");
+                    int index = ler.nextInt();
+                    if(gerente.removerArtista(index)){
+                        System.out.println("Artista removido com sucesso!");
+                    }else{
+                        System.out.println("Index invalido!");
+                    }
+                    break;
+                }
+                case 3 -> {
+                    System.out.print("Informe o nome: ");
+                    String nome = ler.nextLine();
+                    
+                    if(gerente.removerArtista(nome)){
+                        System.out.println("Artista removido com sucesso!");
+                    }else{
+                        System.out.println("Artista nao encontrado!");
+                    }
+                    break;
+                }
+                case 4 -> {
+                    System.out.print("Informe o nome: ");
+                    String nome = ler.nextLine();
+                    
+                    Artista artista = gerente.getArtista(nome);
+                    
+                    if(artista != null){
+                        System.out.println(artista.toString());
+                    }else{
+                        System.out.println("Artista nao encontrado!");
+                    }
+                    break;
+                }
+                case 5 -> {
+                    System.out.print("Informe o nome: ");
+                    String nome = ler.nextLine();
+                    
+                    Artista artista = gerente.getArtista(nome);
+                    
+                    if(artista != null){
+                        menuArtista(ler,artista);
+                    }else{
+                        System.out.println("Artista nao encontrado!");
+                    }
+                    break;
+                }
+                case 6 -> {
+                    Artista artista = gerente.getMaiorArtista();
+                    if(artista != null){
+                        System.out.println(artista.toStringResumido());
+                    }else{
+                        System.out.println("Lista vazia");
+                    }
+                    break;
+                }
+                case 7 -> {
+                    System.out.println(gerente.toStringResumido());
+                    break;
+                }
+                case 8 -> {
+                    System.out.println(gerente.toString());
+                    break;
+                }
                 default -> {
                     System.out.println("Opcao invalida!");
                 }
@@ -80,7 +243,7 @@ public class Exercicio08 {
             
             album.getGerente().addMusica(musica);
             
-            System.out.print("Criar outro album? [s/n]: ");
+            System.out.print("Criar outra musica? [s/n]: ");
             resposta = ler.nextLine();
         }while(resposta.equalsIgnoreCase("s"));
         

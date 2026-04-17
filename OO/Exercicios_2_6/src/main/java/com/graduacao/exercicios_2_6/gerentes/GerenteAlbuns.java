@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenteAlbuns {
-    private List<Album> albuns;
+    private final List<Album> albuns;
     
     public GerenteAlbuns(){
         this.albuns = new ArrayList<>();
@@ -32,12 +32,25 @@ public class GerenteAlbuns {
     public void addAlbum(Album album){
         this.albuns.add(album);
     }
-    public void removerAlbum(int index){
-        this.albuns.remove(index);
+    public boolean removerAlbum(int index){
+        if(index < this.size() && index >= 0){
+            this.albuns.remove(index);
+            return true;
+        }
+        return false;
+    }
+    public boolean removerAlbum(String nome){
+        for(Album album : this.albuns){
+            if(nome.equals(album.getNome())){
+                this.albuns.remove(album);
+                return true;
+            }
+        }
+        return false;
     }
     
     public Album getMaiorAlbum(){
-        Album maior = new Album();
+        Album maior = null;
         
         for(int i = 0; i < this.size(); ){
             Album album = this.getAlbum(i);
@@ -49,6 +62,17 @@ public class GerenteAlbuns {
             }
         }
         return maior;
+    }
+    
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Albuns ---\n ");
+        
+        for(Album album : this.albuns){
+            sb.append(album.toStringResumido());
+        }
+        
+        return sb.toString();
     }
     
     @Override
@@ -69,7 +93,14 @@ public class GerenteAlbuns {
     public Album getAlbum(int index){
         return albuns.get(index);
     }
-    
+    public Album getAlbum(String nome){
+        for(Album album : this.albuns){
+            if(nome.equals(album.getNome())){
+                return album;
+            }
+        }
+        return null;
+    }
     public List<Album> getAlbuns() {
         return albuns;
     }

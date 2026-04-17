@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public class GerenteMusicas {
-    private List<Musica> musicas;
+    private final List<Musica> musicas;
     
     public GerenteMusicas(){
         this.musicas = new ArrayList<>();
@@ -36,8 +36,12 @@ public class GerenteMusicas {
     public void addMusica(Musica musica){
         this.musicas.add(musica);
     }
-    public void removerMusica(int index){
-        this.musicas.remove(index);
+    public boolean removerMusica(int index){
+        if(index < this.size() && index >= 0){
+            this.musicas.remove(index);
+            return true;
+        }
+        return false;
     }
     
     @Override

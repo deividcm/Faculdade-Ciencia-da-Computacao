@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenteArtistas {
-    private List<Artista> artistas;
+    private final List<Artista> artistas;
     
     public GerenteArtistas(){
         this.artistas = new ArrayList<>();
@@ -30,9 +30,23 @@ public class GerenteArtistas {
     public void addArtista(Artista artista){
         this.artistas.add(artista);
     }
-    public void removerArtista(int index){
-        this.artistas.remove(index);
+    public boolean removerArtista(int index){
+        if(index < this.size() && index >= 0){
+            this.artistas.remove(index);
+            return true;
+        }
+        return false;
     }
+    public boolean removerArtista(String nome){
+        for(Artista artista : this.artistas){
+            if(nome.equals(artista.getNome())){
+                this.artistas.remove(artista);
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public int size(){
         return this.artistas.size();
     }
@@ -51,6 +65,18 @@ public class GerenteArtistas {
         return maior;
     }
     
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Artistas ---\n ");
+        
+        for(Artista artista : this.artistas){
+            sb.append(artista.toStringResumido());
+        }
+        
+        return sb.toString();
+    }
+    
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -66,6 +92,14 @@ public class GerenteArtistas {
     
     public Artista getArtista(int index){
         return this.artistas.get(index);
+    }
+    public Artista getArtista(String nome){
+        for(Artista artista : this.artistas){
+            if(nome.equals(artista.getNome())){
+                return artista;
+            }
+        }
+        return null;
     }
     
     public List<Artista> getArtistas() {

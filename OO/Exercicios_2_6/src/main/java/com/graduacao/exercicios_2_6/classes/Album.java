@@ -59,6 +59,10 @@ public class Album {
         return Objects.equals(this.gerente, other.gerente);
     }
     
+    public String toStringResumido(){
+        return this.nome + ": " + this.gerente.size() + " Musicas\n ";
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

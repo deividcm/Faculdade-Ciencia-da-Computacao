@@ -51,6 +51,11 @@ public class Artista {
         return Objects.equals(this.gerente, other.gerente);
     }
     
+    
+    public String toStringResumido(){
+        return this.nome + ": " + this.gerente.size() + " Albuns\n ";
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
