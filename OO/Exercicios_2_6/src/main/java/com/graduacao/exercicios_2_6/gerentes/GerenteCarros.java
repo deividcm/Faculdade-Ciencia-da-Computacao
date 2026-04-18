@@ -4,6 +4,7 @@ package com.graduacao.exercicios_2_6.gerentes;
 import com.graduacao.exercicios_2_6.classes.Carro;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class GerenteCarros {
@@ -38,6 +39,22 @@ public class GerenteCarros {
         this.carros.remove(index);
     }
     
+    public boolean contains(Carro carro){
+        return this.carros.contains(carro);
+    }
+    
+    public boolean temFabricanteIgual(GerenteCarros outro){
+        
+        for(Carro carro1: this.carros){
+            for(Carro carro2: outro.getCarros()){
+                if(carro1.getFabricante().equals(carro2.getFabricante())){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -46,6 +63,28 @@ public class GerenteCarros {
             sb.append(carro.toString());
         } 
         return sb.toString();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.carros);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GerenteCarros other = (GerenteCarros) obj;
+        return Objects.equals(this.carros, other.carros);
     }
     
     

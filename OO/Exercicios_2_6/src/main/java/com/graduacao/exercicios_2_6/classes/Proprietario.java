@@ -33,6 +33,8 @@ public class Proprietario {
         this.gerente.copiar(outro.getGerente());
     }
     
+    
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -105,6 +107,4 @@ public class Proprietario {
     public void setGerente(GerenteCarros gerente) {
         this.gerente = gerente;
     }
-
-    
 }

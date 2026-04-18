@@ -3,6 +3,7 @@ package com.graduacao.exercicios_2_6.gerentes;
 import com.graduacao.exercicios_2_6.classes.Artista;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GerenteArtistas {
     private final List<Artista> artistas;
@@ -89,6 +90,30 @@ public class GerenteArtistas {
         
         return sb.toString();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 47 * hash + Objects.hashCode(this.artistas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GerenteArtistas other = (GerenteArtistas) obj;
+        return Objects.equals(this.artistas, other.artistas);
+    }
+    
+    
     
     public Artista getArtista(int index){
         return this.artistas.get(index);

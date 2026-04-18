@@ -3,6 +3,7 @@ package com.graduacao.exercicios_2_6.gerentes;
 import com.graduacao.exercicios_2_6.classes.Musica;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class GerenteMusicas {
@@ -55,6 +56,31 @@ public class GerenteMusicas {
         
         return sb.toString();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.musicas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GerenteMusicas other = (GerenteMusicas) obj;
+        return Objects.equals(this.musicas, other.musicas);
+    }
+    
+    
+    
     
     public Musica getMusica(int index){
         return this.musicas.get(index);

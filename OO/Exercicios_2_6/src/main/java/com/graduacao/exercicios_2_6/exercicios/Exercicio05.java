@@ -12,8 +12,15 @@ public class Exercicio05 {
         Scanner ler = new Scanner(System.in);
         Proprietario p1 = criarPreenchendoProprietario(ler);
         
-        System.out.println(p1.toString());
+        Proprietario p2 = criarPreenchendoProprietario(ler);
         
+        //Eu não entendi se era pra fazer cada um com os próprios carros ou se era um proprietario com o outro
+        //Na duvida fiz a segunda opcao
+        if(p1.getGerente().temFabricanteIgual(p2.getGerente())){
+            System.out.println("Os proprietarios possuem um ou mais carros com fabricantes iguais");
+        }else{
+            System.out.println("Os proprietarios nao possuem carros com a mesma fabricante");
+        }
     }
     
     private static Proprietario criarPreenchendoProprietario(Scanner ler){

@@ -3,6 +3,7 @@ package com.graduacao.exercicios_2_6.gerentes;
 import com.graduacao.exercicios_2_6.classes.Album;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GerenteAlbuns {
     private final List<Album> albuns;
@@ -86,10 +87,35 @@ public class GerenteAlbuns {
         
         return sb.toString();
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.albuns);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GerenteAlbuns other = (GerenteAlbuns) obj;
+        return Objects.equals(this.albuns, other.albuns);
+    }
+    
+    
     
     public int size(){
         return this.albuns.size();
     }
+    
     public Album getAlbum(int index){
         return albuns.get(index);
     }
