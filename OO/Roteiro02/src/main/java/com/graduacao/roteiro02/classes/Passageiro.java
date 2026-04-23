@@ -1,0 +1,77 @@
+package com.graduacao.roteiro02.classes;
+
+import java.util.Objects;
+
+public class Passageiro {
+    private String nome;
+    private String CPF;
+    private SistemaFidelidade sistemaFidelidade;
+    
+    public Passageiro(){
+        this.nome = "";
+        this.CPF = "000.000.000-00";
+        this.sistemaFidelidade = new SistemaFidelidade();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.CPF);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Passageiro other = (Passageiro) obj;
+        if (!Objects.equals(this.nome, other.nome)) {
+            return false;
+        }
+        if (!Objects.equals(this.CPF, other.CPF)) {
+            return false;
+        }
+        return Objects.equals(this.sistemaFidelidade, other.sistemaFidelidade);
+    }
+    
+    
+    
+    
+    
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Passageiro ---\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("CPF: ").append(this.CPF).append("\n ");
+        sb.append("Pontos: ").append(this.sistemaFidelidade.getSaldoPontos()).append("\n ");
+        
+        return sb.toString();
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCPF() {
+        return this.CPF;
+    }
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public SistemaFidelidade getSistemaFidelidade() {
+        return this.sistemaFidelidade;
+    }
+}
