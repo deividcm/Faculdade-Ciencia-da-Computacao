@@ -17,8 +17,8 @@ public class GerenciadorPassageiros {
     public void putPassageiro(Passageiro passageiro){
         this.passsageiros.put(passageiro.getCPF(), passageiro);
     }
-    
-    
-    
-    
+
+    public Map<String, Passageiro> getPasssageiros() {
+        return passsageiros;
+    }
 }

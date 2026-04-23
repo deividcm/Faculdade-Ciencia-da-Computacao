@@ -41,11 +41,6 @@ public class Passageiro {
         return Objects.equals(this.sistemaFidelidade, other.sistemaFidelidade);
     }
     
-    
-    
-    
-    
-    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
