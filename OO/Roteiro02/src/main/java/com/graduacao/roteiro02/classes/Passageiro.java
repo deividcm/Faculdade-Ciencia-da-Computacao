@@ -5,12 +5,22 @@ import java.util.Objects;
 public class Passageiro {
     private String nome;
     private String CPF;
-    private SistemaFidelidade sistemaFidelidade;
+    private final SistemaFidelidade sistemaFidelidade;
     
     public Passageiro(){
         this.nome = "";
         this.CPF = "000.000.000-00";
         this.sistemaFidelidade = new SistemaFidelidade();
+    }
+    public Passageiro(String nome, String CPF) {
+        this.nome = nome;
+        this.CPF = CPF;
+        this.sistemaFidelidade = new SistemaFidelidade();
+    }
+    public Passageiro(Passageiro outro){
+        this.nome = outro.getNome();
+        this.CPF = outro.getCPF();
+        this.sistemaFidelidade = new SistemaFidelidade(outro.getSistemaFidelidade());
     }
 
     @Override

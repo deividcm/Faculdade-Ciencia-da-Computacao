@@ -8,6 +8,9 @@ public class SistemaFidelidade {
     public SistemaFidelidade() {
         this.pontos = 0; // Todos os passageiros começam sem pontos
     }
+    public SistemaFidelidade(SistemaFidelidade outro){ // Construtor de cópia
+        this.pontos = outro.getSaldoPontos();
+    }
 
     // Método para adicionar pontos ao saldo do passageiro
     public void adicionarPontos(int pontos) {

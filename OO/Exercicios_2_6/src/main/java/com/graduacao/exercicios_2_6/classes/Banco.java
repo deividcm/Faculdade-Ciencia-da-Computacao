@@ -31,6 +31,39 @@ public class Banco {
     
     
     
+    public Conta getMaiorSaldo(){
+        Conta maior = null;
+        for(Conta conta: this.gerenteContas.getContas().values()){
+            if(maior == null){
+                maior = conta;
+            }
+            else if(conta.getSaldo() > maior.getSaldo()){
+                maior = conta;
+            }
+        }
+        
+        return maior;
+    }
+    public Conta getMenorSaldo(){
+        Conta menor = null;
+        for(Conta conta: this.gerenteContas.getContas().values()){
+            if(menor == null){
+                menor = conta;
+            }
+            else if(conta.getSaldo() < menor.getSaldo()){
+                menor = conta;
+            }
+        }
+        
+        return menor;
+    }
+    
+    
+    
+    
+    
+    
+    
     
     public String toStringContas(){
         StringBuilder sb = new StringBuilder();
@@ -49,8 +82,6 @@ public class Banco {
         return sb.toString();
     }
     
-    
-
     public String getNome() {
         return this.nome;
     }
