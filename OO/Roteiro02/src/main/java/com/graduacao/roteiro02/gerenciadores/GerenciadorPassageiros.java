@@ -62,6 +62,16 @@ public class GerenciadorPassageiros {
         return Objects.equals(this.passsageiros, other.passsageiros);
     }
     
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        
+        for(Passageiro passageiro: this.passsageiros.values()){
+            sb.append(passageiro.toStringResumido());
+        }
+        
+        return sb.toString();
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

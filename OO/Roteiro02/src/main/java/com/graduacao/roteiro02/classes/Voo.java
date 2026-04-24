@@ -16,7 +16,7 @@ public class Voo {
     public Voo(){
         this.numVoo = "";
         this.destino = "";
-        this.estadoVoo = "aguardando decolagem";
+        this.estadoVoo = "Aguardando decolagem";
         this.escalas = new ArrayList<>();
         this.gerenciadorPassageiros = new GerenciadorPassageiros();
     }
@@ -45,6 +45,14 @@ public class Voo {
     public void alterarEstadoVoo(String estadoVoo) {
         this.estadoVoo = estadoVoo;
     }
+    
+    public void recompensarPassageiros(int pontos){
+        for(Passageiro passageiro: this.gerenciadorPassageiros.getPasssageiros().values()){
+            passageiro.getSistemaFidelidade().adicionarPontos(pontos);
+            passageiro.setEmbarcado(false);
+        }
+    }
+    
     public boolean removeEscala(int index){
         if(index < this.escalas.size()){
             this.escalas.remove(index);
@@ -89,7 +97,9 @@ public class Voo {
         return Objects.equals(this.gerenciadorPassageiros, other.gerenciadorPassageiros);
     }
     
-    
+    public String toStringResumido(){
+        return this.numVoo + " - " + this.estadoVoo + " - " + this.destino + " - " + this.gerenciadorPassageiros.size() + "/" + this.gerenciadorPassageiros.getCapacidadeMaxima() + " passageiros embarcados\n ";
+    }
     
     @Override
     public String toString(){
@@ -99,14 +109,14 @@ public class Voo {
         sb.append("Destino: ").append(this.destino).append("\n ");
         sb.append("Estado de Voo: ").append(this.estadoVoo).append("\n ");
         sb.append("Escalas[").append(this.escalas.size()).append("]: ");
-        
+        sb.append("Capacidade maxima: ").append(this.gerenciadorPassageiros.getCapacidadeMaxima()).append("\n ");
         for(int i = 0; i < this.escalas.size() - 1; i++){
             sb.append(this.escalas.get(i)).append(" -> ");
         }
         sb.append(this.escalas.get(this.escalas.size() - 1)).append("\n ");
         
         sb.append("--- Passageiros (").append(this.gerenciadorPassageiros.size()).append(") ---\n ");
-        sb.append(this.gerenciadorPassageiros.toString());
+        sb.append(this.gerenciadorPassageiros.toStringResumido());
         
         return sb.toString();
     }

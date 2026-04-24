@@ -16,7 +16,7 @@ public class Transacao {
         this.tipo = "";
         this.data = "";
         this.valor = 0.0;
-        this.contaAssociada = new Conta();
+        this.contaAssociada = null;
         this.contaRecebedora = null;
     }
     public Transacao(String ID, String tipo, String data, double valor, Conta contaAssociada, Conta contaRecebedora) {

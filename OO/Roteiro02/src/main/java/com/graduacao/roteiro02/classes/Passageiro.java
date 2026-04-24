@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Passageiro {
     private String nome;
     private String CPF;
+    private boolean embarcado;
     private final SistemaFidelidade sistemaFidelidade;
     
     public Passageiro(){
@@ -51,12 +52,17 @@ public class Passageiro {
         return Objects.equals(this.sistemaFidelidade, other.sistemaFidelidade);
     }
     
+    public String toStringResumido(){
+        return this.CPF + " - " + this.nome + "\n ";
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
         sb.append("--- Passageiro ---\n ");
         sb.append("Nome: ").append(this.nome).append("\n ");
         sb.append("CPF: ").append(this.CPF).append("\n ");
+        sb.append("Embarcado: ").append(this.embarcado).append("\n ");
         sb.append("Pontos: ").append(this.sistemaFidelidade.getSaldoPontos()).append("\n ");
         
         return sb.toString();
@@ -79,4 +85,13 @@ public class Passageiro {
     public SistemaFidelidade getSistemaFidelidade() {
         return this.sistemaFidelidade;
     }
+
+    public boolean isEmbarcado() {
+        return this.embarcado;
+    }
+    public void setEmbarcado(boolean embarcado) {
+        this.embarcado = embarcado;
+    }
+    
+    
 }
