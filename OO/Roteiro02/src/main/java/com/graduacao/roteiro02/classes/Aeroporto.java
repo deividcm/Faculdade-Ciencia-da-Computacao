@@ -7,7 +7,7 @@ public class Aeroporto {
     private String nome;
     private String localizacao;
     private final GerenciadorVoos gerenciadorVoos;
-    private final GerenciadorPassageiros gerenciadorPassageiros;
+    private final GerenciadorPassageiros gerenciadorPassageiros; // gerenciador de passageiros pra ser possivel resgatar os pontos
     
     public Aeroporto(){
         this.nome = "";
@@ -79,6 +79,19 @@ public class Aeroporto {
         sb.append("--- Passageiros (").append(this.gerenciadorPassageiros.size()).append(") ---\n ");
         sb.append(this.gerenciadorPassageiros.toString());
         
+        return sb.toString();
+    }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Aeroporto ---\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("Localizacao: ").append(this.localizacao).append("\n ");
+        sb.append("--- Voos (").append(this.gerenciadorVoos.size()).append(") ---\n ");
+        sb.append(this.gerenciadorVoos.toStringResumido());
+        sb.append("--- Passageiros (").append(this.gerenciadorPassageiros.size()).append(") ---\n ");
+        sb.append(this.gerenciadorPassageiros.toStringResumido());
         return sb.toString();
     }
     

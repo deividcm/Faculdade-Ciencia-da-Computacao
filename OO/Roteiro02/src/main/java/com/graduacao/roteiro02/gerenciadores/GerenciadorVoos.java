@@ -1,5 +1,6 @@
 package com.graduacao.roteiro02.gerenciadores;
 
+import com.graduacao.roteiro02.classes.Passageiro;
 import com.graduacao.roteiro02.classes.Voo;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +27,13 @@ public class GerenciadorVoos {
         this.voos.put(voo.getNumVoo(),voo);
     }
     public Voo remove(String numVoo){
-        return this.voos.remove(numVoo);
+        Voo voo = this.voos.remove(numVoo);
+        if(voo != null){
+            if(voo.getEstadoVoo().equalsIgnoreCase("aguardando decolagem")){
+                voo.desembarcarPassageiros();
+            }
+        }
+        return voo;
     }
 
     @Override
@@ -49,6 +56,16 @@ public class GerenciadorVoos {
         }
         final GerenciadorVoos other = (GerenciadorVoos) obj;
         return Objects.equals(this.voos, other.voos);
+    }
+    
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        
+        for(Voo voo: this.voos.values()){
+            sb.append(voo.toStringResumido());
+        }
+        
+        return sb.toString();
     }
     
     @Override

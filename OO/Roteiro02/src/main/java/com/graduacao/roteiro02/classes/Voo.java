@@ -10,6 +10,7 @@ public class Voo {
     private String numVoo;
     private String destino;
     private String estadoVoo;
+    private int capacidadeMaxima;
     private List<String> escalas;
     private final GerenciadorPassageiros gerenciadorPassageiros;
     
@@ -42,6 +43,14 @@ public class Voo {
         this.escalas.add(escala);
     }
     
+    public boolean put(Passageiro passageiro){
+        if(this.gerenciadorPassageiros.size() + 1 <= this.capacidadeMaxima){
+            this.gerenciadorPassageiros.put(passageiro);
+            return true;
+        }
+        return false;
+    }
+    
     public void alterarEstadoVoo(String estadoVoo) {
         this.estadoVoo = estadoVoo;
     }
@@ -49,8 +58,14 @@ public class Voo {
     public void recompensarPassageiros(int pontos){
         for(Passageiro passageiro: this.gerenciadorPassageiros.getPasssageiros().values()){
             passageiro.getSistemaFidelidade().adicionarPontos(pontos);
-            passageiro.setEmbarcado(false);
         }
+        this.desembarcarPassageiros();
+    }
+    
+    public void desembarcarPassageiros(){
+        for(Passageiro passageiro: this.gerenciadorPassageiros.getPasssageiros().values()){
+                passageiro.setEmbarcado(false);
+            }
     }
     
     public boolean removeEscala(int index){
@@ -98,7 +113,7 @@ public class Voo {
     }
     
     public String toStringResumido(){
-        return this.numVoo + " - " + this.estadoVoo + " - " + this.destino + " - " + this.gerenciadorPassageiros.size() + "/" + this.gerenciadorPassageiros.getCapacidadeMaxima() + " passageiros embarcados\n ";
+        return this.numVoo + " - " + this.estadoVoo + " - " + this.destino + " - " + this.gerenciadorPassageiros.size() + "/" + this.capacidadeMaxima + " passageiros embarcados\n ";
     }
     
     @Override
@@ -108,12 +123,12 @@ public class Voo {
         sb.append("NumVoo: ").append(this.numVoo).append("\n ");
         sb.append("Destino: ").append(this.destino).append("\n ");
         sb.append("Estado de Voo: ").append(this.estadoVoo).append("\n ");
+        sb.append("Capacidade maxima: ").append(this.capacidadeMaxima).append("\n ");
         sb.append("Escalas[").append(this.escalas.size()).append("]: ");
-        sb.append("Capacidade maxima: ").append(this.gerenciadorPassageiros.getCapacidadeMaxima()).append("\n ");
-        for(int i = 0; i < this.escalas.size() - 1; i++){
+        for(int i = 0; i < this.escalas.size(); i++){
             sb.append(this.escalas.get(i)).append(" -> ");
         }
-        sb.append(this.escalas.get(this.escalas.size() - 1)).append("\n ");
+        sb.append(this.destino).append("\n ");
         
         sb.append("--- Passageiros (").append(this.gerenciadorPassageiros.size()).append(") ---\n ");
         sb.append(this.gerenciadorPassageiros.toStringResumido());
@@ -142,7 +157,14 @@ public class Voo {
     public String getEstadoVoo() {
         return this.estadoVoo;
     }
-    
+
+    public int getCapacidadeMaxima() {
+        return capacidadeMaxima;
+    }
+
+    public void setCapacidadeMaxima(int capacidadeMaxima) {
+        this.capacidadeMaxima = capacidadeMaxima;
+    }
     
     public List<String> getEscalas() {
         return escalas;

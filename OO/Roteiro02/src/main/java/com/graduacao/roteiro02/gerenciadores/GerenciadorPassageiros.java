@@ -9,13 +9,11 @@ import java.util.Objects;
 public class GerenciadorPassageiros {
     
     private final Map<String, Passageiro> passsageiros;
-    private int capacidadeMaxima;
     
     public GerenciadorPassageiros(){
         this.passsageiros = new HashMap<>();
     }
     public GerenciadorPassageiros(GerenciadorPassageiros outro){
-        this.capacidadeMaxima = outro.getCapacidadeMaxima();
         this.passsageiros = new HashMap<>();
         
         for(Passageiro p: outro.getPasssageiros().values()){
@@ -24,13 +22,8 @@ public class GerenciadorPassageiros {
         }
     }
     
-    public boolean put(Passageiro passageiro){
-        if(this.size() + 1 <= capacidadeMaxima){
-            this.passsageiros.put(passageiro.getCPF(), passageiro);
-            return true;
-        }
-        
-        return false;
+    public void put(Passageiro passageiro){
+        this.passsageiros.put(passageiro.getCPF(), passageiro);
     }
     public Passageiro remove(String CPF){
         return this.passsageiros.remove(CPF);
@@ -40,7 +33,6 @@ public class GerenciadorPassageiros {
     public int hashCode() {
         int hash = 7;
         hash = 41 * hash + Objects.hashCode(this.passsageiros);
-        hash = 41 * hash + this.capacidadeMaxima;
         return hash;
     }
 
@@ -56,9 +48,7 @@ public class GerenciadorPassageiros {
             return false;
         }
         final GerenciadorPassageiros other = (GerenciadorPassageiros) obj;
-        if (this.capacidadeMaxima != other.capacidadeMaxima) {
-            return false;
-        }
+        
         return Objects.equals(this.passsageiros, other.passsageiros);
     }
     
@@ -99,10 +89,4 @@ public class GerenciadorPassageiros {
         return this.passsageiros.size();
     }
 
-    public int getCapacidadeMaxima() {
-        return this.capacidadeMaxima;
-    }
-    public void setCapacidadeMaxima(int capacidadeMaxima) {
-        this.capacidadeMaxima = capacidadeMaxima;
-    }
 }
