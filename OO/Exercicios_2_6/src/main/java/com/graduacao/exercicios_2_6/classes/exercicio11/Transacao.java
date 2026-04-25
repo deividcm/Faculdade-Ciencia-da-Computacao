@@ -1,5 +1,6 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio11;
 
+import com.graduacao.exercicios_2_6.classes.exercicio11.Conta;
 import java.util.Objects;
 
 

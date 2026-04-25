@@ -1,5 +1,6 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio05;
 
+import com.graduacao.exercicios_2_6.classes.exercicio05.Roda;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

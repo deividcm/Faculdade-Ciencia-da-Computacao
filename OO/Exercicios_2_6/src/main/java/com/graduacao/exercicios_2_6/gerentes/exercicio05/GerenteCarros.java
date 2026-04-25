@@ -1,7 +1,7 @@
 
-package com.graduacao.exercicios_2_6.gerentes;
+package com.graduacao.exercicios_2_6.gerentes.exercicio05;
 
-import com.graduacao.exercicios_2_6.classes.Carro;
+import com.graduacao.exercicios_2_6.classes.exercicio05.Carro;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

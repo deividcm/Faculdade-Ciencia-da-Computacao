@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio12;
 
-import com.graduacao.exercicios_2_6.gerentes.GerenteProjetos;
+import com.graduacao.exercicios_2_6.gerentes.exercicio12.GerenteProjetos;
 import java.util.Objects;
 
 

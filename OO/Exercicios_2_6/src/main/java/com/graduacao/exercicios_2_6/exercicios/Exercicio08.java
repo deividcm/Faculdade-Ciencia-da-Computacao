@@ -1,9 +1,9 @@
 package com.graduacao.exercicios_2_6.exercicios;
 
-import com.graduacao.exercicios_2_6.classes.Album;
-import com.graduacao.exercicios_2_6.classes.Artista;
-import com.graduacao.exercicios_2_6.classes.Musica;
-import com.graduacao.exercicios_2_6.gerentes.GerenteArtistas;
+import com.graduacao.exercicios_2_6.classes.exercicio08.Album;
+import com.graduacao.exercicios_2_6.classes.exercicio08.Artista;
+import com.graduacao.exercicios_2_6.classes.exercicio08.Musica;
+import com.graduacao.exercicios_2_6.gerentes.exercicio08.GerenteArtistas;
 import java.util.Scanner;
 
 public class Exercicio08 {

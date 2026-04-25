@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio05;
 
-import com.graduacao.exercicios_2_6.gerentes.GerenteCarros;
+import com.graduacao.exercicios_2_6.gerentes.exercicio05.GerenteCarros;
 import java.util.Objects;
 
 public class Proprietario {

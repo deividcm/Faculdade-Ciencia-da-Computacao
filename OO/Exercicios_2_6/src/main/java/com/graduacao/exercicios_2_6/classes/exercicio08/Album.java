@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio08;
 
-import com.graduacao.exercicios_2_6.gerentes.GerenteMusicas;
+import com.graduacao.exercicios_2_6.gerentes.exercicio08.GerenteMusicas;
 import java.util.Objects;
 
 public class Album {

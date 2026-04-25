@@ -1,5 +1,5 @@
 
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio05;
 
 import java.util.Objects;
 

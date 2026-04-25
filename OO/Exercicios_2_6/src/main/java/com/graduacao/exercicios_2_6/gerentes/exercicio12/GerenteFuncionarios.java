@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.gerentes;
+package com.graduacao.exercicios_2_6.gerentes.exercicio12;
 
-import com.graduacao.exercicios_2_6.classes.Funcionario;
+import com.graduacao.exercicios_2_6.classes.exercicio12.Funcionario;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;

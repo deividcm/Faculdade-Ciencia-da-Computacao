@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.gerentes;
+package com.graduacao.exercicios_2_6.gerentes.exercicio11;
 
-import com.graduacao.exercicios_2_6.classes.Transacao;
+import com.graduacao.exercicios_2_6.classes.exercicio11.Transacao;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;

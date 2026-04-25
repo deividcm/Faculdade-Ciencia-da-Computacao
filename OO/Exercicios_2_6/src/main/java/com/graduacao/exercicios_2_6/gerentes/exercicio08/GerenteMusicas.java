@@ -1,6 +1,6 @@
-package com.graduacao.exercicios_2_6.gerentes;
+package com.graduacao.exercicios_2_6.gerentes.exercicio08;
 
-import com.graduacao.exercicios_2_6.classes.Musica;
+import com.graduacao.exercicios_2_6.classes.exercicio08.Musica;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

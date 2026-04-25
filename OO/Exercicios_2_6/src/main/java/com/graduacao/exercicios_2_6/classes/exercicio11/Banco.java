@@ -1,7 +1,7 @@
-package com.graduacao.exercicios_2_6.classes;
+package com.graduacao.exercicios_2_6.classes.exercicio11;
 
-import com.graduacao.exercicios_2_6.gerentes.GerenteContas;
-import com.graduacao.exercicios_2_6.gerentes.GerenteTransacoes;
+import com.graduacao.exercicios_2_6.gerentes.exercicio11.GerenteContas;
+import com.graduacao.exercicios_2_6.gerentes.exercicio11.GerenteTransacoes;
 
 public class Banco {
     private String nome;

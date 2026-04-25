@@ -1,8 +1,8 @@
 package com.graduacao.exercicios_2_6.exercicios;
 
-import com.graduacao.exercicios_2_6.classes.Carro;
-import com.graduacao.exercicios_2_6.classes.Proprietario;
-import com.graduacao.exercicios_2_6.classes.Roda;
+import com.graduacao.exercicios_2_6.classes.exercicio05.Carro;
+import com.graduacao.exercicios_2_6.classes.exercicio05.Proprietario;
+import com.graduacao.exercicios_2_6.classes.exercicio05.Roda;
 import java.util.Scanner;
 
 public class Exercicio05 {

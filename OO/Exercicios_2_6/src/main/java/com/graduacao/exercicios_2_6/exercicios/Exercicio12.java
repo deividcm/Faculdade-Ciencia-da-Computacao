@@ -1,8 +1,8 @@
 package com.graduacao.exercicios_2_6.exercicios;
 
-import com.graduacao.exercicios_2_6.classes.Empresa;
-import com.graduacao.exercicios_2_6.classes.Funcionario;
-import com.graduacao.exercicios_2_6.classes.Projeto;
+import com.graduacao.exercicios_2_6.classes.exercicio12.Empresa;
+import com.graduacao.exercicios_2_6.classes.exercicio12.Funcionario;
+import com.graduacao.exercicios_2_6.classes.exercicio12.Projeto;
 import java.util.Scanner;
 
 
