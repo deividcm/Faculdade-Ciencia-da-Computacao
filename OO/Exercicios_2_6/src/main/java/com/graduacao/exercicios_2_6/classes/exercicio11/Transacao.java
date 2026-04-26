@@ -1,6 +1,5 @@
 package com.graduacao.exercicios_2_6.classes.exercicio11;
 
-import com.graduacao.exercicios_2_6.classes.exercicio11.Conta;
 import java.util.Objects;
 
 
@@ -82,6 +81,10 @@ public class Transacao {
         return Objects.equals(this.contaRecebedora, other.contaRecebedora);
     }
     
+    public String toStringResumido(){
+        return this.ID + " - " + this.tipo + " - " + this.data + " - " + this.valor + "\n ";
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
@@ -89,10 +92,10 @@ public class Transacao {
         sb.append("ID: ").append(this.ID).append("\n ");
         sb.append("Tipo: ").append(this.tipo).append("\n ");
         sb.append("Data: ").append(this.data).append("\n ");
-        sb.append("Valor: ").append(this.valor).append("\n ");
-        sb.append("Conta Associada: ").append(this.contaAssociada.toStringResumido()).append("\n ");
+        sb.append("Valor: R$").append(this.valor).append("\n ");
+        sb.append("Conta Associada: ").append(this.contaAssociada.toStringResumido());
         if(this.tipo.equalsIgnoreCase("transferencia")){
-            sb.append("Recebedor: ").append(this.contaRecebedora.toStringResumido()).append("\n ");
+            sb.append("Recebedor: ").append(this.contaRecebedora.toStringResumido());
         }
         
         return sb.toString();

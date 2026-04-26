@@ -29,7 +29,7 @@ public class Conta {
     }
     
     public double sacar(double valor){
-        if(valor > 0 || valor <= this.saldo){
+        if(valor > 0){
             this.saldo -= valor;
             return valor;
         }
@@ -75,7 +75,7 @@ public class Conta {
     }
     
     public String toStringResumido(){
-        return this.numConta + " - " + this.titular;
+        return this.numConta + " - " + this.titular + "\n ";
     }
     
     @Override
@@ -84,8 +84,12 @@ public class Conta {
         sb.append("--- Conta ---\n ");
         sb.append("Numero: ").append(this.numConta).append("\n ");
         sb.append("Titular: ").append(this.titular).append("\n ");
-        sb.append("Saldo: ").append(this.saldo).append("\n ");
+        sb.append("Saldo: R$").append(this.saldo).append("\n ");
         return sb.toString();
+    }
+    
+    public boolean isDevedor(){
+        return this.saldo < 0;
     }
 
     public String getNumConta() {

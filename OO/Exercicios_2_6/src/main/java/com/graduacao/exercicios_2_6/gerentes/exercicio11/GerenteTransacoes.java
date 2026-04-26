@@ -58,6 +58,16 @@ public class GerenteTransacoes {
         return Objects.equals(this.transacoes, other.transacoes);
     }
     
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        
+        for(Transacao transacao: this.transacoes.values()){
+            sb.append(transacao.toStringResumido());
+        }
+        
+        return sb.toString();
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

@@ -59,6 +59,16 @@ public class GerenteContas {
         return Objects.equals(this.contas, other.contas);
     }
     
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        
+        for(Conta conta: this.contas.values()){
+            sb.append(conta.toStringResumido());
+        }
+        
+        return sb.toString();
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
