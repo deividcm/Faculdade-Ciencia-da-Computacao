@@ -10,15 +10,15 @@ public class Exercicio08 {
     
     private static int imprimeMenu(Scanner ler){
         System.out.println("------- Gerenciador de Artistas -------");
-        System.out.println("1 - Adicionar Artista");
-        System.out.println("2 - Remover Artista(Index)");
-        System.out.println("3 - Remover Artista(Nome)");
-        System.out.println("4 - Pesquisar e Imprimir Artista(Nome)");
-        System.out.println("5 - Pesquisar e Gerenciar Artista(Nome)");
-        System.out.println("6 - Pesquisar Artista com mais Albuns");
-        System.out.println("7 - Listar Artistas(Resumido)");
-        System.out.println("8 - Listar Artistas(Completo)");
-        System.out.println("0 - Sair");
+        System.out.println("01 - Adicionar Artista");
+        System.out.println("02 - Remover Artista(Index)");
+        System.out.println("03 - Remover Artista(Nome)");
+        System.out.println("04 - Pesquisar e Imprimir Artista(Nome)");
+        System.out.println("05 - Pesquisar e Gerenciar Artista(Nome)");
+        System.out.println("06 - Pesquisar Artista com mais Albuns");
+        System.out.println("07 - Listar Artistas(Resumido)");
+        System.out.println("08 - Listar Artistas(Completo)");
+        System.out.println("00 - Sair");
         System.out.println("---------------------------------------");
         System.out.println("Escolha uma opcao:");
         
@@ -27,14 +27,14 @@ public class Exercicio08 {
     
     private static int imprimeMenu(Scanner ler, String nome){
         System.out.println("------- " + nome +" -------");
-        System.out.println("1 - Adicionar Album");
-        System.out.println("2 - Remover Album(Index)");
-        System.out.println("3 - Remover Album(Nome)");
-        System.out.println("4 - Pesquisar e Imprimir Album(Nome)");
-        System.out.println("5 - Pesquisar Album com mais Musicas");
-        System.out.println("6 - Listar Albuns(Resumido)");
-        System.out.println("7 - Listar Albuns(Completo)");
-        System.out.println("0 - Voltar");
+        System.out.println("01 - Adicionar Album");
+        System.out.println("02 - Remover Album(Index)");
+        System.out.println("03 - Remover Album(Nome)");
+        System.out.println("04 - Pesquisar e Imprimir Album(Nome)");
+        System.out.println("05 - Pesquisar Album com mais Musicas");
+        System.out.println("06 - Listar Albuns(Resumido)");
+        System.out.println("07 - Listar Albuns(Completo)");
+        System.out.println("00 - Voltar");
         System.out.println("----------------------------");
         System.out.println("Escolha uma opcao:");
         
@@ -106,9 +106,11 @@ public class Exercicio08 {
                 }
                 case 6 ->{
                     System.out.println(artista.getGerente().toStringResumido());
+                    break;
                 }
                 case 7 -> {
                     System.out.println(artista.getGerente().toString());
+                    break;
                 }
                 
                 default -> {

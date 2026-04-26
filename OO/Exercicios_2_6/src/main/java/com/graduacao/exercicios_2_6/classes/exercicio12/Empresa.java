@@ -20,21 +20,23 @@ public class Empresa {
         this.gerenteProjetos = new GerenteProjetos();
     }
     
-    public void removerFuncionario(String ID){
+    public Funcionario removerFuncionario(String ID){
         Funcionario funcionario = this.gerenteFuncionarios.removerFuncionario(ID);
         if (funcionario != null){
             for(Projeto projeto: funcionario.getGerenteProjetos().getProjetos().values()){
                 projeto.getGerenteFuncionarios().removerFuncionario(ID);
             }
         } 
+        return funcionario;
     }
-    public void removerProjeto(String codigo){
+    public Projeto removerProjeto(String codigo){
         Projeto projeto = this.gerenteProjetos.removerProjeto(codigo);
         if(projeto != null){
             for(Funcionario funcionario: projeto.getGerenteFuncionarios().getFuncionarios().values()){
                 funcionario.getGerenteProjetos().removerProjeto(codigo);
             }
         }
+        return projeto;
     }
     
     
@@ -83,6 +85,18 @@ public class Empresa {
         sb.append("--- Projetos (").append(this.gerenteProjetos.size()).append(") ---\n ");
         sb.append(this.gerenteProjetos.toString());
         
+        return sb.toString();
+    }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Empresa ---\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("--- Projetos (").append(this.gerenteProjetos.size()).append(") ---\n ");
+        sb.append(this.gerenteProjetos.toStringResumido());
+        sb.append("--- Funcionarios (").append(this.gerenteFuncionarios.size()).append(") ---\n ");
+        sb.append(this.gerenteFuncionarios.toStringResumido());
         return sb.toString();
     }
     

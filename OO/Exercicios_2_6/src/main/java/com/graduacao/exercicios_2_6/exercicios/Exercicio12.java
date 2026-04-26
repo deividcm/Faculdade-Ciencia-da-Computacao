@@ -20,6 +20,7 @@ public class Exercicio12 {
         System.out.println("08 - Pesquisar Projeto");
         System.out.println("09 - Listar Funcionarios");
         System.out.println("10 - Listar Projetos");
+        System.out.println("11 - Imprimir Empresa");
         System.out.println("00 - Sair");
         System.out.println("---------------------------------------------------");
 
@@ -100,9 +101,11 @@ public class Exercicio12 {
                     }else{
                         System.out.println("Projeto nao encontrado!");
                     }
+                    break;
                 }
                 case 4 -> {
                     System.out.println(funcionario.toString());
+                    break;
                 }
                 
                 default -> {
@@ -166,9 +169,11 @@ public class Exercicio12 {
                     }else{
                         System.out.println("Funcionario nao encontrado!");
                     }
+                    break;
                 }
                 case 4 -> {
                     System.out.println(projeto.toString());
+                    break;
                 }
                 
                 default -> {
@@ -185,6 +190,7 @@ public class Exercicio12 {
         do{
             opcao = imprimeMenuEmpresa(ler, empresa.getNome());
             ler.nextLine();
+            
             switch(opcao){
                 case 0 -> {
                     System.out.println("Saindo...");
@@ -231,13 +237,24 @@ public class Exercicio12 {
                 case 3 -> {
                     System.out.print("Informe o ID: ");
                     String ID = ler.nextLine();
-                    empresa.removerFuncionario(ID);
+                    if(empresa.removerFuncionario(ID) != null){
+                        System.out.println("Funcionario removido com sucesso!");
+                    }
+                    else{
+                        System.out.println("Funcionario nao encontrado!");
+                    }
                     break;
                 }
                 case 4 -> {
                     System.out.print("Informe o Codigo: ");
                     String codigo = ler.nextLine();
-                    empresa.removerProjeto(codigo);
+                    
+                    if(empresa.removerProjeto(codigo) != null){
+                        System.out.println("Projeto removido com sucesso!");
+                    }
+                    else{
+                        System.out.println("Projeto nao encontrado!");
+                    }
                     break;
                 }
                 case 5 -> {
@@ -278,6 +295,11 @@ public class Exercicio12 {
                 }
                 case 10 -> {
                     System.out.println(empresa.toStringProjetos());
+                    break;
+                }
+                case 11 -> {
+                    System.out.println(empresa.toString());
+                    break;
                 }
                 
                 default -> {
