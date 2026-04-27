@@ -4,6 +4,8 @@ package com.graduacao.exercicios_3_2.gui;
 
 public class FrExercicios_3_2 extends javax.swing.JFrame {
     
+    public static FrExercicios_3_2 tela;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrExercicios_3_2.class.getName());
 
     /**
@@ -44,6 +46,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         btnExercicio01.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio01.setText("Exercício01");
         btnExercicio01.setMaximumSize(new java.awt.Dimension(89, 23));
+        btnExercicio01.addActionListener(this::btnExercicio01ActionPerformed);
         panExercicios3_2.add(btnExercicio01);
 
         btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -87,6 +90,12 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExercicio01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio01ActionPerformed
+        this.setVisible(false);
+        FrCadPessoa exercicio01Tela = new FrCadPessoa();
+        exercicio01Tela.setVisible(true);
+    }//GEN-LAST:event_btnExercicio01ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -8,6 +8,7 @@ public class Exercicios_3_2 {
     public static void main(String[] args) {
         
         FrExercicios_3_2 tela = new FrExercicios_3_2();
+        FrExercicios_3_2.tela = tela;
         tela.setVisible(true);
     }
 }
