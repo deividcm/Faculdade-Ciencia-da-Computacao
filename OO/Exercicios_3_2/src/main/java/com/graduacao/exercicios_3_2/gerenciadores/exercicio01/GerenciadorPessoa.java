@@ -56,7 +56,7 @@ public class GerenciadorPessoa {
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        
+        sb.append("--- Pessoas (").append(this.size()).append(") ---\n ");
         for(Pessoa pessoa: this.pessoas.values()){
             sb.append(pessoa.toString());
         }

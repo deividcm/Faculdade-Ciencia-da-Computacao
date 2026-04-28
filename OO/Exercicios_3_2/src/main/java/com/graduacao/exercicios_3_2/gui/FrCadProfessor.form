@@ -55,7 +55,7 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cadastro de Pessoa"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de Professor"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panBotoes">

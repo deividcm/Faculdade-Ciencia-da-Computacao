@@ -52,6 +52,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio02.setText("Exercício02");
         btnExercicio02.setMaximumSize(new java.awt.Dimension(89, 23));
+        btnExercicio02.addActionListener(this::btnExercicio02ActionPerformed);
         panExercicios3_2.add(btnExercicio02);
 
         btnExercicio03.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -96,6 +97,12 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         FrCadPessoa exercicio01Tela = new FrCadPessoa();
         exercicio01Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio01ActionPerformed
+
+    private void btnExercicio02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio02ActionPerformed
+        this.setVisible(false);
+        FrCadProfessor exercicio02Tela = new FrCadProfessor();
+        exercicio02Tela.setVisible(true);
+    }//GEN-LAST:event_btnExercicio02ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

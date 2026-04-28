@@ -1,21 +1,21 @@
 package com.graduacao.exercicios_3_2.gui;
 
-import com.graduacao.exercicios_3_2.classes.exercicio01.Pessoa;
-import com.graduacao.exercicios_3_2.gerenciadores.exercicio01.GerenciadorPessoa;
+import com.graduacao.exercicios_3_2.classes.exercicio02.Professor;
+import com.graduacao.exercicios_3_2.gerenciadores.exercicio02.GerenciadorProfessor;
 import javax.swing.JOptionPane;
 
 
-public class FrCadPessoa extends javax.swing.JFrame {
+public class FrCadProfessor extends javax.swing.JFrame {
     private boolean editando;
-    private final GerenciadorPessoa gerenciador;
+    private final GerenciadorProfessor gerenciador;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadPessoa.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadProfessor.class.getName());
 
     /**
-     * Creates new form FrCadPessoa
+     * Creates new form FrCadProfessor
      */
-    public FrCadPessoa() {
-        this.gerenciador = new GerenciadorPessoa();
+    public FrCadProfessor() {
+        this.gerenciador = new GerenciadorProfessor();
         initComponents();
     }
 
@@ -52,7 +52,7 @@ public class FrCadPessoa extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastro de Pessoa");
+        lblTitulo.setText("Cadastro de Professor");
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(this::btnNovoActionPerformed);
@@ -196,11 +196,11 @@ public class FrCadPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       Pessoa pessoa = this.camposParaObjeto();
-       if(editando || !this.gerenciador.containsKey(pessoa.getCPF())){
-           this.gerenciador.put(pessoa);
+       Professor professor = this.camposParaObjeto();
+       if(editando || !this.gerenciador.containsKey(professor.getCPF())){
+           this.gerenciador.put(professor);
        }else{
-           JOptionPane.showMessageDialog(this, "Já existe uma pessoa com este CPF!");
+           JOptionPane.showMessageDialog(this, "Já existe um professor com este CPF!");
        }
        
        this.limparCampos();
@@ -209,27 +209,27 @@ public class FrCadPessoa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       String CPF = JOptionPane.showInputDialog(this, "Informe o CPF da pessoa", "");
-       Pessoa pessoa = this.gerenciador.get(CPF);
+       String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
+       Professor professor = this.gerenciador.get(CPF);
        
-       if(pessoa != null){
+       if(professor != null){
            this.editando = true;
            this.limparCampos();
            this.habilitarCampos(true);
            this.edtCpf.setEnabled(false);
-           this.objetoParaCampos(pessoa);
+           this.objetoParaCampos(professor);
        }else{
-           JOptionPane.showMessageDialog(this, "Pessoa inexistente!");
+           JOptionPane.showMessageDialog(this, "Professor inexistente!");
        }
         
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        String CPF = JOptionPane.showInputDialog(this, "Informe o CPF da pessoa", "");
-        Pessoa pessoa = this.gerenciador.remove(CPF);
-        if(pessoa == null){
-            JOptionPane.showMessageDialog(this, "Pessoa inexistente!");
+        String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
+        Professor professor = this.gerenciador.remove(CPF);
+        if(professor == null){
+            JOptionPane.showMessageDialog(this, "Professor inexistente!");
         }else{
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
@@ -249,32 +249,32 @@ public class FrCadPessoa extends javax.swing.JFrame {
         this.edtSexo.setText("");
     }
     
-    public Pessoa camposParaObjeto(){
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome(this.edtNome.getText());
-        pessoa.setCPF(this.edtCpf.getText());
+    public Professor camposParaObjeto(){
+        Professor professor = new Professor();
+        professor.setNome(this.edtNome.getText());
+        professor.setCPF(this.edtCpf.getText());
         
         String idadeStr = this.edtIdade.getText();
         if(!idadeStr.isEmpty()){
             int idade = Integer.parseInt(idadeStr);
-            pessoa.setIdade(idade);
+            professor.setIdade(idade);
         }
         
         String sexoStr = this.edtSexo.getText();
         
         if(!sexoStr.isEmpty() && sexoStr.length() == 1){
             char sexo = sexoStr.charAt(0);
-            pessoa.setSexo(sexo);
+            professor.setSexo(sexo);
         }
         
-        return pessoa;
+        return professor;
     }
     
-    public void objetoParaCampos(Pessoa pessoa){
-        this.edtNome.setText(pessoa.getNome());
-        this.edtCpf.setText(pessoa.getCPF());
-        this.edtIdade.setText(pessoa.getIdade()+"");
-        this.edtSexo.setText(pessoa.getSexo()+"");
+    public void objetoParaCampos(Professor professor){
+        this.edtNome.setText(professor.getNome());
+        this.edtCpf.setText(professor.getCPF());
+        this.edtIdade.setText(professor.getIdade()+"");
+        this.edtSexo.setText(professor.getSexo()+"");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
