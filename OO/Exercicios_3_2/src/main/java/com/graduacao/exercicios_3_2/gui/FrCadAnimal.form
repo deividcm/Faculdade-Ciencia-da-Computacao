@@ -23,13 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblTitulo" pref="500" max="32767" attributes="0"/>
+          <Component id="lblTitulo" max="32767" attributes="0"/>
           <Component id="panBotoes" alignment="1" max="32767" attributes="0"/>
           <Component id="panCampos" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +54,7 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cadastro de Professor"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de Animal"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panBotoes">
@@ -125,27 +124,35 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblIdade" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblCod" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtIdade" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="edtSexo" min="-2" pref="64" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
+                          <Component id="edtCod" min="-2" pref="67" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="lblNome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtNome" max="32767" attributes="0"/>
+                          <Component id="edtNome" min="-2" pref="132" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblRaca" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtRaca" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblPeso" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtPeso" min="-2" pref="64" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblIdade" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtIdade" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEspecie" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="edtCpf" min="-2" pref="157" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="edtEspecie" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -153,29 +160,47 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblNome" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="edtCpf" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="edtNome" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="edtNome" alignment="3" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblEspecie" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="edtEspecie" alignment="3" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lblNome" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblCod" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="edtCod" min="-2" pref="16" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblRaca" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="edtRaca" alignment="3" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblPeso" alignment="3" max="32767" attributes="0"/>
+                          <Component id="edtPeso" alignment="3" pref="0" max="32767" attributes="0"/>
+                          <Component id="lblIdade" alignment="3" max="32767" attributes="0"/>
+                          <Component id="edtIdade" alignment="3" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblIdade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtIdade" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="lblSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtSexo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblCod">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtCod">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JLabel" name="lblNome">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome: "/>
@@ -186,12 +211,32 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCpf">
+        <Component class="javax.swing.JLabel" name="lblRaca">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CPF: "/>
+            <Property name="text" type="java.lang.String" value="Ra&#xe7;a: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtCpf">
+        <Component class="javax.swing.JTextField" name="edtRaca">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPeso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Peso: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtPeso">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblEspecie">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Esp&#xe9;cie: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtEspecie">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
@@ -205,16 +250,9 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblSexo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sexo: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="edtSexo">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtIdadeActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

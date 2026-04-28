@@ -1,21 +1,18 @@
 package com.graduacao.exercicios_3_2.gui;
 
-import com.graduacao.exercicios_3_2.classes.exercicio02.Professor;
-import com.graduacao.exercicios_3_2.gerenciadores.exercicio02.GerenciadorProfessor;
+import com.graduacao.exercicios_3_2.classes.exercicio03.Casa;
+import com.graduacao.exercicios_3_2.gerenciadores.exercicio03.GerenciadorCasa;
 import javax.swing.JOptionPane;
 
 
-public class FrCadProfessor extends javax.swing.JFrame {
+public class FrCadCasa extends javax.swing.JFrame {
     private boolean editando;
-    private final GerenciadorProfessor gerenciador;
+    private final GerenciadorCasa gerenciador;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadProfessor.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadCasa.class.getName());
 
-    /**
-     * Creates new form FrCadProfessor
-     */
-    public FrCadProfessor() {
-        this.gerenciador = new GerenciadorProfessor();
+    public FrCadCasa() {
+        this.gerenciador = new GerenciadorCasa();
         initComponents();
     }
 
@@ -37,14 +34,14 @@ public class FrCadProfessor extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         panCampos = new javax.swing.JPanel();
-        lblNome = new javax.swing.JLabel();
-        edtNome = new javax.swing.JTextField();
-        lblCpf = new javax.swing.JLabel();
-        edtCpf = new javax.swing.JTextField();
-        lblIdade = new javax.swing.JLabel();
-        edtIdade = new javax.swing.JTextField();
-        lblSexo = new javax.swing.JLabel();
-        edtSexo = new javax.swing.JTextField();
+        lblEndereco = new javax.swing.JLabel();
+        edtEndereco = new javax.swing.JTextField();
+        lblArea = new javax.swing.JLabel();
+        edtArea = new javax.swing.JTextField();
+        lblPreco = new javax.swing.JLabel();
+        edtPreco = new javax.swing.JTextField();
+        lblNumQuartos = new javax.swing.JLabel();
+        edtNumQuartos = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         edtListagem = new javax.swing.JTextArea();
 
@@ -52,7 +49,7 @@ public class FrCadProfessor extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastro de Professor");
+        lblTitulo.setText("Cadastro de Casa");
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(this::btnNovoActionPerformed);
@@ -81,21 +78,21 @@ public class FrCadProfessor extends javax.swing.JFrame {
 
         panCampos.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblNome.setText("Nome: ");
+        lblEndereco.setText("Endereço:");
 
-        edtNome.setEnabled(false);
+        edtEndereco.setEnabled(false);
 
-        lblCpf.setText("CPF: ");
+        lblArea.setText("Área: ");
 
-        edtCpf.setEnabled(false);
+        edtArea.setEnabled(false);
 
-        lblIdade.setText("Idade: ");
+        lblPreco.setText("Preço:");
 
-        edtIdade.setEnabled(false);
+        edtPreco.setEnabled(false);
 
-        lblSexo.setText("Sexo: ");
+        lblNumQuartos.setText("Número de Quartos: ");
 
-        edtSexo.setEnabled(false);
+        edtNumQuartos.setEnabled(false);
 
         javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
         panCampos.setLayout(panCamposLayout);
@@ -105,41 +102,41 @@ public class FrCadProfessor extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panCamposLayout.createSequentialGroup()
-                        .addComponent(lblIdade)
+                        .addComponent(lblPreco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtIdade)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSexo)
+                        .addComponent(edtPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNumQuartos)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(edtNumQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panCamposLayout.createSequentialGroup()
-                        .addComponent(lblNome)
+                        .addComponent(lblEndereco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtNome)))
+                        .addComponent(edtEndereco)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCpf)
+                .addComponent(lblArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(edtArea, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
         panCamposLayout.setVerticalGroup(
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(edtCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCpf))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(edtArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(lblArea, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(lblEndereco))
+                    .addComponent(edtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdade)
-                    .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSexo)
-                    .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                    .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNumQuartos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(edtNumQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         edtListagem.setColumns(20);
@@ -150,13 +147,12 @@ public class FrCadProfessor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panCampos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +188,11 @@ public class FrCadProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       Professor professor = this.camposParaObjeto();
-       if(editando || !this.gerenciador.containsKey(professor.getCPF())){
-           this.gerenciador.put(professor);
+       Casa casa = this.camposParaObjeto();
+       if(editando || !this.gerenciador.containsKey(casa.getEndereco())){
+           this.gerenciador.put(casa);
        }else{
-           JOptionPane.showMessageDialog(this, "Já existe um professor com este CPF!");
+           JOptionPane.showMessageDialog(this, "Já existe uma casa com este endereço!");
        }
        
        this.limparCampos();
@@ -205,72 +201,76 @@ public class FrCadProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
-       Professor professor = this.gerenciador.get(CPF);
+       String endereco = JOptionPane.showInputDialog(this, "Informe o endereço da casa", "");
+       Casa casa = this.gerenciador.get(endereco);
        
-       if(professor != null){
+       if(casa != null){
            this.editando = true;
            this.limparCampos();
            this.habilitarCampos(true);
-           this.edtCpf.setEnabled(false);
-           this.objetoParaCampos(professor);
+           this.edtEndereco.setEnabled(false);
+           this.objetoParaCampos(casa);
        }else{
-           JOptionPane.showMessageDialog(this, "Professor inexistente!");
+           JOptionPane.showMessageDialog(this, "Casa inexistente!");
        }
         
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
-        Professor professor = this.gerenciador.remove(CPF);
-        if(professor == null){
-            JOptionPane.showMessageDialog(this, "Professor inexistente!");
+        String endereco = JOptionPane.showInputDialog(this, "Informe o endereço da casa", "");
+        Casa casa = this.gerenciador.remove(endereco);
+        if(casa == null){
+            JOptionPane.showMessageDialog(this, "Casa inexistente!");
         }else{
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnExcluirActionPerformed
     public void habilitarCampos(boolean flag){
-        this.edtNome.setEnabled(flag);
-        this.edtCpf.setEnabled(flag);
-        this.edtIdade.setEnabled(flag);
-        this.edtSexo.setEnabled(flag);
+        this.edtEndereco.setEnabled(flag);
+        this.edtArea.setEnabled(flag);
+        this.edtPreco.setEnabled(flag);
+        this.edtNumQuartos.setEnabled(flag);
     }
     
     public void limparCampos(){
-        this.edtNome.setText("");
-        this.edtCpf.setText("");
-        this.edtIdade.setText("");
-        this.edtSexo.setText("");
+        this.edtEndereco.setText("");
+        this.edtArea.setText("");
+        this.edtPreco.setText("");
+        this.edtNumQuartos.setText("");
     }
     
-    public Professor camposParaObjeto(){
-        Professor professor = new Professor();
-        professor.setNome(this.edtNome.getText());
-        professor.setCPF(this.edtCpf.getText());
+    public Casa camposParaObjeto(){
+        Casa casa = new Casa();
+        casa.setEndereco(this.edtEndereco.getText());
         
-        String idadeStr = this.edtIdade.getText();
-        if(!idadeStr.isEmpty()){
-            int idade = Integer.parseInt(idadeStr);
-            professor.setIdade(idade);
+        String areaStr = this.edtArea.getText();
+        if(!areaStr.isEmpty()){
+            double area = Double.parseDouble(areaStr);
+            casa.setArea(area);
         }
         
-        String sexoStr = this.edtSexo.getText();
-        
-        if(!sexoStr.isEmpty() && sexoStr.length() == 1){
-            char sexo = sexoStr.charAt(0);
-            professor.setSexo(sexo);
+        String precoStr = this.edtPreco.getText();
+        if(!precoStr.isEmpty()){
+            double preco = Double.parseDouble(precoStr);
+            casa.setPreco(preco);
         }
         
-        return professor;
+        String numQuartosStr = this.edtNumQuartos.getText();
+        if(!numQuartosStr.isEmpty()){
+            int numQuartos = Integer.parseInt(numQuartosStr);
+            casa.setNumQuartos(numQuartos);
+        }
+        
+        return casa;
     }
     
-    public void objetoParaCampos(Professor professor){
-        this.edtNome.setText(professor.getNome());
-        this.edtCpf.setText(professor.getCPF());
-        this.edtIdade.setText(professor.getIdade()+"");
-        this.edtSexo.setText(professor.getSexo()+"");
+    public void objetoParaCampos(Casa casa){
+        this.edtEndereco.setText(casa.getEndereco());
+        this.edtArea.setText(casa.getArea()+"");
+        this.edtPreco.setText(casa.getPreco()+"");
+        this.edtNumQuartos.setText(casa.getNumQuartos()+"");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -280,16 +280,16 @@ public class FrCadProfessor extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JTextField edtCpf;
-    private javax.swing.JTextField edtIdade;
+    private javax.swing.JTextField edtArea;
+    private javax.swing.JTextField edtEndereco;
     private javax.swing.JTextArea edtListagem;
-    private javax.swing.JTextField edtNome;
-    private javax.swing.JTextField edtSexo;
+    private javax.swing.JTextField edtNumQuartos;
+    private javax.swing.JTextField edtPreco;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCpf;
-    private javax.swing.JLabel lblIdade;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblArea;
+    private javax.swing.JLabel lblEndereco;
+    private javax.swing.JLabel lblNumQuartos;
+    private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panBotoes;
     private javax.swing.JPanel panCampos;

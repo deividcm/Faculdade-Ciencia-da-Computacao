@@ -23,13 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblTitulo" pref="500" max="32767" attributes="0"/>
+          <Component id="lblTitulo" max="32767" attributes="0"/>
           <Component id="panBotoes" alignment="1" max="32767" attributes="0"/>
           <Component id="panCampos" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +54,7 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cadastro de Professor"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de Casa"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panBotoes">
@@ -127,24 +126,24 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="lblIdade" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPreco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtIdade" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
+                          <Component id="edtPreco" pref="76" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblNumQuartos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="edtSexo" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="edtNumQuartos" min="-2" pref="64" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEndereco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtNome" max="32767" attributes="0"/>
+                          <Component id="edtEndereco" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblArea" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="edtCpf" min="-2" pref="157" max="-2" attributes="0"/>
+                  <Component id="edtArea" min="-2" pref="157" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -153,65 +152,65 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblNome" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="edtCpf" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="edtNome" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="edtArea" alignment="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="lblArea" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblEndereco" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="edtEndereco" min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblIdade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtIdade" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="lblSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtSexo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblPreco" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblNumQuartos" alignment="1" max="32767" attributes="0"/>
+                      <Component id="edtPreco" alignment="1" pref="0" max="32767" attributes="0"/>
+                      <Component id="edtNumQuartos" alignment="1" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblNome">
+        <Component class="javax.swing.JLabel" name="lblEndereco">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome: "/>
+            <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtNome">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblCpf">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CPF: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="edtCpf">
+        <Component class="javax.swing.JTextField" name="edtEndereco">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblIdade">
+        <Component class="javax.swing.JLabel" name="lblArea">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Idade: "/>
+            <Property name="text" type="java.lang.String" value="&#xc1;rea: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtIdade">
+        <Component class="javax.swing.JTextField" name="edtArea">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSexo">
+        <Component class="javax.swing.JLabel" name="lblPreco">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sexo: "/>
+            <Property name="text" type="java.lang.String" value="Pre&#xe7;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtSexo">
+        <Component class="javax.swing.JTextField" name="edtPreco">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNumQuartos">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero de Quartos: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtNumQuartos">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>

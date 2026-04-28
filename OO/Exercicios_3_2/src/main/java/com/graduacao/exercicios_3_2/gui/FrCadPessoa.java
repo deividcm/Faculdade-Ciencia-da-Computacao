@@ -11,9 +11,7 @@ public class FrCadPessoa extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadPessoa.class.getName());
 
-    /**
-     * Creates new form FrCadPessoa
-     */
+
     public FrCadPessoa() {
         this.gerenciador = new GerenciadorPessoa();
         initComponents();
@@ -84,7 +82,6 @@ public class FrCadPessoa extends javax.swing.JFrame {
         lblNome.setText("Nome: ");
 
         edtNome.setEnabled(false);
-        edtNome.addActionListener(this::edtNomeActionPerformed);
 
         lblCpf.setText("CPF: ");
 
@@ -108,20 +105,20 @@ public class FrCadPessoa extends javax.swing.JFrame {
                     .addGroup(panCamposLayout.createSequentialGroup()
                         .addComponent(lblIdade)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(edtIdade)
+                        .addGap(18, 18, 18)
                         .addComponent(lblSexo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panCamposLayout.createSequentialGroup()
                         .addComponent(lblNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edtNome)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCpf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(edtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
         panCamposLayout.setVerticalGroup(
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,11 +172,8 @@ public class FrCadPessoa extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void edtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtNomeActionPerformed
-
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        FrExercicios_3_2.tela.setLocation(this.getLocation());
         this.setVisible(false);
         FrExercicios_3_2.tela.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed

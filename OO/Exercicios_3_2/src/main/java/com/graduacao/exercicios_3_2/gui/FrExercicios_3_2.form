@@ -104,6 +104,9 @@
               <Dimension value="[89, 23]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExercicio03ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnExercicio04">
           <Properties>
@@ -126,6 +129,9 @@
               <Dimension value="[89, 23]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExercicio05ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

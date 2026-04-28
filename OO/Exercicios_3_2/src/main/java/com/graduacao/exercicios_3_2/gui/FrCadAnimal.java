@@ -1,21 +1,18 @@
 package com.graduacao.exercicios_3_2.gui;
 
-import com.graduacao.exercicios_3_2.classes.exercicio02.Professor;
-import com.graduacao.exercicios_3_2.gerenciadores.exercicio02.GerenciadorProfessor;
+import com.graduacao.exercicios_3_2.classes.exercicio05.Animal;
+import com.graduacao.exercicios_3_2.gerenciadores.exercicio05.GerenciadorAnimal;
 import javax.swing.JOptionPane;
 
 
-public class FrCadProfessor extends javax.swing.JFrame {
+public class FrCadAnimal extends javax.swing.JFrame {
     private boolean editando;
-    private final GerenciadorProfessor gerenciador;
+    private final GerenciadorAnimal gerenciador;
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadProfessor.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadAnimal.class.getName());
 
-    /**
-     * Creates new form FrCadProfessor
-     */
-    public FrCadProfessor() {
-        this.gerenciador = new GerenciadorProfessor();
+    public FrCadAnimal() {
+        this.gerenciador = new GerenciadorAnimal();
         initComponents();
     }
 
@@ -37,14 +34,18 @@ public class FrCadProfessor extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         panCampos = new javax.swing.JPanel();
+        lblCod = new javax.swing.JLabel();
+        edtCod = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         edtNome = new javax.swing.JTextField();
-        lblCpf = new javax.swing.JLabel();
-        edtCpf = new javax.swing.JTextField();
+        lblRaca = new javax.swing.JLabel();
+        edtRaca = new javax.swing.JTextField();
+        lblPeso = new javax.swing.JLabel();
+        edtPeso = new javax.swing.JTextField();
+        lblEspecie = new javax.swing.JLabel();
+        edtEspecie = new javax.swing.JTextField();
         lblIdade = new javax.swing.JLabel();
         edtIdade = new javax.swing.JTextField();
-        lblSexo = new javax.swing.JLabel();
-        edtSexo = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         edtListagem = new javax.swing.JTextArea();
 
@@ -52,7 +53,7 @@ public class FrCadProfessor extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastro de Professor");
+        lblTitulo.setText("Cadastro de Animal");
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(this::btnNovoActionPerformed);
@@ -81,21 +82,30 @@ public class FrCadProfessor extends javax.swing.JFrame {
 
         panCampos.setBackground(new java.awt.Color(204, 204, 204));
 
+        lblCod.setText("Código:");
+
+        edtCod.setEnabled(false);
+
         lblNome.setText("Nome: ");
 
         edtNome.setEnabled(false);
 
-        lblCpf.setText("CPF: ");
+        lblRaca.setText("Raça: ");
 
-        edtCpf.setEnabled(false);
+        edtRaca.setEnabled(false);
+
+        lblPeso.setText("Peso: ");
+
+        edtPeso.setEnabled(false);
+
+        lblEspecie.setText("Espécie: ");
+
+        edtEspecie.setEnabled(false);
 
         lblIdade.setText("Idade: ");
 
         edtIdade.setEnabled(false);
-
-        lblSexo.setText("Sexo: ");
-
-        edtSexo.setEnabled(false);
+        edtIdade.addActionListener(this::edtIdadeActionPerformed);
 
         javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
         panCampos.setLayout(panCamposLayout);
@@ -103,43 +113,57 @@ public class FrCadProfessor extends javax.swing.JFrame {
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panCamposLayout.createSequentialGroup()
-                        .addComponent(lblIdade)
+                        .addComponent(lblCod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtIdade)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblSexo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panCamposLayout.createSequentialGroup()
+                        .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtNome)))
+                        .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panCamposLayout.createSequentialGroup()
+                        .addComponent(lblRaca)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPeso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIdade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblCpf)
+                .addComponent(lblEspecie)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addComponent(edtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panCamposLayout.setVerticalGroup(
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(edtCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCpf))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIdade)
-                    .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSexo)
-                    .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(lblEspecie)
+                                .addComponent(edtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(lblCod))
+                    .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(edtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(lblPeso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(edtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(lblIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(12, 12, 12))
         );
 
         edtListagem.setColumns(20);
@@ -150,13 +174,12 @@ public class FrCadProfessor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panCampos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,11 +215,11 @@ public class FrCadProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       Professor professor = this.camposParaObjeto();
-       if(editando || !this.gerenciador.containsKey(professor.getCPF())){
-           this.gerenciador.put(professor);
+       Animal animal = this.camposParaObjeto();
+       if(editando || !this.gerenciador.containsKey(animal.getCod())){
+           this.gerenciador.put(animal);
        }else{
-           JOptionPane.showMessageDialog(this, "Já existe um professor com este CPF!");
+           JOptionPane.showMessageDialog(this, "Já existe um animal com este código!");
        }
        
        this.limparCampos();
@@ -205,72 +228,83 @@ public class FrCadProfessor extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
-       Professor professor = this.gerenciador.get(CPF);
+       String cod = JOptionPane.showInputDialog(this, "Informe o código do animal", "");
+       Animal animal = this.gerenciador.get(cod);
        
-       if(professor != null){
+       if(animal != null){
            this.editando = true;
            this.limparCampos();
            this.habilitarCampos(true);
-           this.edtCpf.setEnabled(false);
-           this.objetoParaCampos(professor);
+           this.edtCod.setEnabled(false);
+           this.objetoParaCampos(animal);
        }else{
-           JOptionPane.showMessageDialog(this, "Professor inexistente!");
+           JOptionPane.showMessageDialog(this, "Animal inexistente!");
        }
         
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        String CPF = JOptionPane.showInputDialog(this, "Informe o CPF do professor", "");
-        Professor professor = this.gerenciador.remove(CPF);
-        if(professor == null){
-            JOptionPane.showMessageDialog(this, "Professor inexistente!");
+        String cod = JOptionPane.showInputDialog(this, "Informe o código do animal", "");
+        Animal animal = this.gerenciador.remove(cod);
+        if(animal == null){
+            JOptionPane.showMessageDialog(this, "Animal inexistente!");
         }else{
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void edtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtIdadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtIdadeActionPerformed
     public void habilitarCampos(boolean flag){
+        this.edtCod.setEnabled(flag);
         this.edtNome.setEnabled(flag);
-        this.edtCpf.setEnabled(flag);
+        this.edtEspecie.setEnabled(flag);
+        this.edtRaca.setEnabled(flag);
+        this.edtPeso.setEnabled(flag);
         this.edtIdade.setEnabled(flag);
-        this.edtSexo.setEnabled(flag);
     }
     
     public void limparCampos(){
+        this.edtCod.setText("");
         this.edtNome.setText("");
-        this.edtCpf.setText("");
+        this.edtEspecie.setText("");
+        this.edtRaca.setText("");
+        this.edtPeso.setText("");
         this.edtIdade.setText("");
-        this.edtSexo.setText("");
     }
     
-    public Professor camposParaObjeto(){
-        Professor professor = new Professor();
-        professor.setNome(this.edtNome.getText());
-        professor.setCPF(this.edtCpf.getText());
+    public Animal camposParaObjeto(){
+        Animal animal = new Animal();
+        animal.setCod(this.edtCod.getText());
+        animal.setNome(this.edtNome.getText());
+        animal.setEspecie(this.edtEspecie.getText());
+        animal.setRaca(this.edtRaca.getText());
         
+        String pesoStr = this.edtPeso.getText();
+        if(!pesoStr.isEmpty()){
+            double peso = Double.parseDouble(pesoStr);
+            animal.setPeso(peso);
+        }
         String idadeStr = this.edtIdade.getText();
         if(!idadeStr.isEmpty()){
             int idade = Integer.parseInt(idadeStr);
-            professor.setIdade(idade);
+            animal.setIdade(idade);
         }
         
-        String sexoStr = this.edtSexo.getText();
         
-        if(!sexoStr.isEmpty() && sexoStr.length() == 1){
-            char sexo = sexoStr.charAt(0);
-            professor.setSexo(sexo);
-        }
-        
-        return professor;
+        return animal;
     }
     
-    public void objetoParaCampos(Professor professor){
-        this.edtNome.setText(professor.getNome());
-        this.edtCpf.setText(professor.getCPF());
-        this.edtIdade.setText(professor.getIdade()+"");
-        this.edtSexo.setText(professor.getSexo()+"");
+    public void objetoParaCampos(Animal animal){
+        this.edtCod.setText(animal.getCod());
+        this.edtNome.setText(animal.getNome());
+        this.edtEspecie.setText(animal.getEspecie());
+        this.edtRaca.setText(animal.getRaca());
+        this.edtPeso.setText(animal.getPeso()+"");
+        this.edtIdade.setText(animal.getIdade()+"");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -280,16 +314,20 @@ public class FrCadProfessor extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JTextField edtCpf;
+    private javax.swing.JTextField edtCod;
+    private javax.swing.JTextField edtEspecie;
     private javax.swing.JTextField edtIdade;
     private javax.swing.JTextArea edtListagem;
     private javax.swing.JTextField edtNome;
-    private javax.swing.JTextField edtSexo;
+    private javax.swing.JTextField edtPeso;
+    private javax.swing.JTextField edtRaca;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblCod;
+    private javax.swing.JLabel lblEspecie;
     private javax.swing.JLabel lblIdade;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblSexo;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblRaca;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panBotoes;
     private javax.swing.JPanel panCampos;

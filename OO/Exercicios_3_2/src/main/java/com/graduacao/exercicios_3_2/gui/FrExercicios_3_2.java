@@ -58,6 +58,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         btnExercicio03.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio03.setText("Exercício03");
         btnExercicio03.setMaximumSize(new java.awt.Dimension(89, 23));
+        btnExercicio03.addActionListener(this::btnExercicio03ActionPerformed);
         panExercicios3_2.add(btnExercicio03);
 
         btnExercicio04.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -68,6 +69,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         btnExercicio05.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio05.setText("Exercício05");
         btnExercicio05.setMaximumSize(new java.awt.Dimension(89, 23));
+        btnExercicio05.addActionListener(this::btnExercicio05ActionPerformed);
         panExercicios3_2.add(btnExercicio05);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,14 +97,30 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
     private void btnExercicio01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio01ActionPerformed
         this.setVisible(false);
         FrCadPessoa exercicio01Tela = new FrCadPessoa();
+        exercicio01Tela.setLocation(this.getLocation());
         exercicio01Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio01ActionPerformed
 
     private void btnExercicio02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio02ActionPerformed
         this.setVisible(false);
         FrCadProfessor exercicio02Tela = new FrCadProfessor();
+        exercicio02Tela.setLocation(this.getLocation());
         exercicio02Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio02ActionPerformed
+
+    private void btnExercicio03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio03ActionPerformed
+        this.setVisible(false);
+        FrCadCasa exercicio03Tela = new FrCadCasa();
+        exercicio03Tela.setLocation(this.getLocation());
+        exercicio03Tela.setVisible(true);
+    }//GEN-LAST:event_btnExercicio03ActionPerformed
+
+    private void btnExercicio05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio05ActionPerformed
+        this.setVisible(false);
+        FrCadAnimal exercicio05Tela = new FrCadAnimal();
+        exercicio05Tela.setLocation(this.getLocation());
+        exercicio05Tela.setVisible(true);
+    }//GEN-LAST:event_btnExercicio05ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
