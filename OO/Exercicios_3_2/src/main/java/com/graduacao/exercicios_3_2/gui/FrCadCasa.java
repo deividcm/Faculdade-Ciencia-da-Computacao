@@ -131,14 +131,15 @@ public class FrCadCasa extends javax.swing.JFrame {
                         .addComponent(lblEndereco))
                     .addComponent(edtEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNumQuartos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(edtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(edtNumQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPreco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNumQuartos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtPreco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(edtNumQuartos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
+        edtListagem.setEditable(false);
         edtListagem.setColumns(20);
         edtListagem.setRows(5);
         jScrollPane1.setViewportView(edtListagem);
@@ -210,7 +211,7 @@ public class FrCadCasa extends javax.swing.JFrame {
            this.habilitarCampos(true);
            this.edtEndereco.setEnabled(false);
            this.objetoParaCampos(casa);
-       }else{
+       }else if(!endereco.isEmpty()){
            JOptionPane.showMessageDialog(this, "Casa inexistente!");
        }
         
@@ -222,7 +223,7 @@ public class FrCadCasa extends javax.swing.JFrame {
         Casa casa = this.gerenciador.remove(endereco);
         if(casa == null){
             JOptionPane.showMessageDialog(this, "Casa inexistente!");
-        }else{
+        }else if(!endereco.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());

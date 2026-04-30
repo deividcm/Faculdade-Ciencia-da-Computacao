@@ -105,7 +105,6 @@ public class FrCadAnimal extends javax.swing.JFrame {
         lblIdade.setText("Idade: ");
 
         edtIdade.setEnabled(false);
-        edtIdade.addActionListener(this::edtIdadeActionPerformed);
 
         javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
         panCampos.setLayout(panCamposLayout);
@@ -166,6 +165,7 @@ public class FrCadAnimal extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
+        edtListagem.setEditable(false);
         edtListagem.setColumns(20);
         edtListagem.setRows(5);
         jScrollPane1.setViewportView(edtListagem);
@@ -237,7 +237,7 @@ public class FrCadAnimal extends javax.swing.JFrame {
            this.habilitarCampos(true);
            this.edtCod.setEnabled(false);
            this.objetoParaCampos(animal);
-       }else{
+       }else if(!cod.isEmpty()){
            JOptionPane.showMessageDialog(this, "Animal inexistente!");
        }
         
@@ -249,15 +249,11 @@ public class FrCadAnimal extends javax.swing.JFrame {
         Animal animal = this.gerenciador.remove(cod);
         if(animal == null){
             JOptionPane.showMessageDialog(this, "Animal inexistente!");
-        }else{
+        }else if(!cod.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnExcluirActionPerformed
-
-    private void edtIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtIdadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edtIdadeActionPerformed
     public void habilitarCampos(boolean flag){
         this.edtCod.setEnabled(flag);
         this.edtNome.setEnabled(flag);

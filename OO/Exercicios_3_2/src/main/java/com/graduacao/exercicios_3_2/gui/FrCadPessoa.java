@@ -140,6 +140,7 @@ public class FrCadPessoa extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        edtListagem.setEditable(false);
         edtListagem.setColumns(20);
         edtListagem.setRows(5);
         jScrollPane1.setViewportView(edtListagem);
@@ -212,7 +213,7 @@ public class FrCadPessoa extends javax.swing.JFrame {
            this.habilitarCampos(true);
            this.edtCpf.setEnabled(false);
            this.objetoParaCampos(pessoa);
-       }else{
+       }else if(!CPF.isEmpty()){
            JOptionPane.showMessageDialog(this, "Pessoa inexistente!");
        }
         
@@ -224,7 +225,7 @@ public class FrCadPessoa extends javax.swing.JFrame {
         Pessoa pessoa = this.gerenciador.remove(CPF);
         if(pessoa == null){
             JOptionPane.showMessageDialog(this, "Pessoa inexistente!");
-        }else{
+        }else if(!CPF.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());

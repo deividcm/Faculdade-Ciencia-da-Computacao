@@ -142,6 +142,7 @@ public class FrCadProfessor extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        edtListagem.setEditable(false);
         edtListagem.setColumns(20);
         edtListagem.setRows(5);
         jScrollPane1.setViewportView(edtListagem);
@@ -214,7 +215,7 @@ public class FrCadProfessor extends javax.swing.JFrame {
            this.habilitarCampos(true);
            this.edtCpf.setEnabled(false);
            this.objetoParaCampos(professor);
-       }else{
+       }else if(!CPF.isEmpty()){
            JOptionPane.showMessageDialog(this, "Professor inexistente!");
        }
         
@@ -226,7 +227,7 @@ public class FrCadProfessor extends javax.swing.JFrame {
         Professor professor = this.gerenciador.remove(CPF);
         if(professor == null){
             JOptionPane.showMessageDialog(this, "Professor inexistente!");
-        }else{
+        }else if(!CPF.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.edtListagem.setText(this.gerenciador.toString());
