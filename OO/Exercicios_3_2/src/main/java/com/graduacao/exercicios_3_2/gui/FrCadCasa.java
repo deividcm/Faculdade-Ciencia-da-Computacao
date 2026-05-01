@@ -56,19 +56,23 @@ public class FrCadCasa extends javax.swing.JFrame {
         panBotoes.add(btnNovo);
 
         btnEditar.setText("Editar");
+        btnEditar.setEnabled(false);
         btnEditar.addActionListener(this::btnEditarActionPerformed);
         panBotoes.add(btnEditar);
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.setEnabled(false);
         btnCancelar.addActionListener(this::btnCancelarActionPerformed);
         panBotoes.add(btnCancelar);
 
         btnExcluir.setText("Excluir");
         btnExcluir.setToolTipText("");
+        btnExcluir.setEnabled(false);
         btnExcluir.addActionListener(this::btnExcluirActionPerformed);
         panBotoes.add(btnExcluir);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.setEnabled(false);
         btnSalvar.addActionListener(this::btnSalvarActionPerformed);
         panBotoes.add(btnSalvar);
 
@@ -226,6 +230,7 @@ public class FrCadCasa extends javax.swing.JFrame {
         }else if(!endereco.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
+        this.habilitarCampos(false);
         this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnExcluirActionPerformed
     public void habilitarCampos(boolean flag){
@@ -233,6 +238,16 @@ public class FrCadCasa extends javax.swing.JFrame {
         this.edtArea.setEnabled(flag);
         this.edtPreco.setEnabled(flag);
         this.edtNumQuartos.setEnabled(flag);
+        
+        this.habilitarBotoes(flag);
+    }
+    
+    public void habilitarBotoes(boolean flag){
+        this.btnNovo.setEnabled(!flag);
+        this.btnEditar.setEnabled(this.gerenciador.size() > 0 && !flag);
+        this.btnCancelar.setEnabled(flag);
+        this.btnExcluir.setEnabled(this.gerenciador.size() > 0 && !flag);
+        this.btnSalvar.setEnabled(flag);
     }
     
     public void limparCampos(){

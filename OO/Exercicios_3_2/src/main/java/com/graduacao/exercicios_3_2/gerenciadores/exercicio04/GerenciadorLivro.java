@@ -3,6 +3,7 @@ package com.graduacao.exercicios_3_2.gerenciadores.exercicio04;
 import com.graduacao.exercicios_3_2.classes.exercicio04.Livro;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class GerenciadorLivro {
@@ -27,6 +28,28 @@ public class GerenciadorLivro {
     }
     public Livro remove(String cod){
         return this.livros.remove(cod);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.livros);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final GerenciadorLivro other = (GerenciadorLivro) obj;
+        return Objects.equals(this.livros, other.livros);
     }
     
     @Override

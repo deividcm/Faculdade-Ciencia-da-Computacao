@@ -23,13 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="lblTitulo" pref="500" max="32767" attributes="0"/>
+          <Component id="lblTitulo" max="32767" attributes="0"/>
           <Component id="panBotoes" alignment="1" max="32767" attributes="0"/>
           <Component id="panCampos" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,7 +54,7 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cadastro de Professor"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de Livro"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panBotoes">
@@ -129,27 +128,31 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblIdade" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblCod" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtIdade" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lblSexo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="edtSexo" min="-2" pref="64" max="-2" attributes="0"/>
+                          <Component id="edtCod" min="-2" pref="67" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblTituloLivro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtTitulo" min="-2" pref="132" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblPreco" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="edtNome" max="32767" attributes="0"/>
+                          <Component id="edtPreco" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblNumPag" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtNumPag" min="-2" pref="55" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Component id="lblAutor" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="edtCpf" min="-2" pref="157" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Component id="edtAutor" min="-2" pref="90" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -157,65 +160,79 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblNome" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="edtCpf" alignment="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="edtNome" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                              <Component id="lblCpf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="edtTitulo" alignment="3" pref="0" max="32767" attributes="0"/>
+                                  <Component id="lblAutor" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="edtAutor" alignment="3" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lblTituloLivro" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="lblCod" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="edtCod" min="-2" pref="16" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblIdade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtIdade" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                      <Component id="lblSexo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="edtSexo" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                      <Component id="lblPreco" alignment="3" max="32767" attributes="0"/>
+                      <Component id="edtPreco" alignment="3" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblNumPag" alignment="3" max="32767" attributes="0"/>
+                      <Component id="edtNumPag" alignment="3" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblNome">
+        <Component class="javax.swing.JLabel" name="lblCod">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome: "/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtNome">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblCpf">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CPF: "/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="edtCpf">
+        <Component class="javax.swing.JTextField" name="edtCod">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblIdade">
+        <Component class="javax.swing.JLabel" name="lblTituloLivro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Idade: "/>
+            <Property name="text" type="java.lang.String" value="T&#xed;tulo: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtIdade">
+        <Component class="javax.swing.JTextField" name="edtTitulo">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblSexo">
+        <Component class="javax.swing.JLabel" name="lblPreco">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sexo: "/>
+            <Property name="text" type="java.lang.String" value="Pre&#xe7;o: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="edtSexo">
+        <Component class="javax.swing.JTextField" name="edtPreco">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAutor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Autor: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtAutor">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblNumPag">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero de P&#xe1;ginas: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtNumPag">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>

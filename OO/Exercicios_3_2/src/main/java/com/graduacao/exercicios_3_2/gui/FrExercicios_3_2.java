@@ -64,6 +64,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         btnExercicio04.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio04.setText("Exercício04");
         btnExercicio04.setMaximumSize(new java.awt.Dimension(89, 23));
+        btnExercicio04.addActionListener(this::btnExercicio04ActionPerformed);
         panExercicios3_2.add(btnExercicio04);
 
         btnExercicio05.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -98,6 +99,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         this.setVisible(false);
         FrCadPessoa exercicio01Tela = new FrCadPessoa();
         exercicio01Tela.setLocation(this.getLocation());
+        exercicio01Tela.habilitarCampos(false);
         exercicio01Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio01ActionPerformed
 
@@ -105,6 +107,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         this.setVisible(false);
         FrCadProfessor exercicio02Tela = new FrCadProfessor();
         exercicio02Tela.setLocation(this.getLocation());
+        exercicio02Tela.habilitarCampos(false);
         exercicio02Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio02ActionPerformed
 
@@ -112,6 +115,7 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         this.setVisible(false);
         FrCadCasa exercicio03Tela = new FrCadCasa();
         exercicio03Tela.setLocation(this.getLocation());
+        exercicio03Tela.habilitarCampos(false);
         exercicio03Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio03ActionPerformed
 
@@ -119,8 +123,17 @@ public class FrExercicios_3_2 extends javax.swing.JFrame {
         this.setVisible(false);
         FrCadAnimal exercicio05Tela = new FrCadAnimal();
         exercicio05Tela.setLocation(this.getLocation());
+        exercicio05Tela.habilitarCampos(false);
         exercicio05Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio05ActionPerformed
+
+    private void btnExercicio04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio04ActionPerformed
+        this.setVisible(false);
+        FrCadLivro exercicio04Tela = new FrCadLivro();
+        exercicio04Tela.setLocation(this.getLocation());
+        exercicio04Tela.habilitarCampos(false);
+        exercicio04Tela.setVisible(true);
+    }//GEN-LAST:event_btnExercicio04ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

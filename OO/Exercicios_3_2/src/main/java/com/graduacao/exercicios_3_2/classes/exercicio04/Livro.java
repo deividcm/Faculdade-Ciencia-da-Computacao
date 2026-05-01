@@ -4,7 +4,7 @@ import java.util.Objects;
 
 
 public class Livro {
-    private String cod;
+    private String cod; // Adicionei um código pra conseguir usar HashMap
     private String titulo;
     private String autor;
     private double preco;
