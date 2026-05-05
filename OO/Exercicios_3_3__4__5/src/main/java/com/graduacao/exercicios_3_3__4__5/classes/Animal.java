@@ -1,7 +1,9 @@
 package com.graduacao.exercicios_3_3__4__5.classes;
 
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Animal {
     private String cod;
     private String nome;

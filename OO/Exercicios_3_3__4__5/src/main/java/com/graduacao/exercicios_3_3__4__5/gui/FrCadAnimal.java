@@ -9,12 +9,16 @@ import javax.swing.JOptionPane;
 public class FrCadAnimal extends javax.swing.JFrame {
     private boolean editando;
     private final GerenciadorAnimal gerenciador;
-    
+    private String pathFile;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadAnimal.class.getName());
 
     public FrCadAnimal() {
         this.gerenciador = new GerenciadorAnimal();
         initComponents();
+        //this.pathFile = "ListagemAnimais.csv";
+        this.pathFile = "ListagemAnimais.xml";
+        this.gerenciador.carregarDoArquivo(pathFile);
+        this.edtListagem.setText(gerenciador.toString());
     }
 
     /**
@@ -229,6 +233,7 @@ public class FrCadAnimal extends javax.swing.JFrame {
        
        this.limparCampos();
        this.habilitarCampos(false);
+       this.gerenciador.salvarNoArquivo(pathFile);
        this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -258,6 +263,7 @@ public class FrCadAnimal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
         this.habilitarCampos(false);
+        this.gerenciador.salvarNoArquivo(pathFile);
         this.edtListagem.setText(this.gerenciador.toString());
     }//GEN-LAST:event_btnExcluirActionPerformed
     public void habilitarCampos(boolean flag){
@@ -319,6 +325,8 @@ public class FrCadAnimal extends javax.swing.JFrame {
         this.edtIdade.setText(animal.getIdade()+"");
     }
 
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;

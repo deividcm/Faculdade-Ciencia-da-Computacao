@@ -4,13 +4,17 @@ package com.graduacao.exercicios_3_3__4__5.gerenciadores;
 import com.graduacao.exercicios_3_3__4__5.classes.Animal;
 import com.graduacao.exercicios_3_3__4__5.file.FilePersistence;
 import com.graduacao.exercicios_3_3__4__5.file.exercicio03.SerializadorCSVAnimais;
+import com.graduacao.exercicios_3_3__4__5.file.exercicio03.SerializadorXMLAnimais;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
-
+@XmlRootElement(name = "Animais")
 public class GerenciadorAnimal {
     
+    @XmlElement(name = "Animal")
     private Map<String,Animal> animais;
     
     public GerenciadorAnimal(){
@@ -65,17 +69,25 @@ public class GerenciadorAnimal {
         return sb.toString();
     }
     
+    public void salvarNoArquivo(String pathFile){
+        /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
+        String data = serializador.toCSV(animais);*/
+        SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
+        String data = serializador.toXML(this);
+        FilePersistence filePersistence = new FilePersistence();
+        filePersistence.saveToFile(data, pathFile);
+    }
+    
     public void carregarDoArquivo(String pathFile){
         
         FilePersistence filePersistence = new FilePersistence();
-        String csvData = filePersistence.loadFromFile(pathFile);
+        String data = filePersistence.loadFromFile(pathFile);
         
-        SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
-        this.animais = serializador.fromCSV(csvData);
-        
+        /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
+        this.animais = serializador.fromCSV(data);*/
+        SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
+        this.animais = serializador.fromXML(data).getAnimais();
     }
-    
-    
     
     
     public int size(){

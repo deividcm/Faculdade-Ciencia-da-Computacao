@@ -31,7 +31,7 @@ public class FilePersistence {
             Scanner ler = new Scanner(file);
             
             while(ler.hasNextLine()){
-                conteudo += ler.nextLine();
+                conteudo += ler.nextLine() + "\n";
             }
         }
         catch(IOException e){    
