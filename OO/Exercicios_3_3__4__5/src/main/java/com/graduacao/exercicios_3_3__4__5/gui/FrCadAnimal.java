@@ -16,7 +16,8 @@ public class FrCadAnimal extends javax.swing.JFrame {
         this.gerenciador = new GerenciadorAnimal();
         initComponents();
         //this.pathFile = "ListagemAnimais.csv";
-        this.pathFile = "ListagemAnimais.xml";
+        //this.pathFile = "ListagemAnimais.xml";
+        this.pathFile = "ListagemAnimais.json";
         this.gerenciador.carregarDoArquivo(pathFile);
         this.edtListagem.setText(gerenciador.toString());
     }

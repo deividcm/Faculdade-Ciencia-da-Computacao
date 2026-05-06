@@ -4,6 +4,7 @@ package com.graduacao.exercicios_3_3__4__5.gerenciadores;
 import com.graduacao.exercicios_3_3__4__5.classes.Animal;
 import com.graduacao.exercicios_3_3__4__5.file.FilePersistence;
 import com.graduacao.exercicios_3_3__4__5.file.exercicio03.SerializadorCSVAnimais;
+import com.graduacao.exercicios_3_3__4__5.file.exercicio03.SerializadorJSONAnimais;
 import com.graduacao.exercicios_3_3__4__5.file.exercicio03.SerializadorXMLAnimais;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,8 +73,10 @@ public class GerenciadorAnimal {
     public void salvarNoArquivo(String pathFile){
         /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
         String data = serializador.toCSV(animais);*/
-        SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
-        String data = serializador.toXML(this);
+        /*SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
+        String data = serializador.toXML(this);*/
+        SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
+        String data = serializador.toJSON(animais);
         FilePersistence filePersistence = new FilePersistence();
         filePersistence.saveToFile(data, pathFile);
     }
@@ -85,8 +88,10 @@ public class GerenciadorAnimal {
         
         /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
         this.animais = serializador.fromCSV(data);*/
-        SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
-        this.animais = serializador.fromXML(data).getAnimais();
+        /*SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
+        this.animais = serializador.fromXML(data).getAnimais();*/
+        SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
+        this.animais = serializador.fromJSON(data);
     }
     
     
