@@ -30,8 +30,9 @@ public class FilePersistence {
             File file = new File(filePath);
             Scanner ler = new Scanner(file);
             
-            while(ler.hasNextLine()){
-                conteudo += ler.nextLine() + "\n";
+            ler.useDelimiter("\\Z");
+            while(ler.hasNext()){
+                conteudo += ler.next();
             }
         }
         catch(IOException e){    

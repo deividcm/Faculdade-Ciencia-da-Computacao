@@ -14,7 +14,7 @@ public class SerializadorJSONAnimais {
     public String toJSON(Map<String, Animal> animais){
         try{          
             ObjectMapper mapper = new ObjectMapper();
-            String jsonString = mapper.writeValueAsString(animais.values());
+            String jsonString = mapper.writeValueAsString(animais);
             
             return jsonString;
         }catch(Exception e){
@@ -26,11 +26,8 @@ public class SerializadorJSONAnimais {
     public Map<String, Animal> fromJSON(String jsonString){
         try{
             ObjectMapper mapper = new ObjectMapper();
-            Collection<Animal> animaisValues = mapper.readValue(jsonString, new TypeReference<Collection<Animal>>() {});
-            Map<String, Animal> animais = new HashMap<>();
-            for(Animal animal: animaisValues){
-                animais.put(animal.getCod(), animal);
-            }
+            Map<String,Animal> animais = mapper.readValue(jsonString, new TypeReference<Map<String,Animal>>() {});
+           
             return animais;
         }catch(Exception e){
             e.printStackTrace();
