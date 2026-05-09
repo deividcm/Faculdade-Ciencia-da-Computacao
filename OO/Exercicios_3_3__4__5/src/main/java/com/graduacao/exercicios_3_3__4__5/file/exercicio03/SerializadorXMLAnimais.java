@@ -21,7 +21,7 @@ public class SerializadorXMLAnimais {
             return writer.toString();
         }catch(Exception e){
             e.printStackTrace();
-            return null;
+            return "";
         }        
     }
     

@@ -71,12 +71,12 @@ public class GerenciadorAnimal {
     }
     
     public void salvarNoArquivo(String pathFile){
-        SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
-        String data = serializador.toCSV(animais);
+        /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
+        String data = serializador.toCSV(this.animais);*/
         /*SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
         String data = serializador.toXML(this);*/
-        /*SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
-        String data = serializador.toJSON(animais);*/
+        SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
+        String data = serializador.toJSON(this.animais);
         FilePersistence filePersistence = new FilePersistence();
         filePersistence.saveToFile(data, pathFile);
     }
@@ -86,12 +86,12 @@ public class GerenciadorAnimal {
         FilePersistence filePersistence = new FilePersistence();
         String data = filePersistence.loadFromFile(pathFile);
         
-        SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
-        this.animais = serializador.fromCSV(data);
+        /*SerializadorCSVAnimais serializador = new SerializadorCSVAnimais();
+        this.animais = serializador.fromCSV(data);*/
         /*SerializadorXMLAnimais serializador = new SerializadorXMLAnimais();
         this.animais = serializador.fromXML(data).getAnimais();*/
-        /*SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
-        this.animais = serializador.fromJSON(data);*/
+        SerializadorJSONAnimais serializador = new SerializadorJSONAnimais();
+        this.animais = serializador.fromJSON(data);
     }
     
     

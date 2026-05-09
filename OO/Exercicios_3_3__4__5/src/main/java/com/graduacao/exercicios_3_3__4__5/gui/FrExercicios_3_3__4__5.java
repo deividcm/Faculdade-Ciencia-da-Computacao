@@ -36,7 +36,7 @@ public class FrExercicios_3_3__4__5 extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Exercícios 3.2");
+        lblTitulo.setText("Exercícios 3.3, 3.4 e 3.5");
         lblTitulo.setToolTipText("");
         lblTitulo.setOpaque(true);
 
@@ -45,12 +45,14 @@ public class FrExercicios_3_3__4__5 extends javax.swing.JFrame {
 
         btnExercicio01.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio01.setText("Exercício01");
+        btnExercicio01.setEnabled(false);
         btnExercicio01.setMaximumSize(new java.awt.Dimension(89, 23));
         btnExercicio01.addActionListener(this::btnExercicio01ActionPerformed);
         panExercicios3_2.add(btnExercicio01);
 
         btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio02.setText("Exercício02");
+        btnExercicio02.setEnabled(false);
         btnExercicio02.setMaximumSize(new java.awt.Dimension(89, 23));
         btnExercicio02.addActionListener(this::btnExercicio02ActionPerformed);
         panExercicios3_2.add(btnExercicio02);
@@ -69,6 +71,7 @@ public class FrExercicios_3_3__4__5 extends javax.swing.JFrame {
 
         btnExercicio05.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExercicio05.setText("Exercício05");
+        btnExercicio05.setEnabled(false);
         btnExercicio05.setMaximumSize(new java.awt.Dimension(89, 23));
         btnExercicio05.addActionListener(this::btnExercicio05ActionPerformed);
         panExercicios3_2.add(btnExercicio05);
@@ -105,10 +108,10 @@ public class FrExercicios_3_3__4__5 extends javax.swing.JFrame {
 
     private void btnExercicio03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio03ActionPerformed
         this.setVisible(false);
-        FrCadAnimal exercicio05Tela = new FrCadAnimal();
-        exercicio05Tela.setLocation(this.getLocation());
-        exercicio05Tela.habilitarCampos(false);
-        exercicio05Tela.setVisible(true);
+        FrCadAnimal exercicio03Tela = new FrCadAnimal();
+        exercicio03Tela.setLocation(this.getLocation());
+        exercicio03Tela.habilitarCampos(false);
+        exercicio03Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio03ActionPerformed
 
     private void btnExercicio05ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio05ActionPerformed
@@ -116,7 +119,11 @@ public class FrExercicios_3_3__4__5 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExercicio05ActionPerformed
 
     private void btnExercicio04ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio04ActionPerformed
-        
+        this.setVisible(false);
+        FrCadCarro exercicio04Tela = new FrCadCarro();
+        exercicio04Tela.setLocation(this.getLocation());
+        exercicio04Tela.habilitarCampos(false);
+        exercicio04Tela.setVisible(true);
     }//GEN-LAST:event_btnExercicio04ActionPerformed
 
 

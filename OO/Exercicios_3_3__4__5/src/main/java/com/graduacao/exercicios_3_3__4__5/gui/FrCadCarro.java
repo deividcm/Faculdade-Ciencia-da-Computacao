@@ -1,23 +1,23 @@
 package com.graduacao.exercicios_3_3__4__5.gui;
 
 
-import com.graduacao.exercicios_3_3__4__5.classes.Animal;
-import com.graduacao.exercicios_3_3__4__5.gerenciadores.GerenciadorAnimal;
+import com.graduacao.exercicios_3_3__4__5.classes.Carro;
+import com.graduacao.exercicios_3_3__4__5.gerenciadores.GerenciadorCarro;
 import javax.swing.JOptionPane;
 
 
-public class FrCadAnimal extends javax.swing.JFrame {
+public class FrCadCarro extends javax.swing.JFrame {
     private boolean editando;
-    private final GerenciadorAnimal gerenciador;
+    private final GerenciadorCarro gerenciador;
     private String pathFile;
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadAnimal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrCadCarro.class.getName());
 
-    public FrCadAnimal() {
-        this.gerenciador = new GerenciadorAnimal();
+    public FrCadCarro() {
+        this.gerenciador = new GerenciadorCarro();
         initComponents();
-        //this.pathFile = "listagens/exercicio03/ListagemAnimais.csv";
-        //this.pathFile = "listagens/exercicio03/ListagemAnimais.xml";
-        this.pathFile = "listagens/exercicio03/ListagemAnimais.json";
+        //this.pathFile = "listagens/exercicio04/ListagemCarros.csv";
+        //this.pathFile = "listagens/exercicio04/ListagemCarros.xml";
+        this.pathFile = "listagens/exercicio04/ListagemCarros.json";
         this.gerenciador.carregarDoArquivo(pathFile);
         this.edtListagem.setText(gerenciador.toString());
     }
@@ -42,16 +42,14 @@ public class FrCadAnimal extends javax.swing.JFrame {
         panCampos = new javax.swing.JPanel();
         lblCod = new javax.swing.JLabel();
         edtCod = new javax.swing.JTextField();
-        lblNome = new javax.swing.JLabel();
-        edtNome = new javax.swing.JTextField();
-        lblRaca = new javax.swing.JLabel();
-        edtRaca = new javax.swing.JTextField();
-        lblPeso = new javax.swing.JLabel();
-        edtPeso = new javax.swing.JTextField();
-        lblEspecie = new javax.swing.JLabel();
-        edtEspecie = new javax.swing.JTextField();
-        lblIdade = new javax.swing.JLabel();
-        edtIdade = new javax.swing.JTextField();
+        lblMarca = new javax.swing.JLabel();
+        edtMarca = new javax.swing.JTextField();
+        lblPreco = new javax.swing.JLabel();
+        edtPreco = new javax.swing.JTextField();
+        lblModelo = new javax.swing.JLabel();
+        edtModelo = new javax.swing.JTextField();
+        lblAno = new javax.swing.JLabel();
+        edtAno = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         edtListagem = new javax.swing.JTextArea();
 
@@ -59,7 +57,7 @@ public class FrCadAnimal extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastro de Animal");
+        lblTitulo.setText("Cadastro de Carro");
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(this::btnNovoActionPerformed);
@@ -96,25 +94,21 @@ public class FrCadAnimal extends javax.swing.JFrame {
 
         edtCod.setEnabled(false);
 
-        lblNome.setText("Nome: ");
+        lblMarca.setText("Marca:");
 
-        edtNome.setEnabled(false);
+        edtMarca.setEnabled(false);
 
-        lblRaca.setText("Raça: ");
+        lblPreco.setText("Preço:");
 
-        edtRaca.setEnabled(false);
+        edtPreco.setEnabled(false);
 
-        lblPeso.setText("Peso: ");
+        lblModelo.setText("Modelo:");
 
-        edtPeso.setEnabled(false);
+        edtModelo.setEnabled(false);
 
-        lblEspecie.setText("Espécie: ");
+        lblAno.setText("Ano:");
 
-        edtEspecie.setEnabled(false);
-
-        lblIdade.setText("Idade: ");
-
-        edtIdade.setEnabled(false);
+        edtAno.setEnabled(false);
 
         javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
         panCampos.setLayout(panCamposLayout);
@@ -122,32 +116,29 @@ public class FrCadAnimal extends javax.swing.JFrame {
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panCamposLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panCamposLayout.createSequentialGroup()
                         .addComponent(lblCod)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNome)
+                        .addComponent(lblMarca)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(edtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(15, 15, 15)
+                        .addComponent(lblModelo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edtModelo))
                     .addGroup(panCamposLayout.createSequentialGroup()
-                        .addComponent(lblRaca)
+                        .addComponent(lblPreco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPeso)
+                        .addComponent(lblAno)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblIdade)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblEspecie)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(edtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(edtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panCamposLayout.setVerticalGroup(
             panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,21 +148,18 @@ public class FrCadAnimal extends javax.swing.JFrame {
                     .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addComponent(lblEspecie)
-                                .addComponent(edtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                            .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(edtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(lblModelo)
+                                .addComponent(edtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(lblMarca, javax.swing.GroupLayout.Alignment.LEADING))
                         .addComponent(lblCod))
                     .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(edtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(lblPeso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(edtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(lblIdade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPreco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblAno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(12, 12, 12))
         );
 
@@ -225,11 +213,11 @@ public class FrCadAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-       Animal animal = this.camposParaObjeto();
-       if(editando || !this.gerenciador.containsKey(animal.getCod())){
-           this.gerenciador.put(animal);
+       Carro carro = this.camposParaObjeto();
+       if(editando || !this.gerenciador.containsKey(carro.getCod())){
+           this.gerenciador.put(carro);
        }else{
-           JOptionPane.showMessageDialog(this, "Já existe um animal com este código!");
+           JOptionPane.showMessageDialog(this, "Já existe um carro com este código!");
        }
        
        this.limparCampos();
@@ -239,27 +227,27 @@ public class FrCadAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-       String cod = JOptionPane.showInputDialog(this, "Informe o código do animal", "");
-       Animal animal = this.gerenciador.get(cod);
+       String cod = JOptionPane.showInputDialog(this, "Informe o código do carro", "");
+       Carro carro = this.gerenciador.get(cod);
        
-       if(animal != null){
+       if(carro != null){
            this.editando = true;
            this.limparCampos();
            this.habilitarCampos(true);
            this.edtCod.setEnabled(false);
-           this.objetoParaCampos(animal);
+           this.objetoParaCampos(carro);
        }else if(!cod.isEmpty()){
-           JOptionPane.showMessageDialog(this, "Animal inexistente!");
+           JOptionPane.showMessageDialog(this, "Carro inexistente!");
        }
         
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        String cod = JOptionPane.showInputDialog(this, "Informe o código do animal", "");
-        Animal animal = this.gerenciador.remove(cod);
-        if(animal == null){
-            JOptionPane.showMessageDialog(this, "Animal inexistente!");
+        String cod = JOptionPane.showInputDialog(this, "Informe o código do carro", "");
+        Carro carro = this.gerenciador.remove(cod);
+        if(carro == null){
+            JOptionPane.showMessageDialog(this, "Carro inexistente!");
         }else if(!cod.isEmpty()){
             JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
         }
@@ -269,11 +257,10 @@ public class FrCadAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
     public void habilitarCampos(boolean flag){
         this.edtCod.setEnabled(flag);
-        this.edtNome.setEnabled(flag);
-        this.edtEspecie.setEnabled(flag);
-        this.edtRaca.setEnabled(flag);
-        this.edtPeso.setEnabled(flag);
-        this.edtIdade.setEnabled(flag);
+        this.edtMarca.setEnabled(flag);
+        this.edtModelo.setEnabled(flag);
+        this.edtPreco.setEnabled(flag);
+        this.edtAno.setEnabled(flag);
         
         this.habilitarBotoes(flag);
     }
@@ -288,42 +275,39 @@ public class FrCadAnimal extends javax.swing.JFrame {
     
     public void limparCampos(){
         this.edtCod.setText("");
-        this.edtNome.setText("");
-        this.edtEspecie.setText("");
-        this.edtRaca.setText("");
-        this.edtPeso.setText("");
-        this.edtIdade.setText("");
+        this.edtMarca.setText("");
+        this.edtModelo.setText("");
+        this.edtPreco.setText("");
+        this.edtAno.setText("");
     }
     
-    public Animal camposParaObjeto(){
-        Animal animal = new Animal();
-        animal.setCod(this.edtCod.getText());
-        animal.setNome(this.edtNome.getText());
-        animal.setEspecie(this.edtEspecie.getText());
-        animal.setRaca(this.edtRaca.getText());
-        
-        String pesoStr = this.edtPeso.getText();
-        if(!pesoStr.isEmpty()){
-            double peso = Double.parseDouble(pesoStr);
-            animal.setPeso(peso);
+    public Carro camposParaObjeto(){
+        Carro carro = new Carro();
+        carro.setCod(this.edtCod.getText());
+        carro.setMarca(this.edtMarca.getText());
+        carro.setModelo(this.edtModelo.getText());
+
+        String precoStr = this.edtPreco.getText();
+        if(!precoStr.isEmpty()){
+            double preco = Double.parseDouble(precoStr);
+            carro.setPreco(preco);
         }
-        String idadeStr = this.edtIdade.getText();
-        if(!idadeStr.isEmpty()){
-            int idade = Integer.parseInt(idadeStr);
-            animal.setIdade(idade);
+        String anoStr = this.edtAno.getText();
+        if(!anoStr.isEmpty()){
+            int ano = Integer.parseInt(anoStr);
+            carro.setAno(ano);
         }
         
         
-        return animal;
+        return carro;
     }
     
-    public void objetoParaCampos(Animal animal){
-        this.edtCod.setText(animal.getCod());
-        this.edtNome.setText(animal.getNome());
-        this.edtEspecie.setText(animal.getEspecie());
-        this.edtRaca.setText(animal.getRaca());
-        this.edtPeso.setText(animal.getPeso()+"");
-        this.edtIdade.setText(animal.getIdade()+"");
+    public void objetoParaCampos(Carro carro){
+        this.edtCod.setText(carro.getCod());
+        this.edtMarca.setText(carro.getMarca());
+        this.edtModelo.setText(carro.getModelo());
+        this.edtPreco.setText(carro.getPreco()+"");
+        this.edtAno.setText(carro.getAno()+"");
     }
 
     
@@ -335,20 +319,18 @@ public class FrCadAnimal extends javax.swing.JFrame {
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JTextField edtAno;
     private javax.swing.JTextField edtCod;
-    private javax.swing.JTextField edtEspecie;
-    private javax.swing.JTextField edtIdade;
     private javax.swing.JTextArea edtListagem;
-    private javax.swing.JTextField edtNome;
-    private javax.swing.JTextField edtPeso;
-    private javax.swing.JTextField edtRaca;
+    private javax.swing.JTextField edtMarca;
+    private javax.swing.JTextField edtModelo;
+    private javax.swing.JTextField edtPreco;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAno;
     private javax.swing.JLabel lblCod;
-    private javax.swing.JLabel lblEspecie;
-    private javax.swing.JLabel lblIdade;
-    private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblPeso;
-    private javax.swing.JLabel lblRaca;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblPreco;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panBotoes;
     private javax.swing.JPanel panCampos;
