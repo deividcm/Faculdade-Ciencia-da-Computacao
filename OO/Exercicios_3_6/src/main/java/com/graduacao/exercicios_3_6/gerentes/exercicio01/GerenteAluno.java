@@ -74,6 +74,12 @@ public class GerenteAluno {
         filePersistence.salvarEmArquivo(data, pathFile);
     }
     
+    public void carregarDoArquivo(String pathFile){
+        FilePersistence filePersistence = new FilePersistence();
+        String data = filePersistence.carregarDeArquivo(pathFile);
+        SerializadorAluno serializador = new SerializadorAluno();
+        this.alunos = serializador.fromJSON(data).getAlunos();
+    }
     
     public boolean containsKey(String matricula){
         return this.alunos.containsKey(matricula);
