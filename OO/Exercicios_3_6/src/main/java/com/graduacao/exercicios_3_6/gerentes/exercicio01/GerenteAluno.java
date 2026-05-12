@@ -1,6 +1,8 @@
 package com.graduacao.exercicios_3_6.gerentes.exercicio01;
 
 import com.graduacao.exercicios_3_6.classes.exercicio01.Aluno;
+import com.graduacao.exercicios_3_6.file.FilePersistence;
+import com.graduacao.exercicios_3_6.file.exercicio01.SerializadorAluno;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -62,6 +64,16 @@ public class GerenteAluno {
         
         return sb.toString();
     }
+    
+    public void salvarNoArquivo(String pathFile){
+        
+        SerializadorAluno serializador = new SerializadorAluno();
+        String data = serializador.toJSON(this);
+        
+        FilePersistence filePersistence = new FilePersistence();
+        filePersistence.salvarEmArquivo(data, pathFile);
+    }
+    
     
     public boolean containsKey(String matricula){
         return this.alunos.containsKey(matricula);
