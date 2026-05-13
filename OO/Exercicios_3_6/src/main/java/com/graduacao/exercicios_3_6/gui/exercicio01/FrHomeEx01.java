@@ -5,6 +5,7 @@ import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteAluno;
 import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteDisciplina;
 import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteProfessor;
 import com.graduacao.exercicios_3_6.gui.FrExercicios_3_6;
+import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadAluno;
 
 
 public class FrHomeEx01 extends javax.swing.JFrame {
@@ -14,13 +15,19 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     private final GerenteAluno gerenteAlunos;
     private final GerenteProfessor gerenteProfessores;
     private final GerenteDisciplina gerenteDisciplinas;
-    
+    private String pathFileAluno;
+    private String pathFileProfessor;
+    private String pathFileDisciplina;
+
     public FrHomeEx01() {
         initComponents();
         this.gerenteAlunos = new GerenteAluno();
         this.gerenteProfessores = new GerenteProfessor();
         this.gerenteDisciplinas = new GerenteDisciplina();
         
+        this.pathFileAluno = "listagens/exercicio01/ListagemAlunos.json";
+        this.pathFileProfessor = "listagens/exercicio01/ListagemProfessores.json";
+        this.pathFileDisciplina = "listagens/exercicio01/ListagemDisciplinas.json";
     }
 
     /**
@@ -94,7 +101,9 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDisciplinasActionPerformed
 
     private void btnCadAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadAlunosActionPerformed
-        // TODO add your handling code here:
+        DlgCadAluno cadAluno = new DlgCadAluno(this, true);
+        cadAluno.setLocation(this.getLocation());
+        cadAluno.setVisible(true);
     }//GEN-LAST:event_btnCadAlunosActionPerformed
 
     private void btnCadProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadProfessoresActionPerformed
@@ -116,7 +125,17 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     public GerenteDisciplina getGerenteDisciplinas() {
         return this.gerenteDisciplinas;
     }
+    public String getPathFileAluno() {
+        return this.pathFileAluno;
+    }
 
+    public String getPathFileProfessor() {
+        return this.pathFileProfessor;
+    }
+
+    public String getPathFileDisciplina() {
+        return this.pathFileDisciplina;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadAlunos;

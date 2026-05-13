@@ -30,7 +30,7 @@ public class GerenteAluno {
     public Aluno remove(String matricula){
         return this.alunos.remove(matricula);
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 3;

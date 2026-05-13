@@ -1,5 +1,7 @@
 package com.graduacao.exercicios_3_6.gui;
 
+import com.graduacao.exercicios_3_6.gui.exercicio01.FrHomeEx01;
+
 public class FrExercicios_3_6 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrExercicios_3_6.class.getName());
@@ -84,7 +86,10 @@ public class FrExercicios_3_6 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExercicio03ActionPerformed
 
     private void btnExercicio01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExercicio01ActionPerformed
-        // TODO add your handling code here:
+        FrHomeEx01 exercicio01 = new FrHomeEx01();
+        exercicio01.setLocation(this.getLocation());
+        this.setVisible(false);
+        exercicio01.setVisible(true);
     }//GEN-LAST:event_btnExercicio01ActionPerformed
 
 

@@ -1,23 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
 package com.graduacao.exercicios_3_6.gui.exercicio01.dialogs;
 
-/**
- *
- * @author deivi
- */
+import com.graduacao.exercicios_3_6.classes.exercicio01.Aluno;
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteAluno;
+import com.graduacao.exercicios_3_6.gui.exercicio01.FrHomeEx01;
+import javax.swing.JOptionPane;
+
 public class DlgCadAluno extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgCadAluno.class.getName());
-
-    /**
-     * Creates new form DlgCadAluno
-     */
+    
+    private FrHomeEx01 pai;
+    private final GerenteAluno gerente;
+    private boolean editando;
+    private String pathFile;
     public DlgCadAluno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        
+        this.pai = (FrHomeEx01) parent;
+        this.gerente = this.pai.getGerenteAlunos();
+        this.pathFile = this.pai.getPathFileAluno();
     }
 
     /**
@@ -30,8 +33,25 @@ public class DlgCadAluno extends javax.swing.JDialog {
     private void initComponents() {
 
         lblTitulo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        panBotoes = new javax.swing.JPanel();
+        btnNovo = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        panCampos = new javax.swing.JPanel();
+        lblMatricula = new javax.swing.JLabel();
+        edtMatricula = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        edtNome = new javax.swing.JTextField();
+        lblSexo = new javax.swing.JLabel();
+        edtSexo = new javax.swing.JTextField();
+        lblAnoIngresso = new javax.swing.JLabel();
+        edtAnoIngresso = new javax.swing.JTextField();
+        lblIdade = new javax.swing.JLabel();
+        edtIdade = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        edtListagem = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -39,34 +59,118 @@ public class DlgCadAluno extends javax.swing.JDialog {
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("Cadastro de Alunos");
 
-        jButton1.setText("jButton1");
+        btnNovo.setText("Novo");
+        btnNovo.addActionListener(this::btnNovoActionPerformed);
+        panBotoes.add(btnNovo);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
+        btnEditar.setText("Editar");
+        btnEditar.setEnabled(false);
+        btnEditar.addActionListener(this::btnEditarActionPerformed);
+        panBotoes.add(btnEditar);
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setEnabled(false);
+        btnCancelar.addActionListener(this::btnCancelarActionPerformed);
+        panBotoes.add(btnCancelar);
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(this::btnExcluirActionPerformed);
+        panBotoes.add(btnExcluir);
+
+        btnSalvar.setText("Salvar");
+        btnSalvar.setEnabled(false);
+        btnSalvar.addActionListener(this::btnSalvarActionPerformed);
+        panBotoes.add(btnSalvar);
+
+        panCampos.setBackground(new java.awt.Color(204, 204, 204));
+
+        lblMatricula.setText("Mátricula: ");
+
+        edtMatricula.setEnabled(false);
+
+        lblNome.setText("Nome: ");
+
+        edtNome.setEnabled(false);
+
+        lblSexo.setText("Sexo: ");
+
+        edtSexo.setEnabled(false);
+
+        lblAnoIngresso.setText("Ano de Ingresso: ");
+
+        edtAnoIngresso.setEnabled(false);
+
+        lblIdade.setText("Idade: ");
+
+        edtIdade.setEnabled(false);
+
+        javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
+        panCampos.setLayout(panCamposLayout);
+        panCamposLayout.setHorizontalGroup(
+            panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCamposLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panCamposLayout.createSequentialGroup()
+                        .addComponent(lblMatricula)
+                        .addGap(6, 6, 6)
+                        .addComponent(edtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblNome)
+                        .addGap(6, 6, 6)
+                        .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(lblSexo)
+                        .addGap(6, 6, 6)
+                        .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panCamposLayout.createSequentialGroup()
+                        .addComponent(lblAnoIngresso)
+                        .addGap(6, 6, 6)
+                        .addComponent(edtAnoIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblIdade)
+                        .addGap(6, 6, 6)
+                        .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+        panCamposLayout.setVerticalGroup(
+            panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panCamposLayout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMatricula)
+                    .addComponent(edtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome)
+                    .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSexo)
+                    .addComponent(edtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAnoIngresso)
+                    .addComponent(edtAnoIngresso, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdade)
+                    .addComponent(edtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
+
+        edtListagem.setEditable(false);
+        edtListagem.setColumns(20);
+        edtListagem.setRows(5);
+        jScrollPane1.setViewportView(edtListagem);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,53 +178,147 @@ public class DlgCadAluno extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addComponent(panBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        this.editando = false;
+        this.limparCampos();
+        this.habilitarCampos(true);
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        DlgEscolhaAluno escolha = new DlgEscolhaAluno(this.pai,true,this.gerente);
+        escolha.setLocation(this.getLocation());
+        escolha.setVisible(true);
+        
+        Aluno aluno = escolha.getAlunoEscolhido();
+        if(aluno != null){
+            this.limparCampos();
+            this.editando = true;
+            this.habilitarCampos(true);
+            this.objetoParaCampos(aluno);
         }
-        //</editor-fold>
+    }//GEN-LAST:event_btnEditarActionPerformed
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DlgCadAluno dialog = new DlgCadAluno(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        this.limparCampos();
+        this.habilitarCampos(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        DlgEscolhaAluno escolha = new DlgEscolhaAluno(this.pai,true,this.gerente);
+        escolha.setLocation(this.getLocation());
+        escolha.setVisible(true);
+        
+        Aluno aluno = this.gerente.remove(escolha.getAlunoEscolhido().getMatricula());
+        if(aluno != null){
+            JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
+        }
+        this.habilitarCampos(false);
+        this.edtListagem.setText(this.gerente.toString());
+        this.gerente.salvarNoArquivo(pathFile);
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        Aluno aluno = this.camposParaObjeto();
+        
+        if(editando || !this.gerente.containsKey(aluno.getMatricula())){
+            this.gerente.put(aluno);
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Já existe um aluno com esta matrícula!");
+        }
+        this.limparCampos();
+        this.habilitarCampos(false);
+        this.gerente.salvarNoArquivo(this.pathFile);
+        this.edtListagem.setText(this.gerente.toString());
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    public void habilitarCampos(boolean flag){
+        this.edtMatricula.setEnabled(!this.editando && flag);
+        this.edtNome.setEnabled(flag);
+        this.edtSexo.setEnabled(flag);
+        this.edtAnoIngresso.setEnabled(flag);
+        this.edtIdade.setEnabled(flag);
+        
+        this.habilitarBotoes(flag);
     }
-
+    public void habilitarBotoes(boolean flag){
+        this.btnNovo.setEnabled(!flag);
+        this.btnEditar.setEnabled(this.gerente.size() > 0 && !flag);
+        this.btnCancelar.setEnabled(flag);
+        this.btnExcluir.setEnabled(this.gerente.size() > 0 && !flag);
+        this.btnSalvar.setEnabled(flag);
+    }
+    public void limparCampos(){
+        this.edtMatricula.setText("");
+        this.edtNome.setText("");
+        this.edtSexo.setText("");
+        this.edtAnoIngresso.setText("");
+        this.edtIdade.setText("");
+    }
+    
+    public void objetoParaCampos(Aluno aluno){
+        this.edtMatricula.setText(aluno.getMatricula());
+        this.edtNome.setText(aluno.getNome());
+        this.edtSexo.setText(aluno.getSexo()+"");
+        this.edtAnoIngresso.setText(aluno.getAnoIngresso()+"");
+        this.edtIdade.setText(aluno.getIdade()+"");
+    }
+    public Aluno camposParaObjeto(){
+        Aluno aluno = new Aluno();
+        aluno.setMatricula(this.edtMatricula.getText());
+        aluno.setNome(this.edtNome.getText());
+        
+        String sexoStr = this.edtSexo.getText();
+        if(!sexoStr.isEmpty() && sexoStr.length() == 1){
+            char sexo = sexoStr.charAt(0);
+            aluno.setSexo(sexo);
+        }
+        String anoIngressoStr = this.edtAnoIngresso.getText();
+        if(!anoIngressoStr.isEmpty()){
+            int anoIngresso = Integer.parseInt(anoIngressoStr);
+            aluno.setAnoIngresso(anoIngresso);
+        }
+        String idadeStr = this.edtIdade.getText();
+        if(!idadeStr.isEmpty()){
+            int idade = Integer.parseInt(idadeStr);
+            aluno.setIdade(idade);
+        }
+        
+       return aluno;
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JTextField edtAnoIngresso;
+    private javax.swing.JTextField edtIdade;
+    private javax.swing.JTextArea edtListagem;
+    private javax.swing.JTextField edtMatricula;
+    private javax.swing.JTextField edtNome;
+    private javax.swing.JTextField edtSexo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAnoIngresso;
+    private javax.swing.JLabel lblIdade;
+    private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblSexo;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JPanel panBotoes;
+    private javax.swing.JPanel panCampos;
     // End of variables declaration//GEN-END:variables
 }
