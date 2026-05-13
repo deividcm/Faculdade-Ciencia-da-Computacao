@@ -38,57 +38,32 @@ public class FrExercicios_3_6 extends javax.swing.JFrame {
         btnExercicio01.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio01.setText("Exercício01");
         btnExercicio01.addActionListener(this::btnExercicio01ActionPerformed);
+        panBotoes.add(btnExercicio01);
 
         btnExercicio03.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio03.setText("Exercício03");
         btnExercicio03.setEnabled(false);
         btnExercicio03.addActionListener(this::btnExercicio03ActionPerformed);
+        panBotoes.add(btnExercicio03);
 
         btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio02.setText("Exercício02");
         btnExercicio02.setEnabled(false);
+        panBotoes.add(btnExercicio02);
 
         btnExercicio04.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio04.setText("Exercício04");
         btnExercicio04.setEnabled(false);
-
-        javax.swing.GroupLayout panBotoesLayout = new javax.swing.GroupLayout(panBotoes);
-        panBotoes.setLayout(panBotoesLayout);
-        panBotoesLayout.setHorizontalGroup(
-            panBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBotoesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnExercicio04, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panBotoesLayout.createSequentialGroup()
-                        .addComponent(btnExercicio01, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnExercicio02, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnExercicio03, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panBotoesLayout.setVerticalGroup(
-            panBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBotoesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExercicio01, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExercicio03, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExercicio02, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnExercicio04, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
+        panBotoes.add(btnExercicio04);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -96,7 +71,7 @@ public class FrExercicios_3_6 extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

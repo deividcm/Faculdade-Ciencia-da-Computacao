@@ -1,13 +1,26 @@
 
 package com.graduacao.exercicios_3_6.gui.exercicio01;
 
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteAluno;
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteDisciplina;
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteProfessor;
+import com.graduacao.exercicios_3_6.gui.FrExercicios_3_6;
+
 
 public class FrHomeEx01 extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrHomeEx01.class.getName());
-
+    
+    private final GerenteAluno gerenteAlunos;
+    private final GerenteProfessor gerenteProfessores;
+    private final GerenteDisciplina gerenteDisciplinas;
+    
     public FrHomeEx01() {
         initComponents();
+        this.gerenteAlunos = new GerenteAluno();
+        this.gerenteProfessores = new GerenteProfessor();
+        this.gerenteDisciplinas = new GerenteDisciplina();
+        
     }
 
     /**
@@ -19,23 +32,98 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo1 = new javax.swing.JLabel();
+        panBotoes = new javax.swing.JPanel();
+        btnDisciplinas = new javax.swing.JButton();
+        btnCadAlunos = new javax.swing.JButton();
+        btnCadProfessores = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo1.setText("Gerenciamento de Disciplinas");
+
+        panBotoes.setBackground(new java.awt.Color(204, 204, 204));
+
+        btnDisciplinas.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDisciplinas.setText("Disciplinas");
+        btnDisciplinas.addActionListener(this::btnDisciplinasActionPerformed);
+        panBotoes.add(btnDisciplinas);
+
+        btnCadAlunos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCadAlunos.setText("Cadastro Alunos");
+        btnCadAlunos.addActionListener(this::btnCadAlunosActionPerformed);
+        panBotoes.add(btnCadAlunos);
+
+        btnCadProfessores.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnCadProfessores.setText("Cadastro Professores");
+        btnCadProfessores.addActionListener(this::btnCadProfessoresActionPerformed);
+        panBotoes.add(btnCadProfessores);
+
+        btnVoltar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(this::btnVoltarActionPerformed);
+        panBotoes.add(btnVoltar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisciplinasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDisciplinasActionPerformed
+
+    private void btnCadAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadAlunosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadAlunosActionPerformed
+
+    private void btnCadProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadProfessoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCadProfessoresActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        FrExercicios_3_6.tela.setLocation(this.getLocation());
+        this.setVisible(false);
+        FrExercicios_3_6.tela.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    public GerenteAluno getGerenteAlunos() {
+        return this.gerenteAlunos;
+    }
+     public GerenteProfessor getGerenteProfessores() {
+        return this.gerenteProfessores;
+    }
+    public GerenteDisciplina getGerenteDisciplinas() {
+        return this.gerenteDisciplinas;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadAlunos;
+    private javax.swing.JButton btnCadProfessores;
+    private javax.swing.JButton btnDisciplinas;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel lblTitulo1;
+    private javax.swing.JPanel panBotoes;
     // End of variables declaration//GEN-END:variables
 }
