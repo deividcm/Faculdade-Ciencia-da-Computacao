@@ -51,7 +51,17 @@ public class GerenteDisciplina {
         return Objects.equals(this.disciplinas, other.disciplinas);
     }
 
-
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("--- Disciplinas(").append(this.size()).append(") ---\n ");
+        
+        for(Disciplina disciplina: this.disciplinas.values()){
+            sb.append(disciplina.toStringResumido());
+        }
+        
+        return sb.toString();
+    }
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

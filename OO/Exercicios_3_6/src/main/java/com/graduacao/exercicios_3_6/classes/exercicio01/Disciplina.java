@@ -74,6 +74,18 @@ public class Disciplina {
         return Objects.equals(this.gerenteAlunos, other.gerenteAlunos);
     }
     
+    public String toStringResumido(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("--- Disciplina ---\n ");
+        sb.append("Código: ").append(this.cod).append("\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("Horário: ").append(this.horario).append("\n ");
+        sb.append("Semestre: ").append(this.semestre).append("\n ");
+        sb.append("Professor Ministrante: ").append(this.ministrante.getNome()).append("\n ");
+        sb.append("Quantidade de Alunos: ").append(this.gerenteAlunos.size()).append("\n ");
+        return sb.toString();
+    }
+    
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

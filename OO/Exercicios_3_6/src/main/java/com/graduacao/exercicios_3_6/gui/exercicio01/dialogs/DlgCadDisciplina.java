@@ -1,20 +1,25 @@
 package com.graduacao.exercicios_3_6.gui.exercicio01.dialogs;
 
+import com.graduacao.exercicios_3_6.classes.exercicio01.Disciplina;
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteDisciplina;
 import com.graduacao.exercicios_3_6.gui.exercicio01.FrHomeEx01;
+import javax.swing.JOptionPane;
 
 public class DlgCadDisciplina extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgCadDisciplina.class.getName());
-    
+    private GerenteDisciplina gerente;
     private FrHomeEx01 pai;
-    
+    private String pathFile;
     public DlgCadDisciplina(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         
         this.pai = (FrHomeEx01) parent;
-        
-        
+        this.gerente = this.pai.getGerenteDisciplinas();
+        this.pathFile = this.pai.getPathFileDisciplina();
+        this.edtListagem.setText(this.gerente.toStringResumido());
+        this.habilitarBotoes();
     }
 
     /**
@@ -32,7 +37,7 @@ public class DlgCadDisciplina extends javax.swing.JDialog {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        edtListagem = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,9 +61,10 @@ public class DlgCadDisciplina extends javax.swing.JDialog {
         btnExcluir.addActionListener(this::btnExcluirActionPerformed);
         panBotoes.add(btnExcluir);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        edtListagem.setEditable(false);
+        edtListagem.setColumns(20);
+        edtListagem.setRows(5);
+        jScrollPane1.setViewportView(edtListagem);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,17 +94,71 @@ public class DlgCadDisciplina extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-
+        Disciplina disciplina = new Disciplina();
+        
+        DlgDisciplina editaDisciplina = new DlgDisciplina(this.pai, true, disciplina, false);
+        editaDisciplina.setLocation(this.getLocation());
+        editaDisciplina.setVisible(true);
+        
+        if(editaDisciplina.isPronto()){
+            this.gerente.put(disciplina);
+            this.gerente.salvarNoArquivo(pathFile);
+            this.atualizarListagem();
+            this.habilitarBotoes();
+        }
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        DlgEscolhaDisciplina escolha = new DlgEscolhaDisciplina(this.pai,true,this.gerente);
+        escolha.setLocation(this.getLocation());
+        escolha.setVisible(true);
+        
+        Disciplina disciplina = escolha.getDisciplinaEscolhida();
+        if(disciplina != null){
+            DlgDisciplina editaDisciplina = new DlgDisciplina(this.pai, true, disciplina, true);
+            editaDisciplina.setLocation(this.getLocation());
+            editaDisciplina.setVisible(true);
+
+            if(editaDisciplina.isPronto()){
+                this.gerente.put(disciplina);
+                this.gerente.salvarNoArquivo(pathFile);
+                this.atualizarListagem();
+                this.habilitarBotoes();
+            }   
+        }
 
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        DlgEscolhaDisciplina escolha = new DlgEscolhaDisciplina(this.pai,true,this.gerente);
+        escolha.setLocation(this.getLocation());
+        escolha.setVisible(true);
+        
+        Disciplina disciplina = escolha.getDisciplinaEscolhida();
+        if(disciplina != null){
+            this.gerente.remove(disciplina.getCod());
+            this.gerente.salvarNoArquivo(pathFile);
+            this.atualizarListagem();
+            JOptionPane.showMessageDialog(this, "Exclusão realizada com sucesso!");
+            this.habilitarBotoes();
 
+        }
+        
     }//GEN-LAST:event_btnExcluirActionPerformed
 
+    public void habilitarBotoes(){
+        this.btnEditar.setEnabled(this.gerente.size() > 0);
+        this.btnExcluir.setEnabled(this.gerente.size() > 0);
+    }
+    
+    public void atualizarListagem(){
+        this.edtListagem.setText(this.gerente.toStringResumido());
+    }
+    
+    
+    
+    
+    
     public FrHomeEx01 getPai() {
         return this.pai;
     }
@@ -108,8 +168,8 @@ public class DlgCadDisciplina extends javax.swing.JDialog {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JTextArea edtListagem;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panBotoes;
     // End of variables declaration//GEN-END:variables

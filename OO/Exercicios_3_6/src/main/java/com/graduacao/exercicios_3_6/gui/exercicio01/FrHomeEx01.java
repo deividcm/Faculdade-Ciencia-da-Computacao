@@ -6,6 +6,7 @@ import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteDisciplina;
 import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteProfessor;
 import com.graduacao.exercicios_3_6.gui.FrExercicios_3_6;
 import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadAluno;
+import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadDisciplina;
 import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadProfessor;
 
 
@@ -32,6 +33,7 @@ public class FrHomeEx01 extends javax.swing.JFrame {
         
         this.gerenteAlunos.carregarDoArquivo(this.pathFileAluno);
         this.gerenteProfessores.carregarDoArquivo(this.pathFileProfessor);
+        this.gerenteDisciplinas.carregarDoArquivo(this.pathFileDisciplina);
     }
 
     /**
@@ -101,7 +103,10 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisciplinasActionPerformed
-        // TODO add your handling code here:
+        DlgCadDisciplina cadDisciplina = new DlgCadDisciplina(this, true);
+        cadDisciplina.setLocation(this.getLocation());
+        cadDisciplina.habilitarBotoes();
+        cadDisciplina.setVisible(true);
     }//GEN-LAST:event_btnDisciplinasActionPerformed
 
     private void btnCadAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadAlunosActionPerformed
