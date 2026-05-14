@@ -6,6 +6,7 @@ import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteDisciplina;
 import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteProfessor;
 import com.graduacao.exercicios_3_6.gui.FrExercicios_3_6;
 import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadAluno;
+import com.graduacao.exercicios_3_6.gui.exercicio01.dialogs.DlgCadProfessor;
 
 
 public class FrHomeEx01 extends javax.swing.JFrame {
@@ -28,6 +29,9 @@ public class FrHomeEx01 extends javax.swing.JFrame {
         this.pathFileAluno = "listagens/exercicio01/ListagemAlunos.json";
         this.pathFileProfessor = "listagens/exercicio01/ListagemProfessores.json";
         this.pathFileDisciplina = "listagens/exercicio01/ListagemDisciplinas.json";
+        
+        this.gerenteAlunos.carregarDoArquivo(this.pathFileAluno);
+        this.gerenteProfessores.carregarDoArquivo(this.pathFileProfessor);
     }
 
     /**
@@ -103,11 +107,15 @@ public class FrHomeEx01 extends javax.swing.JFrame {
     private void btnCadAlunosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadAlunosActionPerformed
         DlgCadAluno cadAluno = new DlgCadAluno(this, true);
         cadAluno.setLocation(this.getLocation());
+        cadAluno.habilitarBotoes(false);
         cadAluno.setVisible(true);
     }//GEN-LAST:event_btnCadAlunosActionPerformed
 
     private void btnCadProfessoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadProfessoresActionPerformed
-        // TODO add your handling code here:
+        DlgCadProfessor cadProfessor = new DlgCadProfessor(this, true);
+        cadProfessor.setLocation(this.getLocation());
+        cadProfessor.habilitarBotoes(false);
+        cadProfessor.setVisible(true);
     }//GEN-LAST:event_btnCadProfessoresActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

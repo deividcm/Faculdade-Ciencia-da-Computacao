@@ -25,8 +25,8 @@ public class FrExercicios_3_6 extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
         panBotoes = new javax.swing.JPanel();
         btnExercicio01 = new javax.swing.JButton();
-        btnExercicio03 = new javax.swing.JButton();
         btnExercicio02 = new javax.swing.JButton();
+        btnExercicio03 = new javax.swing.JButton();
         btnExercicio04 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -42,16 +42,16 @@ public class FrExercicios_3_6 extends javax.swing.JFrame {
         btnExercicio01.addActionListener(this::btnExercicio01ActionPerformed);
         panBotoes.add(btnExercicio01);
 
+        btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExercicio02.setText("Exercício02");
+        btnExercicio02.setEnabled(false);
+        panBotoes.add(btnExercicio02);
+
         btnExercicio03.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio03.setText("Exercício03");
         btnExercicio03.setEnabled(false);
         btnExercicio03.addActionListener(this::btnExercicio03ActionPerformed);
         panBotoes.add(btnExercicio03);
-
-        btnExercicio02.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnExercicio02.setText("Exercício02");
-        btnExercicio02.setEnabled(false);
-        panBotoes.add(btnExercicio02);
 
         btnExercicio04.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExercicio04.setText("Exercício04");

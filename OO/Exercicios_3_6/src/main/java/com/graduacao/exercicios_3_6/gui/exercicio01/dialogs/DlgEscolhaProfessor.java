@@ -1,18 +1,18 @@
 
 package com.graduacao.exercicios_3_6.gui.exercicio01.dialogs;
 
-import com.graduacao.exercicios_3_6.classes.exercicio01.Aluno;
-import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteAluno;
+import com.graduacao.exercicios_3_6.classes.exercicio01.Professor;
+import com.graduacao.exercicios_3_6.gerentes.exercicio01.GerenteProfessor;
 import javax.swing.JOptionPane;
 
 
-public class DlgEscolhaAluno extends javax.swing.JDialog {
+public class DlgEscolhaProfessor extends javax.swing.JDialog {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgEscolhaAluno.class.getName());
-    private final GerenteAluno gerente;
-    private Aluno alunoEscolhido;
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgEscolhaProfessor.class.getName());
+    private final GerenteProfessor gerente;
+    private Professor professorEscolhido;
     
-    public DlgEscolhaAluno(java.awt.Frame parent, boolean modal, GerenteAluno gerente) {
+    public DlgEscolhaProfessor(java.awt.Frame parent, boolean modal, GerenteProfessor gerente) {
         super(parent, modal);
         initComponents();
         this.gerente = gerente;
@@ -32,8 +32,8 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
         panBusca = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         edtListagem = new javax.swing.JTextArea();
-        lblMatricula = new javax.swing.JLabel();
-        edtMatricula = new javax.swing.JTextField();
+        lblCpf = new javax.swing.JLabel();
+        edtCpf = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         panAdiciona = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -44,14 +44,14 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Escolha um Aluno");
+        lblTitulo.setText("Escolha um Professor");
 
         edtListagem.setEditable(false);
         edtListagem.setColumns(20);
         edtListagem.setRows(5);
         jScrollPane1.setViewportView(edtListagem);
 
-        lblMatricula.setText("Matrícula: ");
+        lblCpf.setText("CPF: ");
 
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 0, 255));
@@ -67,12 +67,12 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
                 .addGroup(panBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(panBuscaLayout.createSequentialGroup()
-                        .addComponent(lblMatricula)
+                        .addComponent(lblCpf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar)
-                        .addGap(0, 11, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panBuscaLayout.setVerticalGroup(
@@ -80,8 +80,8 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panBuscaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panBuscaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(edtMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lblMatricula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblCpf, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -89,7 +89,7 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
         );
 
         jScrollPane2.setToolTipText("");
-        jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createTitledBorder("Aluno Selecionado"));
+        jScrollPane2.setViewportBorder(javax.swing.BorderFactory.createTitledBorder("Professor Selecionado"));
         jScrollPane2.setName(""); // NOI18N
 
         edtEscolha.setEditable(false);
@@ -101,7 +101,7 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
         btnAdicionar.setBackground(new java.awt.Color(0, 204, 51));
         btnAdicionar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAdicionar.setForeground(new java.awt.Color(0, 51, 51));
-        btnAdicionar.setText("Escolher Aluno");
+        btnAdicionar.setText("Escolher Professor");
         btnAdicionar.addActionListener(this::btnAdicionarActionPerformed);
 
         javax.swing.GroupLayout panAdicionaLayout = new javax.swing.GroupLayout(panAdiciona);
@@ -112,7 +112,7 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(panAdicionaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                    .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panAdicionaLayout.setVerticalGroup(
@@ -155,17 +155,17 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        Aluno aluno = this.gerente.get(this.edtMatricula.getText());
+        Professor professor = this.gerente.get(this.edtCpf.getText());
         
-        if(aluno != null){
-            this.edtEscolha.setText(aluno.toString());
-            this.alunoEscolhido = aluno;
+        if(professor != null){
+            this.edtEscolha.setText(professor.toString());
+            this.professorEscolhido = professor;
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        if(this.alunoEscolhido == null){
-            int resposta = JOptionPane.showConfirmDialog(null, "Nenhum Aluno foi escolhido deseja continuar?",
+        if(this.professorEscolhido == null){
+            int resposta = JOptionPane.showConfirmDialog(null, "Nenhum Professor foi escolhido deseja continuar?",
                     "Confirm", 
                     JOptionPane.OK_CANCEL_OPTION, 
                     JOptionPane.CANCEL_OPTION);
@@ -177,19 +177,19 @@ public class DlgEscolhaAluno extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
-    public Aluno getAlunoEscolhido() {
-        return this.alunoEscolhido;
+    public Professor getProfessorEscolhido() {
+        return this.professorEscolhido;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JTextField edtCpf;
     private javax.swing.JTextArea edtEscolha;
     private javax.swing.JTextArea edtListagem;
-    private javax.swing.JTextField edtMatricula;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panAdiciona;
     private javax.swing.JPanel panBusca;
