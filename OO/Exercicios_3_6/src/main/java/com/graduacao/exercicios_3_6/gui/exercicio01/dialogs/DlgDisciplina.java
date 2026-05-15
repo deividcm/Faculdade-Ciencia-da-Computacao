@@ -232,9 +232,14 @@ public class DlgDisciplina extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        this.camposParaObjeto();
-        this.pronto = true;
-        this.dispose();
+        if(!this.edtCodigo.getText().isBlank()){
+            this.camposParaObjeto();
+            this.pronto = true;
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Preencha o código!");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     public void camposParaObjeto(){

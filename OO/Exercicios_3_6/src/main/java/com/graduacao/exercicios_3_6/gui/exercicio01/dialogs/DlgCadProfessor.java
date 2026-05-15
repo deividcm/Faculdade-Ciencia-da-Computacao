@@ -222,18 +222,22 @@ public class DlgCadProfessor extends javax.swing.JDialog {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        Professor professor = this.camposParaObjeto();
-        
-        if(editando || !this.gerente.containsKey(professor.getCpf())){
-            this.gerente.put(professor);
+        if(this.edtCpf.getText().isBlank()){
+            JOptionPane.showMessageDialog(this, "Preencha o código!");
+        }else{
+            Professor professor = this.camposParaObjeto();
+
+            if(editando || !this.gerente.containsKey(professor.getCpf())){
+                this.gerente.put(professor);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Já existe um professor com este Cpf!");
+            }
+            this.limparCampos();
+            this.habilitarCampos(false);
+            this.gerente.salvarNoArquivo(this.pathFile);
+            this.edtListagem.setText(this.gerente.toString());
         }
-        else{
-            JOptionPane.showMessageDialog(this, "Já existe um professor com este Cpf!");
-        }
-        this.limparCampos();
-        this.habilitarCampos(false);
-        this.gerente.salvarNoArquivo(this.pathFile);
-        this.edtListagem.setText(this.gerente.toString());
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     public void habilitarCampos(boolean flag){

@@ -101,10 +101,15 @@ public class DlgCadDisciplina extends javax.swing.JDialog {
         editaDisciplina.setVisible(true);
         
         if(editaDisciplina.isPronto()){
-            this.gerente.put(disciplina);
-            this.gerente.salvarNoArquivo(pathFile);
-            this.atualizarListagem();
-            this.habilitarBotoes();
+            if(!this.gerente.containsKey(disciplina.getCod())){
+                this.gerente.put(disciplina);
+                this.gerente.salvarNoArquivo(pathFile);
+                this.atualizarListagem();
+                this.habilitarBotoes();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Já existe uma disciplina com este código!");
+            }
         }
     }//GEN-LAST:event_btnNovoActionPerformed
 
