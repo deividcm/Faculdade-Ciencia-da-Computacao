@@ -7,23 +7,33 @@ import java.util.Objects;
 public class Consulta {
     private Medico medico;
     private Paciente paciente;
-    private String schedule;
+    private String data;
+    private String hora;
     private String cod;
     
     public Consulta () {
-        medico = new Medico ();
-        paciente = new Paciente ();
-        schedule = "";
-        cod = "";
+        this.medico = new Medico ();
+        this.paciente = new Paciente ();
+        this.data = "DD/MM/AAAA";
+        this.hora = "hh:mm";
+        this.cod = "";
     }
     
-    public Consulta (Medico medico , Paciente paciente , String schedule , String cod) {
+    public Consulta (Medico medico , Paciente paciente , String data, String hora , String cod) {
         this.medico = medico;
         this.paciente = paciente;
-        this.schedule = schedule;
+        this.data = data;
+        this.hora = hora;
         this.cod = cod;
     }
-
+    
+    public Consulta(Consulta outra){
+        this.medico = outra.getMedico();
+        this.paciente = outra.getPaciente();
+        this.cod = outra.getCod();
+        this.data = outra.getData();
+        this.hora = outra.getHora();
+    }
     @Override
     public int hashCode() {
         int hash = 3;
@@ -43,25 +53,53 @@ public class Consulta {
             return false;
         }
         final Consulta other = (Consulta) obj;
-        if (!Objects.equals(this.schedule, other.schedule)) {
+        if (!Objects.equals(this.data, other.getData())) {
             return false;
         }
-        if (!Objects.equals(this.cod, other.cod)) {
+        if (!Objects.equals(this.hora, other.getHora())) {
             return false;
         }
-        if (!Objects.equals(this.medico, other.medico)) {
+        if (!Objects.equals(this.cod, other.getCod())) {
             return false;
         }
-        return Objects.equals(this.paciente, other.paciente);
+        if (!Objects.equals(this.medico, other.getMedico())) {
+            return false;
+        }
+        return Objects.equals(this.paciente, other.getPaciente());
+    }
+
+    
+    public String toStringResumido() {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("--- Consulta ---\n ");
+        sb.append("Código: ").append(this.cod).append("\n ");
+        sb.append("Data: ").append(this.data).append("\n ");
+        sb.append("Horário: ").append(this.hora).append("\n ");
+        sb.append("Medico: ").append(this.medico.getNome()).append("\n ");
+        sb.append("Paciente: ").append(this.paciente.getNome()).append("\n ");
+        
+        
+        return sb.toString();
     }
 
     @Override
     public String toString() {
-        return "Consulta{" + "medico=" + medico + ", paciente=" + paciente + ", schedule=" + schedule + ", cod=" + cod + '}';
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("--- Consulta ---\n ");
+        sb.append("Código: ").append(this.cod).append("\n ");
+        sb.append("Data: ").append(this.data).append("\n ");
+        sb.append("Horário: ").append(this.hora).append("\n ");
+        sb.append(this.medico.toString());
+        sb.append(this.paciente.toString());
+        
+        
+        return sb.toString();
     }
     
     public Medico getMedico() {
-        return medico;
+        return this.medico;
     }
 
     public void setMedico(Medico medico) {
@@ -69,7 +107,7 @@ public class Consulta {
     }
 
     public Paciente getPaciente() {
-        return paciente;
+        return this.paciente;
     }
 
     public void setPaciente(Paciente paciente) {
@@ -77,19 +115,27 @@ public class Consulta {
     }
 
     public String getCod () {
-        return cod;
+        return this.cod;
     }
     
     public void setCod(String cod) {
         this.cod = cod;
     }
     
-    public String getSchedule() {
-        return schedule;
+    public String getData() {
+        return this.data;
     }
 
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return this.hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
     
     

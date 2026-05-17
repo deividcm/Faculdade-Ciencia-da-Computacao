@@ -4,23 +4,29 @@ package com.graduacao.roteiro04.classes;
 import java.util.Objects;
 
 public class Paciente {
-    private String name;
+    private String nome;
     private String cpf;
-    private String yearOfBirth;
-    private String medicalHistory;
+    private String dataNascimento;
+    private String historico;
     
     public Paciente() {
-        name = "";
-        cpf = "";
-        yearOfBirth = "";
-        medicalHistory = "";
+        this.nome = "";
+        this.cpf = "";
+        this.dataNascimento = "";
+        this.historico = "";
+    }
+    public Paciente (String nome , String cpf , String dataNascimento , String historico) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataNascimento = dataNascimento;
+        this.historico = historico;
     }
     
-    public Paciente (String name , String cpf , String yearOfBirth , String medicalHistory) {
-        this.name = name;
-        this.cpf = cpf;
-        this.yearOfBirth = yearOfBirth;
-        this.medicalHistory = medicalHistory;
+    public Paciente(Paciente outro){
+        this.nome = outro.getNome();
+        this.cpf = outro.getCpf();
+        this.dataNascimento = outro.getDataNascimento();
+        this.historico = outro.getHistorico();
     }
 
     @Override
@@ -42,53 +48,62 @@ public class Paciente {
             return false;
         }
         final Paciente other = (Paciente) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.nome, other.getNome())) {
             return false;
         }
-        if (!Objects.equals(this.cpf, other.cpf)) {
+        if (!Objects.equals(this.cpf, other.getCpf())) {
             return false;
         }
-        if (!Objects.equals(this.yearOfBirth, other.yearOfBirth)) {
+        if (!Objects.equals(this.dataNascimento, other.getDataNascimento())) {
             return false;
         }
-        return Objects.equals(this.medicalHistory, other.medicalHistory);
+        return Objects.equals(this.historico, other.getHistorico());
     }
 
     @Override
     public String toString() {
-        return "Paciente{" + "name=" + name + ", cpf=" + cpf + ", yearOfBirth=" + yearOfBirth + ", medicalHistory=" + medicalHistory + '}';
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("--- Paciente ---\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("CPF: ").append(this.cpf).append("\n ");
+        sb.append("Data de Nascimento: ").append(this.dataNascimento).append("\n ");
+        sb.append("Histórico: ").append(this.historico).append("\n ");
+        
+        
+        return sb.toString();
     }
     
-    public String getName() {
-        return name;
+    public String getNome() {
+        return this.nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public String getYearOfBirth() {
-        return yearOfBirth;
+    public String getDataNascimento() {
+        return this.dataNascimento;
     }
 
-    public void setYearOfBirth(String yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
+    public void setDataNascimento(String dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
-    public String getMedicalHistory() {
-        return medicalHistory;
+    public String getHistorico() {
+        return this.historico;
     }
 
-    public void setMedicalHistory(String medicalHistory) {
-        this.medicalHistory = medicalHistory;
+    public void setHistorico(String historico) {
+        this.historico = historico;
     }
     
     

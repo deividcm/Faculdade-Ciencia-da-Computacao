@@ -4,24 +4,30 @@ package com.graduacao.roteiro04.classes;
 import java.util.Objects;
 
 public class Medico {
-    private String name;
+    private String nome;
     private String crm;
-    private String especialty;
-    private String avaliableSchedule;
+    private String especialidade;
+    private String agendaDisponivel;
     
     public Medico () {
-        name = "";
-        crm = "";
-        especialty = "";
-        avaliableSchedule = "";
+        this.nome = "";
+        this.crm = "";
+        this.especialidade = "";
+        this.agendaDisponivel = "";
+    }
+    public Medico (String nome , String crm , String especialidade , String agendaDisponivel) {
+        this.nome = nome;
+        this.crm = crm;
+        this.especialidade = especialidade;
+        this.agendaDisponivel = agendaDisponivel;
+    }
+    public Medico(Medico outro){
+        this.nome = outro.getNome();
+        this.crm = outro.getCrm();
+        this.agendaDisponivel = outro.getAgendaDisponivel();
+        this.especialidade = outro.getEspecialidade();
     }
     
-    public Medico (String name , String crm , String especialty , String avaliableSchedule) {
-        this.name = name;
-        this.crm = crm;
-        this.especialty = especialty;
-        this.avaliableSchedule = avaliableSchedule;
-    }
 
     @Override
     public int hashCode() {
@@ -42,29 +48,37 @@ public class Medico {
             return false;
         }
         final Medico other = (Medico) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(this.nome, other.getNome())) {
             return false;
         }
-        if (!Objects.equals(this.crm, other.crm)) {
+        if (!Objects.equals(this.crm, other.getCrm())) {
             return false;
         }
-        if (!Objects.equals(this.especialty, other.especialty)) {
+        if (!Objects.equals(this.especialidade, other.getEspecialidade())) {
             return false;
         }
-        return Objects.equals(this.avaliableSchedule, other.avaliableSchedule);
+        return Objects.equals(this.agendaDisponivel, other.getAgendaDisponivel());
     }
 
     @Override
     public String toString() {
-        return "Medico{" + "name=" + name + ", crm=" + crm + ", especialty=" + especialty + ", avaliableSchedule=" + avaliableSchedule + '}';
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("--- Médico ---\n ");
+        sb.append("Nome: ").append(this.nome).append("\n ");
+        sb.append("CRM: ").append(this.crm).append("\n ");
+        sb.append("Especialidade: ").append(this.especialidade).append("\n ");
+        sb.append("Horários Disponiveis: ").append(this.agendaDisponivel).append("\n ");
+        
+        return sb.toString();
     }
     
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getCrm() {
@@ -75,20 +89,20 @@ public class Medico {
         this.crm = crm;
     }
 
-    public String getEspecialty() {
-        return especialty;
+    public String getEspecialidade() {
+        return especialidade;
     }
 
-    public void setEspecialty(String especialty) {
-        this.especialty = especialty;
+    public void setEspecialidade(String especialidade) {
+        this.especialidade = especialidade;
     }
 
-    public String getAvaliableSchedule() {
-        return avaliableSchedule;
+    public String getAgendaDisponivel() {
+        return agendaDisponivel;
     }
 
-    public void setAvaliableSchedule(String avaliableSchedule) {
-        this.avaliableSchedule = avaliableSchedule;
+    public void setAgendaDisponivel(String agendaDisponivel) {
+        this.agendaDisponivel = agendaDisponivel;
     }
     
     

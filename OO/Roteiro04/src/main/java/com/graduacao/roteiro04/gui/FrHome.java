@@ -4,6 +4,9 @@ package com.graduacao.roteiro04.gui;
 import com.graduacao.roteiro04.gerentes.GerenteConsulta;
 import com.graduacao.roteiro04.gerentes.GerenteMedico;
 import com.graduacao.roteiro04.gerentes.GerentePaciente;
+import com.graduacao.roteiro04.gui.dialogs.DlgCadConsulta;
+import com.graduacao.roteiro04.gui.dialogs.DlgCadMedico;
+import com.graduacao.roteiro04.gui.dialogs.DlgCadPaciente;
 
 
 
@@ -25,13 +28,13 @@ public class FrHome extends javax.swing.JFrame {
         this.gerenteMedicos = new GerenteMedico();
         this.gerentePacientes = new GerentePaciente();
         
-        this.pathFileConsulta = "listagens/exercicio01/ListagemConsultas.json";
-        this.pathFileMedico = "listagens/exercicio01/ListagemMedicos.json";
-        this.pathFilePaciente = "listagens/exercicio01/ListagemPacientes.json";
+        this.pathFileConsulta = "listagens/ListagemConsultas.json";
+        this.pathFileMedico = "listagens/ListagemMedicos.json";
+        this.pathFilePaciente = "listagens/ListagemPacientes.json";
         
-       /* this.gerenteConsultas.carregarDoArquivo(this.pathFileConsulta);
+        this.gerenteConsultas.carregarDoArquivo(this.pathFileConsulta);
         this.gerenteMedicos.carregarDoArquivo(this.pathFileMedico);
-        this.gerentePacientes.carregarDoArquivo(this.pathFilePaciente);*/
+        this.gerentePacientes.carregarDoArquivo(this.pathFilePaciente);
     }
 
     /**
@@ -50,6 +53,7 @@ public class FrHome extends javax.swing.JFrame {
         btnCadMedicos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -88,18 +92,25 @@ public class FrHome extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-
+        DlgCadConsulta cadConsulta = new DlgCadConsulta(this, true);
+        cadConsulta.setLocation(this.getLocation());
+        cadConsulta.setVisible(true);
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnCadPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadPacientesActionPerformed
-
+        DlgCadPaciente cadPaciente = new DlgCadPaciente(this, true);
+        cadPaciente.setLocation(this.getLocation());
+        cadPaciente.setVisible(true);
     }//GEN-LAST:event_btnCadPacientesActionPerformed
 
     private void btnCadMedicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadMedicosActionPerformed
-
+        DlgCadMedico cadConsulta = new DlgCadMedico(this, true);
+        cadConsulta.setLocation(this.getLocation());
+        cadConsulta.setVisible(true);
     }//GEN-LAST:event_btnCadMedicosActionPerformed
 
     public GerenteConsulta getGerenteConsultas() {
