@@ -43,7 +43,7 @@ public class FrHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitulo1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
         panBotoes = new javax.swing.JPanel();
         btnConsultas = new javax.swing.JButton();
         btnCadPacientes = new javax.swing.JButton();
@@ -51,9 +51,9 @@ public class FrHome extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblTitulo1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitulo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo1.setText("Agendamento de Consultas Médicas");
+        lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitulo.setText("Agendamento de Consultas Médicas");
 
         panBotoes.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -76,13 +76,13 @@ public class FrHome extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
         );
@@ -127,7 +127,7 @@ public class FrHome extends javax.swing.JFrame {
     private javax.swing.JButton btnCadMedicos;
     private javax.swing.JButton btnCadPacientes;
     private javax.swing.JButton btnConsultas;
-    private javax.swing.JLabel lblTitulo1;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JPanel panBotoes;
     // End of variables declaration//GEN-END:variables
 }
