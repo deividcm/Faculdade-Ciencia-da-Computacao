@@ -25,6 +25,7 @@ unsigned int funcao_hash(char* ip) {
 	unsigned int hash = 1;
 	// usa caracteres ASCII do IP
 	for (int i = 8; ip[i] != '\0'; i++) {
+		hash += ip[i];
 		hash *= ip[i];
 	}
 	//cout << hash << endl;
@@ -92,14 +93,14 @@ int main(){
 		else{
 			soma_vazio++;
 		}
-	
+		
 	}
 	float fator = total_unico/TAMANHO_TABELA;
 	cout << "Total de IPs: " << total << endl;
 	cout << "Total de IPs Unicos: " << total_unico << endl;
 	cout << "Fator de carga: " << setprecision(2) << (float)total_unico/ (float)TAMANHO_TABELA << endl;
 	cout << "Tamanho da maior lista: " << maior << endl;
-	cout << "Posicoes vazias: " << soma_vazio << endl;
+	cout << "Posicoes vazias: " << soma_vazio << " de " << TAMANHO_TABELA << endl;
 	return 0;
 }
 
