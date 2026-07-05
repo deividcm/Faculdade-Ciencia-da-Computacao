@@ -10,4 +10,11 @@
         <maven.compiler.release>25</maven.compiler.release>
         <exec.mainClass>com.graduacao.trabalhofinal.TrabalhoFinal</exec.mainClass>
     </properties>
+    <dependencies>
+        <dependency> <!-- Dependencias para usar o banco de dados SQLite  -->
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.36.0.3</version>
+        </dependency>
+    </dependencies>
 </project>
