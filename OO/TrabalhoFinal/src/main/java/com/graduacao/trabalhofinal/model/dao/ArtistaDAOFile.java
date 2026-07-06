@@ -1,6 +1,7 @@
 package com.graduacao.trabalhofinal.model.dao;
 
 import com.graduacao.trabalhofinal.model.entities.Artista;
+import com.graduacao.trabalhofinal.model.exceptions.ObjectNotFoundException;
 import com.graduacao.trabalhofinal.model.file.FilePersistence;
 import com.graduacao.trabalhofinal.model.file.ISerializadorArtista;
 import java.util.List;
@@ -33,14 +34,15 @@ public class ArtistaDAOFile implements IDAOArtista {
     @Override
     public void delete(String codArtista) throws Exception{
         Artista artista = this.find(codArtista);
-        //Trocar para Exception de nao encontrado
-        if(artista != null){
-            List<Artista> artistas = this.findAll();
-            artistas.remove(artista);
-
-            String data = serializador.toFile(artistas);
-            filePersistence.saveToFile(data, pathFile);
+        if (artista == null){
+            throw new ObjectNotFoundException("Artista nao encontrado!");
         }
+
+        List<Artista> artistas = this.findAll();
+        artistas.remove(artista);
+
+        String data = serializador.toFile(artistas);
+        filePersistence.saveToFile(data, pathFile);
     }
     @Override
     public Artista find(String codArtista) throws Exception{
