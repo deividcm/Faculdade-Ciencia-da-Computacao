@@ -1,8 +1,11 @@
 package com.graduacao.trabalhofinal;
 
+import com.graduacao.trabalhofinal.view.FrHome;
+
 public class TrabalhoFinal {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FrHome tela = new FrHome();
+        tela.setVisible(true);
     }
 }
