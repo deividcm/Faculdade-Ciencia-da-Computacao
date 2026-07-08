@@ -26,8 +26,8 @@ public class SQLiteConnector {
     private void criarTabelaMusica() throws SQLException{
         String sql = "CREATE TABLE IF NOT EXISTS MUSICA("
                 + " ID_MUSICA INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + " COD MUSICA TEXT PRIMARY KEY,"
-                + " COD_ALBUM TEXT REFERENCES ALBUM(COD_ALBUM),"
+                + " COD_MUSICA TEXT NOT NULL,"
+                + " COD_ALBUM TEXT NOT NULL,"
                 + " TITULO TEXT NOT NULL,"
                 + " DURACAO REAL NOT NULL);";
         try(Statement stmt = this.connection.createStatement()){
@@ -39,8 +39,8 @@ public class SQLiteConnector {
     private void criarTabelaAlbum() throws SQLException{
         String sql = "CREATE TABLE IF NOT EXISTS ALBUM("
                 + " ID_ALBUM INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + " COD_ALBUM TEXT PRIMARY KEY, "
-                + " COD_ARTISTA TEXT REFERENCES ARTISTA(COD_ARTISTA),"
+                + " COD_ALBUM TEXT NOT NULL,"
+                + " COD_ARTISTA TEXT NOT NULL,"
                 + " NOME TEXT NOT NULL,"
                 + " ANO_LANCAMENTO INTEGER NOT NULL);";
         try(Statement stmt = this.connection.createStatement()){
@@ -53,7 +53,7 @@ public class SQLiteConnector {
     private void criarTabelaArtista() throws SQLException{
         String sql = "CREATE TABLE IF NOT EXISTS ARTISTA("
                 + " ID_ARTISTA INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + " COD_ARTISTA TEXT PRIMARY KEY,"
+                + " COD_ARTISTA TEXT NOT NULL,"
                 + " NOME TEXT NOT NULL);";
         try(Statement stmt = this.connection.createStatement()){
             stmt.execute(sql);

@@ -1,16 +1,55 @@
 
 package com.graduacao.trabalhofinal.view;
 
+import com.graduacao.trabalhofinal.connection.SQLiteConnector;
+import com.graduacao.trabalhofinal.controller.AlbumController;
+import com.graduacao.trabalhofinal.controller.ArtistaController;
+import com.graduacao.trabalhofinal.controller.MusicaController;
+import com.graduacao.trabalhofinal.model.dao.AlbumDAOBanco;
+import com.graduacao.trabalhofinal.model.dao.ArtistaDAOBanco;
+import com.graduacao.trabalhofinal.model.dao.IDAOAlbum;
+import com.graduacao.trabalhofinal.model.dao.IDAOArtista;
+import com.graduacao.trabalhofinal.model.dao.IDAOMusica;
+import com.graduacao.trabalhofinal.model.dao.MusicaDAOBanco;
+import com.graduacao.trabalhofinal.view.dialogs.DlgCadArtista;
+import com.graduacao.trabalhofinal.view.dialogs.DlgCadMusica;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class FrHome extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrHome.class.getName());
-
+    
+    private MusicaController musicaController;
+    private AlbumController albumController;
+    private ArtistaController artistaControler;
     /**
      * Creates new form FrTrabalhoFinal
      */
     public FrHome() {
         initComponents();
+        try{
+            /*
+            ISerializadorMusica serializadorMusica = new SerializadorJSONMUsica();
+            ISerializadorAlbum serializadorAlbum = new SerializadorJSONAlbum();
+            ISerializadorArtista serializadorArtista = new SerializadorJSONArtista();
+            IDAOMusica daoMusica = new MusicaDAOFile(serializadorMusica);
+            IDAOAlbum daoAlbum = new AlbumDAOFile(serializadorAlbum);
+            IDAOArtista daoArtista = new ArtistaDAOFile(serializadorArtista);
+            */
+            
+            SQLiteConnector conexao = new SQLiteConnector("banco.sqlite");
+            IDAOMusica daoMusica = new MusicaDAOBanco(conexao.getConnection());
+            IDAOAlbum daoAlbum = new AlbumDAOBanco(conexao.getConnection());
+            IDAOArtista daoArtista = new ArtistaDAOBanco(conexao.getConnection());
+            this.musicaController = new MusicaController(daoMusica);
+            this.albumController = new AlbumController(daoAlbum);
+            this.artistaControler = new ArtistaController(daoArtista);
+        }catch(SQLException e){
+            logger.log(Level.SEVERE, e.getMessage(), e);
+        }
     }
 
     /**
@@ -38,6 +77,7 @@ public class FrHome extends javax.swing.JFrame {
 
         btnMusica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnMusica.setText("Músicas");
+        btnMusica.addActionListener(this::btnMusicaActionPerformed);
         panBotoes.add(btnMusica);
 
         btnAlbum.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -46,6 +86,7 @@ public class FrHome extends javax.swing.JFrame {
 
         btnArtista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnArtista.setText("Artistas");
+        btnArtista.addActionListener(this::btnArtistaActionPerformed);
         panBotoes.add(btnArtista);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,7 +114,31 @@ public class FrHome extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMusicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicaActionPerformed
+        DlgCadMusica cadMusica = new DlgCadMusica(this, true);
+        cadMusica.setLocation(this.getLocation());
+        cadMusica.setVisible(true);
+    }//GEN-LAST:event_btnMusicaActionPerformed
 
+    private void btnArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtistaActionPerformed
+        DlgCadArtista cadArtista = new DlgCadArtista(this, true);
+        cadArtista.setLocation(this.getLocation());
+        cadArtista.setVisible(true);
+    }//GEN-LAST:event_btnArtistaActionPerformed
+
+    public MusicaController getMusicaController() {
+        return this.musicaController;
+    }
+
+    public AlbumController getAlbumController() {
+        return this.albumController;
+    }
+
+    public ArtistaController getArtistaControler() {
+        return this.artistaControler;
+    }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlbum;

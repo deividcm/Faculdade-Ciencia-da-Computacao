@@ -20,7 +20,7 @@ public class ArtistaDAOBanco implements IDAOArtista {
     
     @Override
     public void save(Artista artista) throws SQLException{
-        String sql = "INSERT INTO ARTISTA VALUES(?, ?);";
+        String sql = "INSERT INTO ARTISTA (COD_ARTISTA, NOME) VALUES(?, ?);";
         try(PreparedStatement stmt = this.connection.prepareStatement(sql)){
             stmt.setString(1, artista.getCodArtista());
             stmt.setString(2, artista.getNome());

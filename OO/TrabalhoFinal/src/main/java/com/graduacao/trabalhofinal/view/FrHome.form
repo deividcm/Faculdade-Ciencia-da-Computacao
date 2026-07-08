@@ -71,6 +71,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xfa;sicas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMusicaActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAlbum">
           <Properties>
@@ -87,6 +90,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Artistas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArtistaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

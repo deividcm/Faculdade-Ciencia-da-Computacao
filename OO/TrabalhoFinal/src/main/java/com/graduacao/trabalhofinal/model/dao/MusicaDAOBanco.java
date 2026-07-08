@@ -21,7 +21,7 @@ public class MusicaDAOBanco implements IDAOMusica {
     
     @Override
     public void save(Musica musica) throws SQLException{
-        String sql = "INSERT INTO MUSICA VALUES(?, ?, ?, ?);";
+        String sql = "INSERT INTO MUSICA (COD_MUSICA, COD_ALBUM, TITULO, DURACAO) VALUES(?, ?, ?, ?);";
         try(PreparedStatement stmt = this.connection.prepareStatement(sql)){
             stmt.setString(1, musica.getCodMusica());
             stmt.setString(2, musica.getCodAlbum());

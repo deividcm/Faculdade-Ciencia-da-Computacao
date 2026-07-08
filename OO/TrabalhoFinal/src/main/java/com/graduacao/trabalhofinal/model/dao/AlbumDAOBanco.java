@@ -20,7 +20,7 @@ public class AlbumDAOBanco implements IDAOAlbum {
     
     @Override
     public void save(Album album) throws SQLException{
-        String sql = "INSERT INTO ALBUM VALUES(?, ?, ?, ?);";
+        String sql = "INSERT INTO ALBUM (COD_ALBUM, COD_ARTISTA, NOME, ANO_LANCAMENTO) VALUES(?, ?, ?, ?);";
         try(PreparedStatement stmt = this.connection.prepareStatement(sql)){
             stmt.setString(1, album.getCodAlbum());
             stmt.setString(2, album.getCodArtista());
