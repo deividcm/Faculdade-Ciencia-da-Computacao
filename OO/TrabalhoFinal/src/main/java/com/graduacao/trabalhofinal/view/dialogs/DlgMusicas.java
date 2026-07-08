@@ -1,13 +1,24 @@
 package com.graduacao.trabalhofinal.view.dialogs;
 
+import com.graduacao.trabalhofinal.model.entities.Album;
+import com.graduacao.trabalhofinal.view.FrHome;
+import java.util.logging.Level;
+
 public class DlgMusicas extends javax.swing.JDialog {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgMusicas.class.getName());
-
-    public DlgMusicas(java.awt.Frame parent, boolean modal, String nome) {
+    private FrHome pai;
+    public DlgMusicas(java.awt.Frame parent, boolean modal, Album album) {
         super(parent, modal);
         initComponents();
-        this.lblTitulo.setText("Músicas de " + nome);
+        this.pai = (FrHome) parent;
+        this.lblTitulo.setText("Músicas de " + album.getNome());
+        
+        try{
+            this.panTabelaMusica1.atualizarTabela(this.pai.getMusicaController().findAllByAlbum(album.getCodAlbum()));
+        }catch(Exception e){
+            logger.log(Level.SEVERE, e.getMessage(), e);
+        }
     }
 
     /**
@@ -33,16 +44,14 @@ public class DlgMusicas extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panTabelaMusica1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(panTabelaMusica1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panTabelaMusica1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panTabelaMusica1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
         );
 
         pack();

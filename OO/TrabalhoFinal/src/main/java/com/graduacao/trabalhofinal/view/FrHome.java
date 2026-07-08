@@ -11,6 +11,7 @@ import com.graduacao.trabalhofinal.model.dao.IDAOAlbum;
 import com.graduacao.trabalhofinal.model.dao.IDAOArtista;
 import com.graduacao.trabalhofinal.model.dao.IDAOMusica;
 import com.graduacao.trabalhofinal.model.dao.MusicaDAOBanco;
+import com.graduacao.trabalhofinal.view.dialogs.DlgCadAlbum;
 import com.graduacao.trabalhofinal.view.dialogs.DlgCadArtista;
 import com.graduacao.trabalhofinal.view.dialogs.DlgCadMusica;
 import java.sql.SQLException;
@@ -35,9 +36,9 @@ public class FrHome extends javax.swing.JFrame {
             ISerializadorMusica serializadorMusica = new SerializadorJSONMUsica();
             ISerializadorAlbum serializadorAlbum = new SerializadorJSONAlbum();
             ISerializadorArtista serializadorArtista = new SerializadorJSONArtista();
-            IDAOMusica daoMusica = new MusicaDAOFile(serializadorMusica);
-            IDAOAlbum daoAlbum = new AlbumDAOFile(serializadorAlbum);
-            IDAOArtista daoArtista = new ArtistaDAOFile(serializadorArtista);
+            IDAOMusica daoMusica = new MusicaDAOFile(serializadorMusica, "ListagemMusicas.json");
+            IDAOAlbum daoAlbum = new AlbumDAOFile(serializadorAlbum, "ListagemAlbuns.json");
+            IDAOArtista daoArtista = new ArtistaDAOFile(serializadorArtista, "ListagemArtistas.json");
             */
             
             SQLiteConnector conexao = new SQLiteConnector("banco.sqlite");
@@ -82,6 +83,7 @@ public class FrHome extends javax.swing.JFrame {
 
         btnAlbum.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAlbum.setText("Álbuns");
+        btnAlbum.addActionListener(this::btnAlbumActionPerformed);
         panBotoes.add(btnAlbum);
 
         btnArtista.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -125,6 +127,12 @@ public class FrHome extends javax.swing.JFrame {
         cadArtista.setLocation(this.getLocation());
         cadArtista.setVisible(true);
     }//GEN-LAST:event_btnArtistaActionPerformed
+
+    private void btnAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlbumActionPerformed
+        DlgCadAlbum cadAlbum = new DlgCadAlbum(this, true);
+        cadAlbum.setLocation(this.getLocation());
+        cadAlbum.setVisible(true);
+    }//GEN-LAST:event_btnAlbumActionPerformed
 
     public MusicaController getMusicaController() {
         return this.musicaController;

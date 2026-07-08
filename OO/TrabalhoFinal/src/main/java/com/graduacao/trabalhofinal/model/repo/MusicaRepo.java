@@ -39,6 +39,7 @@ public class MusicaRepo {
                 if(musica.getCodAlbum().equals(codAlbum)){
                     this.delete(musica.getCodMusica());
                     todasAsMusicas.remove(musica);
+                    i--;
                 }
             }
         }

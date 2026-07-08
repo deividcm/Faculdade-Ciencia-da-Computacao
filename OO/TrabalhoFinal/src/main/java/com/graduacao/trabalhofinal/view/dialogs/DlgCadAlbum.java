@@ -1,50 +1,41 @@
 package com.graduacao.trabalhofinal.view.dialogs;
 
-import com.graduacao.trabalhofinal.controller.MusicaController;
+import com.graduacao.trabalhofinal.controller.AlbumController;
 import com.graduacao.trabalhofinal.model.entities.Album;
-import com.graduacao.trabalhofinal.model.entities.Musica;
-import com.graduacao.trabalhofinal.model.exceptions.AlbumException;
+import com.graduacao.trabalhofinal.model.entities.Artista;
+import com.graduacao.trabalhofinal.model.exceptions.ArtistaException;
 import com.graduacao.trabalhofinal.view.FrHome;
+import java.util.List;
 import java.util.logging.Level;
 import javax.swing.JOptionPane;
 
 
-public class DlgCadMusica extends javax.swing.JDialog {
+public class DlgCadAlbum extends javax.swing.JDialog {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgCadMusica.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgCadAlbum.class.getName());
     private FrHome pai;
+    private AlbumController albumController;
     private boolean editando;
-    private MusicaController musicaController;
-    private Album albumAtual;
-
-    
-    public DlgCadMusica(java.awt.Frame parent, boolean modal) {
+    private Artista artistaAtual;
+    public DlgCadAlbum(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.editando = false;
         this.pai = (FrHome) parent;
-        this.musicaController = pai.getMusicaController();
+        this.albumController = pai.getAlbumController();
         try{
             this.atualizarTabela();
         }catch(Exception e){
             logger.log(Level.SEVERE, e.getMessage(), e);
         }
-        
         this.habilitarCampos(false);
     }
     
-    public void limparCampos(){
-        this.edtCod.setText("");
-        this.edtTitulo.setText("");
-        this.edtDuracao.setText("");
-    }
-    
     public void habilitarCampos(boolean flag){
-        this.edtCod.setEnabled(flag && !editando);
-        this.edtTitulo.setEnabled(flag);
-        this.edtDuracao.setEnabled(flag);
-        this.edtAlbum.setVisible(flag & !editando);
-        this.lblAlbum.setVisible(flag && !editando);
+        this.edtCod.setEnabled(flag && !this.editando);
+        this.edtNome.setEnabled(flag);
+        this.edtAnoLancamento.setEnabled(flag);
+        this.edtArtista.setVisible(flag & !editando);
+        this.lblArtista.setVisible(flag && !editando);
         this.habilitarBotoes(flag);
     }
     public void habilitarBotoes(boolean flag){
@@ -53,17 +44,23 @@ public class DlgCadMusica extends javax.swing.JDialog {
         this.btnEditar.setEnabled(false);
         this.btnExcluir.setEnabled(false);
         this.btnSalvar.setEnabled(flag);
-        this.btnAlbum.setVisible(flag && !editando);
+        this.btnMusicas.setEnabled(false);
+        this.btnArtista.setVisible(flag && !editando);
     }
-    public void objetoParaCampos(Musica musica){
-        this.edtCod.setText(musica.getCodMusica());
-        this.edtTitulo.setText(musica.getTitulo());
-        this.edtDuracao.setText(musica.getDuracao()+"");
+    public void limparCampos(){
+        this.edtCod.setText("");
+        this.edtNome.setText("");
+        this.edtAnoLancamento.setText("");
+    }
+    public void objetoParaCampos(Album album){
+        this.edtCod.setText(album.getCodAlbum());
+        this.edtNome.setText(album.getNome());
+        this.edtAnoLancamento.setText(album.getAnoLancamento() + "");
     }
     public void atualizarTabela()throws Exception{
-        this.panTabelaMusica.atualizarTabela(this.musicaController.findAll());
+        this.panTabelaAlbum.atualizarTabela(this.albumController.findAll());
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,23 +77,24 @@ public class DlgCadMusica extends javax.swing.JDialog {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
+        btnMusicas = new javax.swing.JButton();
         panCampos = new javax.swing.JPanel();
         lblCod = new javax.swing.JLabel();
-        lblTituloMusica = new javax.swing.JLabel();
-        lblDuracao = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        lblAnoLancamento = new javax.swing.JLabel();
         edtCod = new javax.swing.JTextField();
-        edtTitulo = new javax.swing.JTextField();
-        edtDuracao = new javax.swing.JTextField();
-        btnAlbum = new javax.swing.JButton();
-        lblAlbum = new javax.swing.JLabel();
-        edtAlbum = new javax.swing.JTextField();
-        panTabelaMusica = new com.graduacao.trabalhofinal.view.components.PanTabelaMusica();
+        edtNome = new javax.swing.JTextField();
+        edtAnoLancamento = new javax.swing.JTextField();
+        btnArtista = new javax.swing.JButton();
+        edtArtista = new javax.swing.JTextField();
+        lblArtista = new javax.swing.JLabel();
+        panTabelaAlbum = new com.graduacao.trabalhofinal.view.components.PanTabelaAlbum();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Cadastro de Músicas");
+        lblTitulo.setText("Cadastro de Álbuns");
 
         btnNovo.setText("Novo");
         btnNovo.setEnabled(false);
@@ -123,26 +121,31 @@ public class DlgCadMusica extends javax.swing.JDialog {
         btnSalvar.addActionListener(this::btnSalvarActionPerformed);
         panBotoes.add(btnSalvar);
 
+        btnMusicas.setText("Visualizar Músicas");
+        btnMusicas.setEnabled(false);
+        btnMusicas.addActionListener(this::btnMusicasActionPerformed);
+        panBotoes.add(btnMusicas);
+
         panCampos.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblCod.setText("Código:");
+        lblCod.setText("Código: ");
 
-        lblTituloMusica.setText("Título:");
+        lblNome.setText("Nome: ");
 
-        lblDuracao.setText("Duração:");
+        lblAnoLancamento.setText("Ano de Lançamento: ");
 
         edtCod.setEnabled(false);
 
-        edtTitulo.setEnabled(false);
+        edtNome.setEnabled(false);
 
-        edtDuracao.setEnabled(false);
+        edtAnoLancamento.setEnabled(false);
 
-        btnAlbum.setText("Escolher Álbum");
-        btnAlbum.addActionListener(this::btnAlbumActionPerformed);
+        btnArtista.setText("Escolher Artista");
+        btnArtista.addActionListener(this::btnArtistaActionPerformed);
 
-        lblAlbum.setText("Álbum Escolhido: ");
+        edtArtista.setEnabled(false);
 
-        edtAlbum.setEnabled(false);
+        lblArtista.setText("Artista Escolhido: ");
 
         javax.swing.GroupLayout panCamposLayout = new javax.swing.GroupLayout(panCampos);
         panCampos.setLayout(panCamposLayout);
@@ -156,19 +159,19 @@ public class DlgCadMusica extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblTituloMusica)
+                        .addComponent(lblNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(lblDuracao)
+                        .addComponent(lblAnoLancamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(edtAnoLancamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panCamposLayout.createSequentialGroup()
-                        .addComponent(btnAlbum)
+                        .addComponent(btnArtista)
+                        .addGap(3, 3, 3)
+                        .addComponent(lblArtista)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblAlbum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panCamposLayout.setVerticalGroup(
@@ -178,30 +181,30 @@ public class DlgCadMusica extends javax.swing.JDialog {
                 .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCod)
                     .addComponent(edtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lblTituloMusica)
-                    .addComponent(edtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(lblDuracao)
-                    .addComponent(edtDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(lblNome)
+                    .addComponent(edtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblAnoLancamento)
+                    .addComponent(edtAnoLancamento, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(btnAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(edtAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(panCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnArtista)
+                    .addComponent(lblArtista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(edtArtista, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
         );
 
-        panTabelaMusica.addPropertyChangeListener(this::panTabelaMusicaPropertyChange);
+        panTabelaAlbum.addPropertyChangeListener(this::panTabelaAlbumPropertyChange);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panCampos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panBotoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(panBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panCampos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panTabelaMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panTabelaAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -213,33 +216,12 @@ public class DlgCadMusica extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panTabelaMusica, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addComponent(panTabelaAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlbumActionPerformed
-        DlgAlbuns albuns = new DlgAlbuns(pai, true);
-        albuns.setLocation(this.getLocation());
-        albuns.setVisible(true);
-        
-        this.albumAtual = albuns.getAlbumEscolhido();
-        if(this.albumAtual != null){
-            this.edtAlbum.setText(this.albumAtual.getNome());
-        }else{
-            this.edtAlbum.setText("");
-        }
-    }//GEN-LAST:event_btnAlbumActionPerformed
-
-    private void panTabelaMusicaPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_panTabelaMusicaPropertyChange
-        if(evt.getPropertyName().equals("Linha Selecionada") && !this.btnSalvar.isEnabled()){
-            this.btnEditar.setEnabled(true);
-            this.btnExcluir.setEnabled(true);
-        }
-            
-    }//GEN-LAST:event_panTabelaMusicaPropertyChange
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         this.limparCampos();
@@ -253,42 +235,46 @@ public class DlgCadMusica extends javax.swing.JDialog {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        Musica musica = this.panTabelaMusica.getSelectedRow();
-        if(musica != null){
+        Album album = this.panTabelaAlbum.getSelectedRow();
+        if(album != null){
             this.limparCampos();
             this.editando = true;
-            this.objetoParaCampos(musica);
+            this.objetoParaCampos(album);
             this.habilitarCampos(true);
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
-        Musica musica = this.panTabelaMusica.getSelectedRow();
-        if(musica != null){
+        Album album = this.panTabelaAlbum.getSelectedRow();
+        if(album != null){
             try{
-                this.musicaController.delete(musica.getCodMusica());
+                this.albumController.delete(album.getCodAlbum());
+                this.pai.getMusicaController().deleteByAlbum(album.getCodAlbum());
                 this.atualizarTabela();
-            }catch(Exception e){
+            }
+            catch(Exception e){
                 logger.log(Level.SEVERE, e.getMessage(), e);
             }
+            
         }
+        this.limparCampos();
         this.habilitarCampos(false);
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         try{
             if(this.editando){
-                this.musicaController.update(this.edtCod.getText(), this.edtTitulo.getText(), this.edtDuracao.getText());
+                this.albumController.update(this.edtCod.getText(), this.edtNome.getText(), this.edtAnoLancamento.getText());
                 this.atualizarTabela();
-            }else if(this.albumAtual == null){
-                throw new AlbumException("Error - Nenhum Álbum Escolhido");
-            }else if(!this.musicaController.containsKey(this.edtCod.getText())){
-                this.musicaController.save(this.edtCod.getText(), this.edtTitulo.getText(), albumAtual.getCodAlbum(), this.edtDuracao.getText());
-                this.albumAtual = null;
+            }else if(this.artistaAtual == null){
+                throw new ArtistaException("Error - Nenhum Artista Escolhido");
+            }else if(!this.albumController.containsKey(this.edtCod.getText())){
+                this.albumController.save(this.edtCod.getText(), this.edtNome.getText(), artistaAtual.getCodArtista(), this.edtAnoLancamento.getText());
+                this.artistaAtual = null;
+                this.edtArtista.setText("");
                 this.atualizarTabela();
-                this.edtAlbum.setText("");
             }else{
-                JOptionPane.showMessageDialog(this, "Já existe uma Música com este código!");
+                JOptionPane.showMessageDialog(this, "Já existe um Álbum com este código!");
             }
         }catch(RuntimeException e){
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -300,25 +286,59 @@ public class DlgCadMusica extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void btnMusicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMusicasActionPerformed
+        Album album = this.panTabelaAlbum.getSelectedRow();
+        if(album != null){
+            DlgMusicas albuns = new DlgMusicas(this.pai, true, album);
+            albuns.setLocation(this.getLocation());
+            albuns.setVisible(true);
+        }
+
+    }//GEN-LAST:event_btnMusicasActionPerformed
+
+    private void btnArtistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArtistaActionPerformed
+        DlgArtistas artistas = new DlgArtistas(pai, true);
+        artistas.setLocation(this.getLocation());
+        artistas.setVisible(true);
+        
+        this.artistaAtual = artistas.getArtistaEscolhido();
+        if(this.artistaAtual != null){
+            this.edtArtista.setText(this.artistaAtual.getNome());
+        }else{
+            this.edtArtista.setText("");
+        }
+        
+    }//GEN-LAST:event_btnArtistaActionPerformed
+
+    private void panTabelaAlbumPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_panTabelaAlbumPropertyChange
+        if(evt.getPropertyName().equals("Linha Selecionada") && !this.btnSalvar.isEnabled()){
+            this.btnMusicas.setEnabled(true);
+            this.btnEditar.setEnabled(true);
+            this.btnExcluir.setEnabled(true);
+        }
+    }//GEN-LAST:event_panTabelaAlbumPropertyChange
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAlbum;
+    private javax.swing.JButton btnArtista;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnMusicas;
     private javax.swing.JButton btnNovo;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JTextField edtAlbum;
+    private javax.swing.JTextField edtAnoLancamento;
+    private javax.swing.JTextField edtArtista;
     private javax.swing.JTextField edtCod;
-    private javax.swing.JTextField edtDuracao;
-    private javax.swing.JTextField edtTitulo;
-    private javax.swing.JLabel lblAlbum;
+    private javax.swing.JTextField edtNome;
+    private javax.swing.JLabel lblAnoLancamento;
+    private javax.swing.JLabel lblArtista;
     private javax.swing.JLabel lblCod;
-    private javax.swing.JLabel lblDuracao;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JLabel lblTituloMusica;
     private javax.swing.JPanel panBotoes;
     private javax.swing.JPanel panCampos;
-    private com.graduacao.trabalhofinal.view.components.PanTabelaMusica panTabelaMusica;
+    private com.graduacao.trabalhofinal.view.components.PanTabelaAlbum panTabelaAlbum;
     // End of variables declaration//GEN-END:variables
 }

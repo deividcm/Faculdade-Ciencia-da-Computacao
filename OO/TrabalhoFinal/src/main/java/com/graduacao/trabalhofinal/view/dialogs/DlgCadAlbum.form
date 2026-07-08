@@ -23,26 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Component id="lblTitulo" alignment="0" max="32767" attributes="0"/>
+          <Component id="panBotoes" max="32767" attributes="0"/>
+          <Component id="panCampos" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panTabelaArtista" max="32767" attributes="0"/>
+              <Component id="panTabelaAlbum" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
-          <Component id="lblTitulo" alignment="0" max="32767" attributes="0"/>
-          <Component id="panCampos" alignment="1" max="32767" attributes="0"/>
-          <Component id="panBotoes" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="lblTitulo" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="panBotoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panCampos" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="panTabelaArtista" min="-2" pref="171" max="-2" attributes="0"/>
+              <Component id="panTabelaAlbum" pref="150" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -55,7 +55,7 @@
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cadastro de Artistas"/>
+        <Property name="text" type="java.lang.String" value="Cadastro de &#xc1;lbuns"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="panBotoes">
@@ -107,13 +107,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnAlbuns">
+        <Component class="javax.swing.JButton" name="btnMusicas">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Visualizar &#xc1;lbuns"/>
+            <Property name="text" type="java.lang.String" value="Visualizar M&#xfa;sicas"/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlbunsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMusicasActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -128,15 +128,30 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblCod" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="edtCod" min="-2" pref="70" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="lblNome" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="edtNome" min="-2" pref="110" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lblCod" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtCod" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="lblNome" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtNome" min="-2" pref="110" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="lblAnoLancamento" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtAnoLancamento" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnArtista" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                          <Component id="lblArtista" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="edtArtista" min="-2" pref="172" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -150,8 +165,16 @@
                       <Component id="edtCod" alignment="3" pref="0" max="32767" attributes="0"/>
                       <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="edtNome" alignment="3" pref="0" max="32767" attributes="0"/>
+                      <Component id="lblAnoLancamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="edtAnoLancamento" alignment="3" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnArtista" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblArtista" alignment="1" max="32767" attributes="0"/>
+                      <Component id="edtArtista" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -159,12 +182,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblCod">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNome">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nome: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAnoLancamento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ano de Lan&#xe7;amento: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="edtCod">
@@ -177,11 +205,34 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="edtAnoLancamento">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnArtista">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Escolher Artista"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnArtistaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="edtArtista">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblArtista">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Artista Escolhido: "/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
-    <Component class="com.graduacao.trabalhofinal.view.components.PanTabelaArtista" name="panTabelaArtista">
+    <Component class="com.graduacao.trabalhofinal.view.components.PanTabelaAlbum" name="panTabelaAlbum">
       <Events>
-        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="panTabelaArtistaPropertyChange"/>
+        <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="panTabelaAlbumPropertyChange"/>
       </Events>
     </Component>
   </SubComponents>

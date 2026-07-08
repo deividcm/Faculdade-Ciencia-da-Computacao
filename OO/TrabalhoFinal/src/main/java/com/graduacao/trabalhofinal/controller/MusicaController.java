@@ -19,9 +19,9 @@ public class MusicaController {
         Musica musica = validacao.validacao(codMusica, titulo, codAlbum, duracao);
         this.repositorio.save(musica);
     }
-    public void update(String codMusica, String titulo, String codAlbum, String duracao) throws Exception{
+    public void update(String codMusica, String titulo, String duracao) throws Exception{
         ValidacaoMusica validacao = new ValidacaoMusica();
-        Musica musica = validacao.validacao(codMusica, titulo, codAlbum, duracao);
+        Musica musica = validacao.validacao(codMusica, titulo, "não precisa", duracao);
         this.repositorio.update(codMusica, musica);
     }
     public void delete(String codMusica) throws Exception{

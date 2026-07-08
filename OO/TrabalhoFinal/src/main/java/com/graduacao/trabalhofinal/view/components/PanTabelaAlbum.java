@@ -25,12 +25,11 @@ public class PanTabelaAlbum extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         grdAlbum = new javax.swing.JTable();
 
-        addMouseListener(new java.awt.event.MouseAdapter() {
+        grdAlbum.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
+                grdAlbumMouseClicked(evt);
             }
         });
-
         jScrollPane1.setViewportView(grdAlbum);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -45,9 +44,9 @@ public class PanTabelaAlbum extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+    private void grdAlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grdAlbumMouseClicked
         this.firePropertyChange("Linha Selecionada", false, true);
-    }//GEN-LAST:event_formMouseClicked
+    }//GEN-LAST:event_grdAlbumMouseClicked
     
     public void atualizarTabela(List<Album> albuns){
         TMAlbum tmAlbum = new TMAlbum(albuns);

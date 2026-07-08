@@ -110,6 +110,7 @@ public class DlgCadArtista extends javax.swing.JDialog {
 
         btnAlbuns.setText("Visualizar Álbuns");
         btnAlbuns.setEnabled(false);
+        btnAlbuns.addActionListener(this::btnAlbunsActionPerformed);
         panBotoes.add(btnAlbuns);
 
         panCampos.setBackground(new java.awt.Color(204, 204, 204));
@@ -242,6 +243,16 @@ public class DlgCadArtista extends javax.swing.JDialog {
         this.habilitarCampos(false);
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnAlbunsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlbunsActionPerformed
+        Artista artista = this.panTabelaArtista.getSelectedRow();
+        if(artista != null){
+            DlgAlbuns albuns = new DlgAlbuns(this.pai, true, artista);
+            albuns.setLocation(this.getLocation());
+            albuns.setVisible(true);
+        }
+        
+    }//GEN-LAST:event_btnAlbunsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -18,9 +18,9 @@ public class AlbumController {
         Album album = validacao.validacao(codAlbum, nome, codArtista, anoLancamento);
         this.repositorio.save(album);
     }
-    public void update(String codAlbum, String nome, String codArtista, String anoLancamento) throws Exception{
+    public void update(String codAlbum, String nome, String anoLancamento) throws Exception{
         ValidacaoAlbum validacao = new ValidacaoAlbum();
-        Album album = validacao.validacao(codAlbum, nome, codArtista, anoLancamento);
+        Album album = validacao.validacao(codAlbum, nome, "não precisa", anoLancamento);
         this.repositorio.update(codAlbum, album);
     }
     public void delete(String codAlbum) throws Exception{
@@ -35,7 +35,7 @@ public class AlbumController {
     public List<Album> findAll() throws Exception{
         return this.repositorio.findAll();
     }
-    public List<Album> findAllByAlbum(String codArtista) throws Exception{
+    public List<Album> findAllByArtista(String codArtista) throws Exception{
         return this.repositorio.findAllByArtista(codArtista);
     }
     public boolean containsKey(String codAlbum) throws Exception{

@@ -65,7 +65,7 @@ public class MusicaDAOBanco implements IDAOMusica {
                         rs.getString("COD_MUSICA"),
                         rs.getString("TITULO"),
                         rs.getString("COD_ALBUM"),
-                        rs.getInt("DURACAO"));
+                        rs.getDouble("DURACAO"));
                 }
             }
             
@@ -86,7 +86,7 @@ public class MusicaDAOBanco implements IDAOMusica {
                         rs.getString("COD_MUSICA"),
                         rs.getString("TITULO"),
                         rs.getString("COD_ALBUM"),
-                        rs.getInt("DURACAO")));
+                        rs.getDouble("DURACAO")));
             }
         } catch (SQLException e) {
             throw e;
