@@ -49,11 +49,6 @@ public class AlbumRepo {
         return albunsDoArtista;
     }
     public boolean containsKey(String codAlbum) throws Exception{
-        List<Album> albuns = this.findAll();
-        boolean verifica = false;
-        for(Album album: albuns){
-            verifica = verifica || album.getCodAlbum().equals(codAlbum);
-        }
-        return verifica;
+        return this.find(codAlbum) != null;
     }
 }

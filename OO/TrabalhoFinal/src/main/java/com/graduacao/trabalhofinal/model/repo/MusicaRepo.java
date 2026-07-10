@@ -63,11 +63,6 @@ public class MusicaRepo {
       return musicasDoAlbum;  
     }
     public boolean containsKey(String codMusica) throws Exception{
-        List<Musica> musicas = this.findAll();
-        boolean verifica = false;
-        for(Musica musica: musicas){
-            verifica = verifica || musica.getCodMusica().equals(codMusica);
-        }
-        return verifica;
+        return this.find(codMusica) != null;
     }
 }

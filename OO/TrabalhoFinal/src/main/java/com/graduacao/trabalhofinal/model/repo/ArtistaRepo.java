@@ -27,11 +27,6 @@ public class ArtistaRepo {
         return this.dao.findAll();
     }
     public boolean containsKey(String codArtista) throws Exception{
-        List<Artista> artistas = this.findAll();
-        boolean verifica = false;
-        for(Artista artista: artistas){
-            verifica = verifica || artista.getCodArtista().equals(codArtista);
-        }
-        return verifica;
+        return this.find(codArtista) != null;
     }
 }
