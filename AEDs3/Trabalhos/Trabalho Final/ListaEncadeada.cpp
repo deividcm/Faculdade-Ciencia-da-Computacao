@@ -34,6 +34,24 @@ int ListaEncadeada::insert(string pacote){
 	}
 	return a;
 }
+void ListaEncadeada::insert(Item* item, string prefixo){
+	Nodo* novo = new Nodo(item, prefixo);
+	if(this->isEmpty()){
+		this->head = novo;
+		this->ultimo = novo;
+	}else{
+		this->ultimo->setProx(novo);
+		this->ultimo = novo;
+	}
+}
+Nodo* ListaEncadeada::pop(){
+	Nodo* retorno = nullptr;
+	if(this->head!= nullptr){
+		retorno = this->head;
+		this->head = retorno->getProx();
+	}
+	return retorno;
+}
 bool ListaEncadeada::isEmpty() const{
 	return this->head == nullptr;
 }

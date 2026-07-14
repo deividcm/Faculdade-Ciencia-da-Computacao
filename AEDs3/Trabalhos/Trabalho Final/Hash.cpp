@@ -16,7 +16,6 @@ unsigned int Hash::funcaoHash(string item){
 		a += item[i] * i;
 		a *= item[i] + i;
 	}
-	
 	return a % this->tam;
 }
 

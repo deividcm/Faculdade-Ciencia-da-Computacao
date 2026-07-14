@@ -8,10 +8,13 @@ class ListaEncadeada{
 	private:
 		int quant;
 		Nodo *head;
+		Nodo *ultimo;
 	public:
 		ListaEncadeada();
 		
-		int insert(string item); 
+		int insert(string pacote); 
+		void insert(Item* item, string prefixo); 
+		Nodo* pop();
 		bool isEmpty() const;
 		
 		int getQuant() const;
