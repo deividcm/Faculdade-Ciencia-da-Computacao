@@ -1,0 +1,9 @@
+Pacotes distintos: 4
+Total de pacotes: 12
+Tamanho Original (bytes): 118
+Tamanho Compactado (bytes): 11
+Razao de compressao (%): 91
+Tempo hash e heap (ms): 0
+Tempo Huffman (ms): 0
+Tempo Compressao (ms): 0
+Tempo Descompressao (ms): 0

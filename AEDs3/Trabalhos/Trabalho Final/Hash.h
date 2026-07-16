@@ -13,6 +13,7 @@ class Hash{
 		Hash(int tam);
 		void insert(string pacote);
 		MinHeap* toHeap();
+		int getQuant() const;
 };
 
 

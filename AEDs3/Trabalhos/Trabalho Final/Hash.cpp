@@ -40,3 +40,7 @@ MinHeap* Hash::toHeap(){
 	}
 	return heap;
 }
+
+int Hash::getQuant() const{
+	return this->quant;
+}

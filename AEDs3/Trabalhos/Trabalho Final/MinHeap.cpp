@@ -13,10 +13,10 @@ void MinHeap::insert(Item* item){
 	this->quant++;
 	this->heapifyUp(this->quant-1);
 	
-	for(int i = 0; i < quant; i++){
+/*	for(int i = 0; i < quant; i++){
 		cout << i << " - " << this->fila[i].getPacote() << " - " << this->fila[i].getFreq() << endl;
 	}
-	cout << endl;
+	cout << endl;*/
 }
 Item MinHeap::extractMin(){
 	Item menorItem = this->fila[0];
