@@ -5,4 +5,4 @@ const server = http.createServer((req,res) => {
     const dataHora = new Date().toLocaleString();
     res.end(`<h1>Data e Hora Atual </h1><p>${dataHora} </p>`);
 });
-server.listen(3000, () => console.log('Servidor rodando em http: /localhost:3000'));
+server.listen(3000, () => console.log('Servidor rodando em http://localhost:3000'));
