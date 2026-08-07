@@ -1,0 +1,1 @@
+Repositório para guardar exercícios feitos em disciplinas do curso de Ciência da Computação.

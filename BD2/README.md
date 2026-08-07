@@ -1,0 +1,1 @@
+Todos os exercicios feitos na disciplina de Banco de Dados 2
