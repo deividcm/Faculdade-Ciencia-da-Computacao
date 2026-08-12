@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aula02</title>
+    </head>
+    <body>
+        <p id="texto">Olá</p>
+        <p class="texto2">Olá2</p>
+
+        <button onclick="mudarCores()">Mudar Cores</button>
+        <button onclick="resetarCores()">Resetar Cores</button>
+        <script>
+            function mudarCores(){
+                document.getElementById("texto").style.color = "blue";
+                document.getElementsByClassName("texto2")[0].style.color = "red";
+            }
+            
+            function resetarCores(){
+                document.getElementById("texto").style.color = "black";
+                document.getElementsByClassName("texto2")[0].style.color = "black";
+            }
+
+        </script>
+    </body>
+</html>
