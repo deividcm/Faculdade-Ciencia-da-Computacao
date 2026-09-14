@@ -1,4 +1,4 @@
-
+/*
 CREATE TABLE PESSOA(P_ID INT PRIMARY KEY,
 	NOME VARCHAR(40) NOT NULL
 );
@@ -40,6 +40,37 @@ CREATE TABLE MEMBRO_GE (
 ALTER TABLE MEMBRO_GE ADD CONSTRAINT CHAVES PRIMARY KEY (P_ID, GE_ID);
 
 ALTER TABLE ESTUDANTE ADD CONSTRAINT ID_DEPARTAMENTO FOREIGN KEY (ID_DEPTO) REFERENCES DEPARTAMENTO (ID_DEPTO) ON DELETE CASCADE;
+*/
+
+INSERT INTO PESSOA VALUES (413, 'John'), (1225, 'Dess'), (612, 'João'), (421, 'José'), (243, 'Pedro');
+INSERT INTO PESSOA VALUES (1111, 'Joana'), (1025, 'Maria'), (123, 'Ruan'), (563, 'Paulo'), (122, 'Nathan');
+
+INSERT INTO DEPARTAMENTO VALUES (321, 'Departamento de Ciência da Computação', NULL), 
+								(125, 'Departamento de Ciências Agrárias', NULL),
+								(512, 'Departamento de Ciências Exatas', NULL);
+INSERT INTO PROFESSOR VALUES (1111, 321, 'Mestre'),
+							 (1025, 125, 'Doutor'),
+							 (123, 512, 'Doutor'),
+							 (563, 321, 'Graduado'),
+							 (122, 512, 'Graduado');
+UPDATE DEPARTAMENTO SET P_ID = 1111 WHERE ID_DEPTO = 321;
+UPDATE DEPARTAMENTO SET P_ID = 1025 WHERE ID_DEPTO = 125;
+UPDATE DEPARTAMENTO SET P_ID = 123 WHERE ID_DEPTO = 512;
+
+INSERT INTO ESTUDANTE VALUES (413, 321, 'ATIVO'),
+							 (1225, 321, 'ATIVO'),
+							 (612, 125, 'ATIVO'),
+							 (421, 512, 'ATIVO'),
+							 (243, 125, 'ATIVO');
+
+INSERT INTO GRUPO_ESTUDOS VALUES (13, 'Jogos', 'Lab 06', 1111),
+								 (14, 'Computação Gráfica', 'Lab 03', 123);
+
+INSERT INTO MEMBRO_GE VALUES (413, 13), (1225, 13), (413, 14), (1225, 14), (612, 14);
+
+
+
+
 
 
 
