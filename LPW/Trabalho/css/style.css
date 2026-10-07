@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    width: auto;
+    height: auto;
+}
+.sidebar{
+    flex: 2;
+}
+.conteudo{
+    flex: 8;
+}
