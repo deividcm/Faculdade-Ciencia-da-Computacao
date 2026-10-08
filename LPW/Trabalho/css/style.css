@@ -31,19 +31,34 @@ body {
     margin: 0 auto 20px auto;
     width: 200px;
     padding: 5px;
-    background-color: crimson;
+    background-color: rgb(209, 42, 76);
     border-radius: 50px;
     color: white;
     text-align: center;
     font-weight: bold;
 }
+.sidebar ul{
+    margin: 30px auto;
+    list-style: none;
+}
+.sidebar li{
+    box-shadow: 0 2px 3px 5px teal;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
 .sidebar a{
-    color: white;
+    color: rgb(209, 42, 76);
     text-decoration: none;
 }
 
 .container-conteudo{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     flex: 1;
 }
 .conteudo:target{
