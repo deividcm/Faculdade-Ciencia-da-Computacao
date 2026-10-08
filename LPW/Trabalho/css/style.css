@@ -4,8 +4,17 @@
     height: auto;
 }
 .sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     flex: 2;
 }
-.conteudo{
+.container-conteudo{
     flex: 8;
+}
+.conteudo:target{
+    display: flex;
+}
+.conteudo{
+    display: none;
 }
