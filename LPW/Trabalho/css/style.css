@@ -28,15 +28,19 @@ body {
     padding: 20px;
     width: 250px;
 }
-.sidebar h2{
+.container-logo{
     margin: 0 0 20px 0;
     width: 200px;
     padding: 5px;
     background-color: rgb(209, 42, 76);
     border-radius: 50px;
-    color: white;
     text-align: center;
     font-weight: bold;
+}
+.container-logo a{
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
 }
 .sidebar ul{
     margin: 30px 0;
@@ -53,29 +57,38 @@ body {
 .sidebar li:hover{
     background-color: rgb(209, 42, 76);
 }
-.sidebar a:hover{
-    color: white;
-}
 
-.sidebar a{
+
+.botao-nav{
     color: rgb(209, 42, 76);
     display: block;
     width: 100%;
     height: 100%;
     padding: 5px;
     text-decoration: none;
+    font-weight: bold;
 }
-
+.botao-nav:hover{
+    color: white;
+}
 .container-conteudo{
     background-color: rgb(255, 255, 255);
     flex: 1;
 }
-.conteudo:target{
-    display: flex;
-}
 .conteudo{
     display: none;
 }
+.conteudo-inicial{
+    display: flex;
+}
+.conteudo:target{
+    display: flex;
+}
+.conteudo:target ~ .conteudo-inicial{
+    display: none;
+}
+
+
 
 .rodape {
     background-color: rgb(0, 163, 163);
