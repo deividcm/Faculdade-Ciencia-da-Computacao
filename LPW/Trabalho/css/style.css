@@ -46,7 +46,7 @@ body {
     margin: 30px 0;
     list-style: none;
 }
-.sidebar li{
+.container-botao{
     box-shadow: 0 2px 3px 0 teal;
     text-align: center;
     margin-bottom: 10px;
@@ -54,7 +54,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
 }
-.sidebar li:hover{
+.container-botao:hover{
     background-color: rgb(209, 42, 76);
 }
 
@@ -80,12 +80,23 @@ body {
 }
 .conteudo-inicial{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    padding: 40px;
 }
 .conteudo:target{
     display: flex;
 }
 .conteudo:target ~ .conteudo-inicial{
     display: none;
+}
+
+#form-chamado{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
 }
 
 
@@ -98,3 +109,4 @@ body {
     padding: 20px;
     margin-top: auto;
 }
+

@@ -14,33 +14,116 @@
                 </div>
                 
                 <ul>
-                    <li>
-                        <a class="botao-nav" href="#chamado">Abrir Chamado</a>
-                    </li>
-                    <li>
+                    <li class="container-botao">
                         <a class="botao-nav" href="#planos">Planos de Suporte</a>  
                     </li>
+                    <li class="container-botao">
+                        <a class="botao-nav" href="#chamado">Abrir Chamado</a>
+                    </li>    
                 </ul>
                   
             </aside>
             <main class="container-conteudo">
                 <div id="planos" class="conteudo">
                     <table>
-                        
+                        <caption>
+                            Planos de Suporte
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Recursos
+                                </th>
+                                <th>
+                                    Plano Gratuito
+                                </th>
+                                <th>
+                                    Plano Pro 
+                                </th>
+                                <th>
+                                    Plano VIP
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Público Alvo
+                                </td>
+                                <td>
+                                    Usuários individuais
+                                </td>
+                                <td>
+                                    Equipes Pequenas/Médias
+                                </td>
+                                <td>
+                                    Empresas
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Chamados
+                                </td>
+                                <td>
+                                    5 Chamados Diários
+                                </td>
+                                <td>
+                                    15 Chamados Diários
+                                </td>
+                                <td>
+                                    Chamados Ilimitados
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tempo de Resposta
+                                </td>
+                                <td>
+                                    Até 48 horas
+                                </td>
+                                <td>
+                                    Até 5 horas(Crítica)
+                                </td>
+                                <td>
+                                    Até 1 hora (Qualquer prioridade)
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div id="chamado" class="conteudo">
                     <form id="form-chamado">
 
-                        <select name="" id=""></select>
+                        <label for="nome">Informe seu nome: </label>
+                        <input placeholder="" type="text" name="nome" id="nome">
+                        <label for="email">Informe seu E-Mail: </label>
+                        <input placeholder="seu@email.com" type="tel" name="email" id="email">
+                        <label for="telefone">Informe seu telefone: </label>
+                        <input placeholder="(99) 9 9999-9999" type="tel" name="telefone" id="telefone">
+
+                        <label for="prioridade">Indique a prioridade do problema: </label>
+                        <select name="prioridade" id="prioridade">
+                            <option value="leve">Leve</option>
+                            <option value="importante">Importante</option>
+                            <option value="critica">Crítica</option>
+                        </select>
                         
-                        <textarea name="" id=""></textarea>
+                        <label for="descricao">Descreva o problema: </label>
+                        <textarea name="descricao" id="descricao"></textarea>
                         
                         <button type="submit">Abrir Chamado</button>
                     </form>
                 </div>
                 <div id="inicial" class="conteudo conteudo-inicial">
-                    <p>AAAA</p>
+                    <h1>F1X TH1S</h1>
+                    <div>
+                        <p>
+                            Um site para atender aos seus problemas
+                        </p>
+                        <div class="container-botao">
+                            <a class="botao-nav" href="#planos">Inicie já!</a>  
+                        </div>
+                    </div>
                 </div>
             </main>
         </div>
