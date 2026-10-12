@@ -71,21 +71,62 @@ body {
 .botao-nav:hover{
     color: white;
 }
+
+.botao-main{
+    color: rgb(255, 255, 255);
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.container-botao-main{
+    box-shadow: 0 2px 3px 0 crimson;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(0, 163, 163);
+    border-radius: 50px;
+    cursor: pointer;
+}
+.container-botao-main:hover{
+    background-color: rgb(209, 42, 76);
+}
+
 .container-conteudo{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(209, 42, 76);
     flex: 1;
 }
 .conteudo{
+    flex: 1;
     display: none;
+    height: 100%;
+    justify-content: center;
+    color: white;
 }
 .conteudo-inicial{
     display: flex;
+    justify-content: flex-start;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
     align-items: center;
     padding: 40px;
 }
+.conteudo-inicial h1{
+    font-size: 64px;
+    margin-bottom: 100px;
+}
+.conteudo-inicial .container-principal{
+    font-size: 32px;
+    background-color: rgb(0, 163, 163);
+    border-radius: 10px;
+    padding: 40px;
+}
+.conteudo-inicial p{
+    margin-bottom: 30px;
+}
+
 .conteudo:target{
     display: flex;
 }
@@ -94,11 +135,97 @@ body {
 }
 
 #form-chamado{
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: center;
+    background-color: rgb(0, 163, 163);
+    padding: 40px;
+    border-radius: 20px;
+}
+#form-chamado h2{
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#botao-formulario{
+    border: none;
+}
+.container-inputs{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.container-inputs input{
+    flex: 1;
+}
+.caixa-interativa{
+    border-radius: 5px;
+    border: 2px solid teal;
+    margin-bottom: 15px;
+    padding: 4px;
+}
+.caixa-interativa:focus{
+    outline: none;
+    border-color: crimson;
+}
+#form-chamado textarea{
+    max-width: 450px;
+    max-height: 250px;
 }
 
+label{
+    vertical-align: top;
+}
+
+/*#planos{
+    height: 100%;
+    background-color: rgb(209, 42, 76);
+    justify-content: center;
+}*/
+
+#planos table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+#planos thead{
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(0, 163, 163);
+}
+#planos th {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+}
+#planos caption{
+    color: white;
+    font-weight: bold;
+    font-size: 32px;
+}
+#planos td {
+    color: black;
+    text-align: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid rgb(209, 42, 76);
+    font-size: 20px;
+}
+
+#planos tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#planos tbody tr:hover {
+    background-color: #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.container-tabela{
+    width: 80%;
+    margin: 10vh 0 0 0;
+}
 
 
 .rodape {
