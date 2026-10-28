@@ -112,10 +112,49 @@ create or replace type model_in_project as object(
 )final;
 /
 
+create table tb_person of person_udt(
+    CONSTRAINT pk_person PRIMARY KEY(PersonID)
+) nested table Telefone store as tb_person_phone_ST;
 
+create table tb_company of company_udt(
+    CONSTRAINT pk_company PRIMARY KEY(CompanyID)
+);
 
+create table tb_movie_professional of movie_professional_udt(
+    CONSTRAINT pk_movie_professional PRIMARY KEY(PersonID)
+) nested table Telefone store as tb_movie_professional_phone_ST;
 
+create table tb_critic of critic_udt(
+    CONSTRAINT pk_critic PRIMARY KEY(PersonID)
+)nested table Telefone store as tb_critic_phone_ST;
 
+create table tb_agent of agent_udt(
+    CONSTRAINT pk_agent PRIMARY KEY(PersonID)
+)nested table Telefone store as tb_agent_phone_ST;
 
+create table tb_celebrity of celebrity_udt(
+    CONSTRAINT pk_celebrity PRIMARY KEY(PersonID)
+) nested table Telefone store as tb_celebrity_phone_ST;
 
+create table tb_model of model_udt(
+    CONSTRAINT pk_model PRIMARY KEY(PersonID)
+) nested table Telefone store as tb_model_phone_ST;
 
+create table tb_movie_star of movie_star_udt (
+    CONSTRAINT pk_movie_star PRIMARY KEY(PersonID)
+) nested table Telefone store as tb_movie_star_phone_ST;
+
+create table tb_project of project_udt(
+    CONSTRAINT pk_project PRIMARY KEY(ProjectID)
+);
+
+create table tb_film_project of film_project_udt(
+    CONSTRAINT pk_film_project PRIMARY KEY(ProjectID)
+);
+create table tb_modeling_project of modeling_project_udt(
+    CONSTRAINT pk_modeling_project PRIMARY KEY(ProjectID)
+);
+
+create table tb_sponsor of sponsor_udt;
+
+create table tb_model_in_project of model_in_project;
