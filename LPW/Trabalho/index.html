@@ -114,31 +114,96 @@
                     </div>
                 </div>
                 <div id="chamado" class="conteudo">
-                    <form id="form-chamado">
-                        <h2>Abrir Chamado</h2>
+                    <form id="form-chamado" novalidate>
+                        <h2 >Abrir Chamado</h2>
                         <div class="container-inputs">
-                            <label for="nome">Informe seu nome: </label>
-                            <input class="caixa-interativa" placeholder="" type="text" name="nome" id="nome">
+                            <label for="nome">Informe seu nome:</label>
+                            <div class="grupo-campo">
+                                <input class="caixa-interativa" placeholder="Digite seu nome completo" type="text" name="nome" id="nome">
+                                <span class="mensagem-erro" id="erro-nome"></span>
+                            </div>
                         </div>
+
                         <div class="container-inputs">
-                            <label for="email">Informe seu E-Mail: </label>
-                            <input class="caixa-interativa" placeholder="seu@email.com" type="tel" name="email" id="email">
+                            <label for="email">Informe seu E-Mail:</label>
+                            <div class="grupo-campo">
+                                <input class="caixa-interativa" placeholder="seu@email.com" type="email" name="email" id="email">
+                                <span class="mensagem-erro" id="erro-email"></span>
+                            </div>
                         </div>
+
                         <div class="container-inputs">
-                            <label for="telefone">Informe seu telefone: </label>
-                            <input class="caixa-interativa" placeholder="(99) 9 9999-9999" type="tel" name="telefone" id="telefone">
+                            <label for="telefone">Informe seu telefone:</label>
+                            <div class="grupo-campo">
+                                <input class="caixa-interativa" placeholder="(99) 9 9999-9999" type="tel" name="telefone" id="telefone">
+                                <span class="mensagem-erro" id="erro-telefone"></span>
+                            </div>
                         </div>
-                        <div>
-                            <label for="prioridade">Indique a prioridade do problema: </label>
-                            <select class="caixa-interativa" name="prioridade" id="prioridade">
-                                <option value="leve">Leve</option>
-                                <option value="importante">Importante</option>
-                                <option value="critica">Crítica</option>
-                            </select>
+
+                        
+                        <div class="container-inputs">
+                            <label for="tipo-problema">Tipo de problema:</label>
+                            <div class="grupo-campo">
+                                <select class="caixa-interativa" name="tipo-problema" id="tipo-problema">
+                                    <option value="">Selecione a categoria</option>
+                                    <option value="hardware">Hardware / Equipamento</option>
+                                    <option value="software">Software / Sistema</option>
+                                    <option value="rede">Rede / Conexão</option>
+                                </select>
+                                <span class="mensagem-erro" id="erro-tipo"></span>
+                            </div>
                         </div>
-                        <div>
-                            <label for="descricao">Descreva o problema: </label>
-                            <textarea class="caixa-interativa" name="descricao" id="descricao"></textarea>
+
+                        
+                        <div class="container-inputs campo-dinamico" id="campo-hardware">
+                            <label for="numero-serie">Número de Série:</label>
+                            <div class="grupo-campo">
+                                <input class="caixa-interativa" placeholder="Ex: SN-123456" type="text" name="numero-serie" id="numero-serie">
+                                <span class="mensagem-erro" id="erro-serie"></span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="container-inputs campo-dinamico" id="campo-software">
+                            <label for="sistema-operacional">Sistema / Programa:</label>
+                            <div class="grupo-campo">
+                                <input class="caixa-interativa" placeholder="Ex: Windows 11 / Navegador Chrome" type="text" name="sistema-operacional" id="sistema-operacional">
+                                <span class="mensagem-erro" id="erro-software"></span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="container-inputs campo-dinamico" id="campo-rede">
+                            <label for="tipo-conexao">Tipo de Conexão:</label>
+                            <div class="grupo-campo">
+                                <select class="caixa-interativa" name="tipo-conexao" id="tipo-conexao">
+                                    <option value="">Selecione a conexão</option>
+                                    <option value="wifi">Wi-Fi</option>
+                                    <option value="cabo">Cabo (Ethernet)</option>
+                                    <option value="vpn">Acesso Remoto (VPN)</option>
+                                </select>
+                                <span class="mensagem-erro" id="erro-rede"></span>
+                            </div>
+                        </div>
+
+                        <div class="container-inputs">
+                            <label for="prioridade">Prioridade:</label>
+                            <div class="grupo-campo">
+                                <select class="caixa-interativa" name="prioridade" id="prioridade">
+                                    <option value="leve">Leve</option>
+                                    <option value="importante">Importante</option>
+                                    <option value="critica">Crítica</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="container-inputs">
+                            <label for="descricao">Descreva o problema:</label>
+                            <div class="grupo-campo">
+                                <textarea class="caixa-interativa" name="descricao" id="descricao" rows="4" maxlength="300"></textarea>
+                                <small id="contador-caracteres">300 caracteres restantes</small>
+                                <span class="mensagem-erro" id="erro-descricao"></span>
+                            </div>
                         </div>
                         
                         
