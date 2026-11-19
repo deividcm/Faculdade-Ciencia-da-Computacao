@@ -1,10 +1,8 @@
 
-
-$("#descricao").on("input", verificaTexto)
+$("#descricao").on("input", verificaTexto);
 
 function verificaTexto(){
-
-    if()
-
-
+    let a = document.getElementById("descricao");
+    a.ariaValueMax = 30;
+    console.log(a.ariaValueText)
 }
