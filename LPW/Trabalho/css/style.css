@@ -173,6 +173,8 @@ body {
 #form-chamado textarea{
     max-width: 450px;
     max-height: 250px;
+    min-height: 250px;
+    min-width: 450px;
 }
 
 label{
@@ -237,3 +239,57 @@ label{
     margin-top: auto;
 }
 
+.grupo-campo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-bottom: 15px;
+}
+
+.grupo-campo .caixa-interativa {
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.container-inputs label {
+    min-width: 175px;
+    padding-top: 6px;
+    font-weight: bold;
+}
+
+
+#contador-caracteres {
+    font-size: 12px;
+    color: white;
+    text-align: right;
+    font-weight: bold;
+    display: block;
+}
+
+#contador-caracteres.alerta-limite {
+    background-color: rgb(209, 42, 76);
+    padding: 2px 8px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+.mensagem-erro {
+    display: none; 
+    background-color: white;
+    color: rgb(209, 42, 76);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border-left: 4px solid rgb(209, 42, 76);
+    margin-top: 2px;
+}
+
+.caixa-interativa.input-invalido {
+    border-color: rgb(209, 42, 76);
+    background-color: #fff5f7;
+}
+
+.campo-dinamico{
+    display: none;
+}
