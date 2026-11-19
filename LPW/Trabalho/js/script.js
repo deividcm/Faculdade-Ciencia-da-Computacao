@@ -91,24 +91,6 @@ $(document).ready( function () {
             valido = false;
         }
 
-        if (tipoProblema === "hardware" && numeroSerie === "") {
-            exibirErro("#numero-serie", "#erro-serie", "Informe o número de série do equipamento.");
-            valido = false;
-        }
-
-        if (descricao.length < 15) {
-            exibirErro("#descricao", "#erro-descricao", "Descreva o problema com pelo menos 15 caracteres.");
-            valido = false;
-        }
-
-        if (valido) {
-            alert("Chamado aberto com sucesso! Nossa equipe entrará em contato.");
-            this.reset();
-            $("#campo-hardware").hide();
-            $("#contador-caracteres")
-                .removeClass("alerta-limite")
-                .text(`${LIMITE_CARACTERES} caracteres restantes`);
-        }
         if (tipoProblema === "hardware" && $("#numero-serie").val().trim() === "") {
         exibirErro("#numero-serie", "#erro-serie", "Informe o número de série do equipamento.");
         valido = false;
@@ -119,5 +101,22 @@ $(document).ready( function () {
             exibirErro("#tipo-conexao", "#erro-rede", "Selecione o tipo de conexão utilizado.");
             valido = false;
         }
+
+        if (descricao.length < 15) {
+            exibirErro("#descricao", "#erro-descricao", "Descreva o problema com pelo menos 15 caracteres.");
+            valido = false;
+        }
+
+        
+
+        if (valido) {
+            alert("Chamado aberto com sucesso! Nossa equipe entrará em contato.");
+            this.reset();
+            $(".campo-dinamico").hide();
+            $("#contador-caracteres")
+                .removeClass("alerta-limite")
+                .text(`${LIMITE_CARACTERES} caracteres restantes`);
+        }
+
     });
 });
